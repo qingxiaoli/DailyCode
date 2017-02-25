@@ -1,0 +1,198 @@
+\documentclass[12pt, oneside]{article}
+\usepackage{geometry}
+\geometry{a4paper}
+\geometry{left=2cm, right=2cm,top=2cm, bottom=2cm}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+%\usepackage{CTEX}
+
+\newtheorem{exercise}{Ex}
+
+\begin{CJK}{UTF8}{gbsn}
+  \title{Manifold Learning Homework 1}
+  \author{安捷 1601210097}
+  \date{2017-02-25}
+  \begin{document}
+  \maketitle
+
+  \begin{exercise}
+	\begin{equation*} 
+	  \operatorname{tr}\left(A \right) = 15
+	\end{equation*}
+  \end{exercise}
+
+  \begin{exercise}
+	\begin{equation*}
+	  A = 
+	  \left( 
+	  \begin{array}{ccc}
+		0.9487 & -0.1778 & 0.2615 \\
+		0 & 0.8269 & 0.5623 \\
+		-0.3126 & -0.5335 & 0.7845 \\
+	  \end{array}
+	  \right)
+	  \left( 
+	  \begin{array}{ccc}
+		0 & 0 & 0 \\
+		0 & 0.6993 & 0 \\
+		0 & 0 & 14.3007 \\
+	  \end{array}
+	  \right)
+	  \left( 
+	  \begin{array}{ccc}
+		0.9487 & 0 & -0.3126 \\
+		-0.1778 & 0.8269 & -0.5335 \\
+		0.2615 & 0.5623 & 0.7845 \\
+	  \end{array}
+	  \right)
+	\end{equation*}
+  \end{exercise}
+
+  \begin{exercise}
+	\begin{equation*}
+	  \scriptsize
+	  A_{Full-SVD} = 
+	  \left( 
+	  \begin{array}{cccc}
+		-0.1409 & 0.8247 & 0.5477 & -0.0037 \\
+		-0.3439 & 0.4263 & -0.1880 & 0.4131 \\
+		-0.5470 & 0.0278 & -0.1880 & -0.8153 \\
+		-0.7501 & -0.3706 & 0.3679 & 0.4058 \\
+	  \end{array}
+	  \right)
+	  \left( 
+	  \begin{array}{ccc}
+		25.4624 & 0 & 0 \\
+		0 & 1.2907 & 0 \\
+		0 & 0 & 0 \\
+		0 & 0 & 0 \\
+	  \end{array}
+	  \right)
+	  \left( 
+	  \begin{array}{ccc}
+		-0.5045 & -0.7608 & -0.4092 \\
+		-0.5745 & -0.0571 & 0.8165 \\
+		-0.6445 & 0.6465 & -0.4082 \\
+	  \end{array}
+	  \right)
+	\end{equation*} \\	
+	\begin{equation*}
+	  \scriptsize
+	  A_{Thin-SVD} = 
+	  \left( 
+	  \begin{array}{ccc}
+		-0.1409 & 0.8247 & 0.5477 \\
+		-0.3439 & 0.4263 & -0.7276 \\
+		-0.5470 & 0.0278 & -0.1880 \\
+		-0.7501 & -0.3706 & 0.3679 \\
+	  \end{array}
+	  \right)
+	  \left( 
+	  \begin{array}{ccc}
+		25.4624 & 0 & 0 \\
+		0 & 1.2907 & 0 \\
+		0 & 0 & 0 \\
+	  \end{array}
+	  \right)
+	  \left( 
+	  \begin{array}{ccc}
+		-0.5045 & -0.7608 & -0.4092 \\
+		-0.5745 & -0.0571 & 0.8165 \\
+		-0.6445 & 0.6465 & -0.4082 \\
+	  \end{array}
+	  \right)
+	\end{equation*}
+  \end{exercise}
+
+  \begin{exercise}
+	\begin{equation*}
+	  P_x = \left(
+	  \begin{array}{cccc}
+		0.4794 & -0.1850 & -0.2398 & 0.3973 \\
+		-0.1850 & 0.9343 & -0.0852 & 0.1412 \\
+		-0.2398 & -0.0852 & 0.8896 & 0.1830 \\
+		0.3973 & 0.1412 & 0.1830 & 0.6968 \\
+	  \end{array}
+	  \right)
+	\end{equation*}
+  \end{exercise}
+
+  \begin{exercise}
+	Proof:\\
+	\begin{equation*}
+	  \begin{aligned}
+		\left( AXB \right)_k &= AXB_k \\
+		&= A \left( x_1, x_2, x_3, \dots , x_p \right)
+		\left(
+		\begin{array}{c}
+		  b_{1k} \\
+		  b_{2k} \\
+		  b_{3k} \\
+		  . \\
+		  . \\
+		  . \\
+		  b_{pk} \\
+		\end{array}
+		\right) \\
+		&= \left( b_{1k}A, b_{2k}A, b_{3k}A, \dots , b_{pk}A\right) \left( 
+		\begin{array}{c}
+		  x_1 \\
+		  x_2 \\
+		  x_3 \\
+		  . \\
+		  . \\
+		  . \\
+		  x_p \\
+		\end{array}
+		\right) \\
+		&= \left( b_{1k}, b_{2k}, b_{3k}, \dots , b_{pk}\right)A\operatorname{Vec}\left( X \right) \\
+		&= \left( B_k^T \otimes A \right) \operatorname{Vec} \left( X \right) 
+	  \end{aligned} 
+	\end{equation*}
+	$\therefore \operatorname{Vec}\left( AXB \right)	= \left( B^T \otimes A \right) \operatorname{Vec} \left( X \right)$
+  \end{exercise}
+
+  \begin{exercise}[8]
+	Proof: \\
+	两边同乘$\left( A + UCV^T \right)^{-1}$，有：\\
+	\begin{equation*}
+	  \begin{aligned}
+	  I &= I - U \left( C^{-1} + V^T A^{-1} U \right)^{-1} V^T A^{-1} \\
+	  &+ UCV^T A^{-1} - UCV^T A^{-1} U \left( C^{-1} + V^T A^{-1} U\right) V^T A^{-1}
+	\end{aligned}
+	\end{equation*}
+	故只需有\\
+	\begin{equation*}
+	  -U \left( C^{-1} + V^T A^{-1} U \right)^{-1} + UC - UCV^T A^{-1} U \left( C^{-1} + V^T A^{-1} U\right)^{-1} = 0
+	\end{equation*}
+	即\\
+	\begin{equation*}
+	  C - \left( C{-1} + V^T A^{-1} U \right)^{-1} - CV^TA^{-1}U \left( C^{-1} + V^T A^{-1}U \right)^{-1} = 0
+	\end{equation*}
+	\begin{equation*}
+	  C - \left(I + CV^TA^{-1}U \right) \left( C{-1} + V^T A^{-1} U \right)^{-1} = 0
+	\end{equation*}
+	而\\
+	\begin{equation*}
+	  I + CV^T A^{-1} U = C \left( C^{-1} + V^T A^{-1} U \right)
+	\end{equation*}
+	故原式得证
+  \end{exercise}
+
+  \begin{exercise}[21]
+	\begin{description}
+	  \item[1-norm] = $30$ 
+	  \item[2-norm] = $25.4624$
+	  \item[$\infty$-norm] = $33$
+	  \item[F1-norm] = $78$
+	  \item[F2-norm] = $25.4951$ 
+	  \item[F$\infty$-norm] = $12$
+	  \item[Nuclear-norm] = $26.7531$
+	  \item[(2,1)-norm] = $43.0445$
+	\end{description}	
+  \end{exercise}
+
+\end{CJK}
+\end{document}  
