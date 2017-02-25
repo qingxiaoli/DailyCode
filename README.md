@@ -1,2 +1,4 @@
 # DailyCode
-my daily code for learning
+my daily code for learning   
+including:
+*latex
