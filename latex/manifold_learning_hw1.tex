@@ -133,86 +133,96 @@
 	\rm{
 	  \textbf{Proof}:\\
 	  \begin{equation*}
-		  \left( \rm{AXB} \right)_k = \rm{AXB}_k \\
-		  = \rm{A} \left( x_1, x_2, x_3, \dots , x_p \right)
-		  \left(
-		  \begin{array}{c}
-			b_{1k} \\
-			b_{2k} \\
-			b_{3k} \\
-			. \\
-			. \\
-			. \\
-			b_{pk} \\
-		  \end{array}
-		  \right) \\
-		  = \left( b_{1k}\rm{A}, b_{2k}\rm{A}, b_{3k}\rm{A}, \dots , b_{pk}\rm{A}\right) \left( 
-		  \begin{array}{c}
-			x_1 \\
-			x_2 \\
-			x_3 \\
-			. \\
-			. \\
-			. \\
-			x_p \\
-		  \end{array}
-		  \right) \\
-		  = \left( b_{1k}, b_{2k}, b_{3k}, \dots , b_{pk}\right)\rm{A}\operatorname{Vec}\left( \rm{X} \right) \\
-		  = \left( \rm{B}_k^T \otimes \rm{A} \right) \operatorname{Vec} \left( \rm{X} \right) \\ 
-	  \therefore \operatorname{Vec}\left( \rm{AXB} \right)	= \left( \rm{B}^T \otimes \rm{A} \right) \operatorname{Vec} \left( \rm{X} \right)
+		\left( \rm{AXB} \right)_k = \rm{AXB}_k
 	  \end{equation*}
-	}
-  \end{exercise}
+	  \begin{equation*}
+		= \rm{A} \left( x_1, x_2, x_3, \dots , x_p \right)
+		\left(
+		\begin{array}{c}
+		  b_{1k} \\
+		  b_{2k} \\
+		  b_{3k} \\
+		  . \\
+		  . \\
+		  . \\
+		  b_{pk} \\
+		\end{array}
+		\right)
+	  \end{equation*}
+	  \begin{equation*}
+		= \left( b_{1k}\rm{A}, b_{2k}\rm{A}, b_{3k}\rm{A}, \dots , b_{pk}\rm{A}\right) \left( 
+		\begin{array}{c}
+		  x_1 \\
+		  x_2 \\
+		  x_3 \\
+		  . \\
+		  . \\
+		  . \\
+		  x_p \\
+		\end{array}
+		\right)
+		\end{equation*}
+		\begin{equation*}
+		  = \left( b_{1k}, b_{2k}, b_{3k}, \dots , b_{pk}\right)\rm{A}\operatorname{Vec}\left( \rm{X} \right)
+		\end{equation*}
+		\begin{equation*}
+		  = \left( \rm{B}_k^T \otimes \rm{A} \right) \operatorname{Vec} \left( \rm{X} \right)
+		  \end{equation*}
+		  \begin{equation*}
+			\therefore \operatorname{Vec}\left( \rm{AXB} \right)	= \left( \rm{B}^T \otimes \rm{A} \right) \operatorname{Vec} \left( \rm{X} \right)
+		  \end{equation*}
+		}
+	  \end{exercise}
 
-  \begin{exercise}[8]
-	\rm{
-	  \textbf{Proof}: \\
-	  两边同乘$\left( \rm{A} + UCV^T \right)^{-1}$，有：\\
-	  \begin{equation*}
-		\begin{aligned}
-		  \rm{I} &= \rm{I - U \left( C^{-1} + V^T \rm{A}^{-1} U \right)^{-1} V^T \rm{A}^{-1}} \\
-		  &+ \rm{UCV^T \rm{A}^{-1} - UCV^T \rm{A}^{-1} U \left( C^{-1} + V^T \rm{A}^{-1} U\right) V^T \rm{A}^{-1}}
-		\end{aligned}
-	  \end{equation*}
-	  故只需有\\
-	  \begin{equation*}
+	  \begin{exercise}[8]
 		\rm{
-		  -U \left( C^{-1} + V^T \rm{A}^{-1} U \right)^{-1} + UC - UCV^T \rm{A}^{-1} U \left( C^{-1} + V^T \rm{A}^{-1} U\right)^{-1} = 0
+		  \textbf{Proof}: \\
+		  两边同乘$\left( \rm{A} + UCV^T \right)^{-1}$，有：\\
+		  \begin{equation*}
+			\begin{aligned}
+			  \rm{I} &= \rm{I - U \left( C^{-1} + V^T \rm{A}^{-1} U \right)^{-1} V^T \rm{A}^{-1}} \\
+			  &+ \rm{UCV^T \rm{A}^{-1} - UCV^T \rm{A}^{-1} U \left( C^{-1} + V^T \rm{A}^{-1} U\right) V^T \rm{A}^{-1}}
+			\end{aligned}
+		  \end{equation*}
+		  故只需有\\
+		  \begin{equation*}
+			\rm{
+			  -U \left( C^{-1} + V^T \rm{A}^{-1} U \right)^{-1} + UC - UCV^T \rm{A}^{-1} U \left( C^{-1} + V^T \rm{A}^{-1} U\right)^{-1} = 0
+			}
+		  \end{equation*}
+		  即\\
+		  \begin{equation*}
+			\rm{
+			  C - \left( C{-1} + V^T \rm{A}^{-1} U \right)^{-1} - CV^TA^{-1}U \left( C^{-1} + V^T \rm{A}^{-1}U \right)^{-1} = 0
+			}
+		  \end{equation*}
+		  \begin{equation*}
+			\rm{
+			  C - \left(I + CV^TA^{-1}U \right) \left( C{-1} + V^T \rm{A}^{-1} U \right)^{-1} = 0
+			}
+		  \end{equation*}
+		  而\\
+		  \begin{equation*}
+			\rm{
+			  I + CV^T \rm{A}^{-1} U = C \left( C^{-1} + V^T \rm{A}^{-1} U \right)
+			}
+		  \end{equation*}
+		  故原式得证
 		}
-	  \end{equation*}
-	  即\\
-	  \begin{equation*}
-		\rm{
-		  C - \left( C{-1} + V^T \rm{A}^{-1} U \right)^{-1} - CV^TA^{-1}U \left( C^{-1} + V^T \rm{A}^{-1}U \right)^{-1} = 0
-		}
-	  \end{equation*}
-	  \begin{equation*}
-		\rm{
-		  C - \left(I + CV^TA^{-1}U \right) \left( C{-1} + V^T \rm{A}^{-1} U \right)^{-1} = 0
-		}
-	  \end{equation*}
-	  而\\
-	  \begin{equation*}
-		\rm{
-		  I + CV^T \rm{A}^{-1} U = C \left( C^{-1} + V^T \rm{A}^{-1} U \right)
-		}
-	  \end{equation*}
-	  故原式得证
-	}
-  \end{exercise}
+	  \end{exercise}
 
-  \begin{exercise}[21]
-	\begin{description}
-	  \item[1-norm] = $30$ 
-	  \item[2-norm] = $25.4624$
-	  \item[$\infty$-norm] = $33$
-	  \item[F1-norm] = $78$
-	  \item[F2-norm] = $25.4951$ 
-	  \item[F$\infty$-norm] = $12$
-	  \item[Nuclear-norm] = $26.7531$
-	  \item[(2,1)-norm] = $43.0445$
-	\end{description}	
-  \end{exercise}
+	  \begin{exercise}[21]
+		\begin{description}
+		  \item[1-norm] = $30$ 
+		  \item[2-norm] = $25.4624$
+		  \item[$\infty$-norm] = $33$
+		  \item[F1-norm] = $78$
+		  \item[F2-norm] = $25.4951$ 
+		  \item[F$\infty$-norm] = $12$
+		  \item[Nuclear-norm] = $26.7531$
+		  \item[(2,1)-norm] = $43.0445$
+		\end{description}	
+	  \end{exercise}
 
-\end{CJK}
-\end{document}  
+	\end{CJK}
+	\end{document}  
