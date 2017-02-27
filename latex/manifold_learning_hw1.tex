@@ -132,6 +132,7 @@
   \begin{exercise}[5]
 	\rm{
 	  \textbf{Proof}:\\
+	  首先，考虑矩阵$\rm{AXB}$的第$k$列：
 	  \begin{equation*}
 		\left( \rm{AXB} \right)_k = \rm{AXB}_k
 	  \end{equation*}
@@ -168,6 +169,7 @@
 		\begin{equation*}
 		  = \left( \rm{B}_k^T \otimes \rm{A} \right) \operatorname{Vec} \left( \rm{X} \right)
 		  \end{equation*}
+		  而这一结果正好是最终$\rm{Vec}$之后向量对应于开始选取k的行数，需要注意的是，这里的$k$并不直接对应与最后$\rm{Vec}$中的行数，而是$\rm{AXB}$经过$\rm{Vec}$之后对应的某一个k行，当然，这样选取k最终可以选到$\rm{Vec} \left( \rm{AXB} \right)$的所有行
 		  \begin{equation*}
 			\therefore \operatorname{Vec}\left( \rm{AXB} \right)	= \left( \rm{B}^T \otimes \rm{A} \right) \operatorname{Vec} \left( \rm{X} \right)
 		  \end{equation*}
@@ -216,9 +218,7 @@
 		  \item[1-norm] = $30$ 
 		  \item[2-norm] = $25.4624$
 		  \item[$\infty$-norm] = $33$
-		  \item[F1-norm] = $78$
-		  \item[F2-norm] = $25.4951$ 
-		  \item[F$\infty$-norm] = $12$
+		  \item[F-norm] = $25.4951$
 		  \item[Nuclear-norm] = $26.7531$
 		  \item[(2,1)-norm] = $43.0445$
 		\end{description}	

@@ -1,19 +1,50 @@
-\documentclass[12pt, oneside]{article}
-\usepackage{geometry}
-\geometry{a4paper}
-\geometry{left=2cm, right=2cm,top=2cm, bottom=2cm}
-\usepackage{graphicx}
+\documentclass[a4paper, UTF8]{ctexart}
+\usepackage{ctex}
+\usepackage{amsmath}
+\usepackage{multirow}
 \usepackage{amssymb}
-\usepackage{CJKutf8}
-%\usepackage{CTEX}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{bm}
+\usepackage{subfigure}
+\usepackage{float}
 
-\begin{CJK}{UTF8}{gbsn}
-	\title{高数下第二次习题课讲义}
-	\date{2017-02-26}
-	\begin{document}
-	\maketitle
-	\section{课堂内容补充}
-	
-	
-\end{CJK}
-\end{document}  
+\renewcommand\thesection{\arabic{section}}
+\newtheorem{exercise}{习题}
+
+\title{高数第二次习题课讲义} 
+\date{2017-02-27}
+
+\begin{document}
+\maketitle
+\section{课堂补充}
+\label{sec:课堂补充}
+\begin{enumerate}
+	\item 积分区间对称情况下二重积分函数奇偶性质的讨论 P9
+	\item 微元法证明二重积分的极坐标公式
+	\item 极坐标变换怎么才能不出错
+\end{enumerate}	
+\section{习题}
+\label{sec:习题}
+\begin{exercise}
+	$\iint_D \frac{x}{x^2 + y^2}dxdy$，其中，$D$是由抛物线$y=\frac{x^2}{2}$和直线$y=x$所围成；
+\end{exercise}
+\begin{exercise}
+	$\iint_D e^{x/y}dxdy$，其中$D$是由抛物线$y^2=x$，直线$x=0,y=1$所围成；
+\end{exercise}
+\begin{exercise}
+	$\iint_D ydxdy$，其中$D$是圆$x^2 + y^2 \le ax$与$x^2 +y^2 \le ay$的公共部分$\left( a>0 \right)$
+\end{exercise}
+\begin{exercise}
+	$\iint_D \left( x+y+2y^2 \right)dxdy$，其中$D$是由圆周$x^2+y^2=2ax$所围成的区域$\left( a>0 \right)$
+\end{exercise}
+\begin{exercise}
+	改变下列积分的积分顺序：\\
+	\begin{enumerate}
+		\item $\int_0^adx\int_x^{\sqrt{2ax-x^2}}f \left( x,y \right)dy$
+		\item $\int_{-6}^2dy\int_{\frac{y^2}{4}-1}^{2-y}f \left( x,y \right)dx$
+	\end{enumerate}
+\end{exercise}
+\end{document}
+
+
