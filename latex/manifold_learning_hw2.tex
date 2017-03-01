@@ -20,13 +20,37 @@
 \begin{document}
 \maketitle
   \begin{exercise}[25]
-    \begin{proof}[\textbf{proof}(2.20)]
+    \begin{proof}[\textbf{proof} (2.20)]
       \begin{equation*}
         \frac{\partial \mathbf{XY}}{\partial t} = \frac{\partial \mathbf{X \left(t\right)}\mathbf{Y \left(t\right)}}{\partial t}
       \end{equation*}
       \begin{equation*}
         = \frac{ \partial \left( \mathbf{X \left( t \right) Y \left( t \right)} \right)_{ij} }{\partial t}
       \end{equation*}
+      其中$\partial \left( \mathbf{X \left( t \right) Y \left( t \right)} \right)_{ij}$表示两矩阵乘积的第 $i,j$个元素，下面考虑$\partial \left( \mathbf{X \left( t \right) Y \left( t \right)} \right)_{ij}$关于 $t$的偏导数
+      \begin{equation*}
+        \frac{\partial \mathbf{X \left( t \right) Y \left( t \right)}_{ij} }{\partial t} = \frac{\partial \Sigma_{k=1}^n \mathbf{X}_{ik} \left( t \right)\mathbf{Y}_{kj} \left( t \right)}{\partial t}
+      \end{equation*}
+      \begin{equation*}
+        = \Sigma_{k=1}^n \frac{\partial \left( \mathbf{X}_{ik}\left( t \right)\mathbf{Y}_{kj}\left( t \right) \right)}{\partial t}
+      \end{equation*}
+      \begin{equation*}
+        = \Sigma_{k=1}^n\left( \frac{\partial\mathbf{X}_{ik}\left(t\right)}{\partial t}\mathbf{Y}_{kj}\left( t \right) + \frac{\partial \mathbf{Y}_{kj}\left( t \right)}{\partial t}\mathbf{X}_{ik}\left( t \right)\right)
+      \end{equation*}
+      \begin{equation*}
+        = \Sigma_{k=1}^n \left( \frac{\partial \mathbf{X}_{ik} \left( t \right) }{\partial t}\mathbf{Y}_{kj}\left( t \right) \right) + \Sigma_{k=1}^n \left( \frac{\partial \mathbf{Y}_{kj}\left( t \right)}{\partial t} \mathbf{X}_{ik}\left( t \right)\right)
+      \end{equation*}
+      \begin{equation*}
+        = \left( \frac{\mathbf{X}\left( t \right)}{\left( t \right)}\mathbf{Y} \left( t \right)\right)_{ij} + \left( \frac{\partial \mathbf{Y}\left( t \right)}{\partial t }\mathbf{X}\left( t \right)\right)_{ij}
+      \end{equation*}
+      \begin{equation*}
+        \left( \frac{\mathbf{X}\left( t \right)}{\partial t}\mathbf{Y}\left( t \right) + \frac{\partial \mathbf{Y}\left( t \right)}{\partial t}\mathbf{X}\left( t \right)\right)_{ij}
+      \end{equation*}
+      所以有
+      \begin{equation*}
+        \frac{\partial\mathbf{XY}}{\partial t} = \frac{\partial \mathbf{X}}{\partial t} \mathbf{Y} + \frac{\partial \mathbf{Y}}{\partial t} \mathbf{X}
+      \end{equation*}
+
     \end{proof}
   \end{exercise}
 \end{document}
