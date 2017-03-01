@@ -6,7 +6,7 @@
 \usepackage{amssymb}
 \usepackage{CJKutf8}
 \usepackage{amsmath}
-\usepackage{amsthm} 
+\usepackage{amsthm}
 \usepackage{bm}
 %\usepackage{CTEX}
 
@@ -17,212 +17,212 @@
   \author{安捷 1601210097}
   \date{2017-02-25}
   \begin{document}
-  \maketitle
+\maketitle
 
-  \begin{exercise}[1]
-	\begin{equation*} 
-	  \operatorname{tr}\left(\rm{A} \right) = 15
+\begin{exercise}[1]
+	\begin{equation*}
+		\operatorname{tr}\left(\rm{A} \right) = 15
 	\end{equation*}
-  \end{exercise}
+\end{exercise}
 
-  \begin{exercise}[2]
+\begin{exercise}[2]
 	\scriptsize
 	\begin{equation*}
-	  \rm{A} = 
-	  \left( 
-	  \begin{array}{ccc}
-		0.9487 & -0.1778 & 0.2615 \\
-		0 & 0.8269 & 0.5623 \\
-		-0.3126 & -0.5335 & 0.7845 \\
-	  \end{array}
-	  \right)
-	  \left( 
-	  \begin{array}{ccc}
-		0 & 0 & 0 \\
-		0 & 0.6993 & 0 \\
-		0 & 0 & 14.3007 \\
-	  \end{array}
-	  \right)
-	  \left( 
-	  \begin{array}{ccc}
-		0.9487 & 0 & -0.3126 \\
-		-0.1778 & 0.8269 & -0.5335 \\
-		0.2615 & 0.5623 & 0.7845 \\
-	  \end{array}
-	  \right)
-	\end{equation*}
-  \end{exercise}
-
-  \begin{exercise}[3]
-	\begin{equation*}
-	  \scriptsize
-	  \rm{
-		A_{Full-SVD} = 
-		\left( 
-		\begin{array}{cccc}
-		  -0.1409 & 0.8247 & 0.5477 & -0.0037 \\
-		  -0.3439 & 0.4263 & -0.1880 & 0.4131 \\
-		  -0.5470 & 0.0278 & -0.1880 & -0.8153 \\
-		  -0.7501 & -0.3706 & 0.3679 & 0.4058 \\
-		\end{array}
-		\right)
-		\left( 
-		\begin{array}{ccc}
-		  25.4624 & 0 & 0 \\
-		  0 & 1.2907 & 0 \\
-		  0 & 0 & 0 \\
-		  0 & 0 & 0 \\
-		\end{array}
-		\right)
-		\left( 
-		\begin{array}{ccc}
-		  -0.5045 & -0.7608 & -0.4092 \\
-		  -0.5745 & -0.0571 & 0.8165 \\
-		  -0.6445 & 0.6465 & -0.4082 \\
-		\end{array}
-		\right)
-	  }
-	\end{equation*} \\	
-	\begin{equation*}
-	  \scriptsize
-	  \rm{
-		A_{Thin-SVD} = 
-		\left( 
-		\begin{array}{ccc}
-		  -0.1409 & 0.8247 & 0.5477 \\
-		  -0.3439 & 0.4263 & -0.7276 \\
-		  -0.5470 & 0.0278 & -0.1880 \\
-		  -0.7501 & -0.3706 & 0.3679 \\
-		\end{array}
-		\right)
-		\left( 
-		\begin{array}{ccc}
-		  25.4624 & 0 & 0 \\
-		  0 & 1.2907 & 0 \\
-		  0 & 0 & 0 \\
-		\end{array}
-		\right)
-		\left( 
-		\begin{array}{ccc}
-		  -0.5045 & -0.7608 & -0.4092 \\
-		  -0.5745 & -0.0571 & 0.8165 \\
-		  -0.6445 & 0.6465 & -0.4082 \\
-		\end{array}
-		\right)
-	  }
-	\end{equation*}
-  \end{exercise}
-
-  \begin{exercise}[4]
-	\scriptsize
-	\begin{equation*}
-	  \rm{
-		P_x = \left(
-		\begin{array}{cccc}
-		  0.4794 & -0.1850 & -0.2398 & 0.3973 \\
-		  -0.1850 & 0.9343 & -0.0852 & 0.1412 \\
-		  -0.2398 & -0.0852 & 0.8896 & 0.1830 \\
-		  0.3973 & 0.1412 & 0.1830 & 0.6968 \\
-		\end{array}
-		\right)
-	  }
-	\end{equation*}
-  \end{exercise}
-
-  \begin{exercise}[5]
-	\rm{
-	  \textbf{Proof}:\\
-	  首先，考虑矩阵$\rm{AXB}$的第$k$列：
-	  \begin{equation*}
-		\left( \rm{AXB} \right)_k = \rm{AXB}_k
-	  \end{equation*}
-	  \begin{equation*}
-		= \rm{A} \left( x_1, x_2, x_3, \dots , x_p \right)
+		\rm{A} =
 		\left(
-		\begin{array}{c}
-		  b_{1k} \\
-		  b_{2k} \\
-		  b_{3k} \\
-		  . \\
-		  . \\
-		  . \\
-		  b_{pk} \\
+		\begin{array}{ccc}
+			0.9487  & -0.1778 & 0.2615 \\
+			0       & 0.8269  & 0.5623 \\
+			-0.3126 & -0.5335 & 0.7845 \\
 		\end{array}
 		\right)
-	  \end{equation*}
-	  \begin{equation*}
-		= \left( b_{1k}\rm{A}, b_{2k}\rm{A}, b_{3k}\rm{A}, \dots , b_{pk}\rm{A}\right) \left( 
-		\begin{array}{c}
-		  x_1 \\
-		  x_2 \\
-		  x_3 \\
-		  . \\
-		  . \\
-		  . \\
-		  x_p \\
+		\left(
+		\begin{array}{ccc}
+			0 & 0      & 0       \\
+			0 & 0.6993 & 0       \\
+			0 & 0      & 14.3007 \\
 		\end{array}
 		\right)
-		\end{equation*}
-		\begin{equation*}
-		  = \left( b_{1k}, b_{2k}, b_{3k}, \dots , b_{pk}\right)\rm{A}\operatorname{Vec}\left( \rm{X} \right)
-		\end{equation*}
-		\begin{equation*}
-		  = \left( \rm{B}_k^T \otimes \rm{A} \right) \operatorname{Vec} \left( \rm{X} \right)
-		  \end{equation*}
-		  而这一结果正好是最终$\rm{Vec}$之后向量对应于开始选取k的行数，需要注意的是，这里的$k$并不直接对应与最后$\rm{Vec}$中的行数，而是$\rm{AXB}$经过$\rm{Vec}$之后对应的某一个k行，当然，这样选取k最终可以选到$\rm{Vec} \left( \rm{AXB} \right)$的所有行
-		  \begin{equation*}
-			\therefore \operatorname{Vec}\left( \rm{AXB} \right)	= \left( \rm{B}^T \otimes \rm{A} \right) \operatorname{Vec} \left( \rm{X} \right)
-		  \end{equation*}
-		}
-	  \end{exercise}
+		\left(
+		\begin{array}{ccc}
+			0.9487  & 0      & -0.3126 \\
+			-0.1778 & 0.8269 & -0.5335 \\
+			0.2615  & 0.5623 & 0.7845  \\
+		\end{array}
+		\right)
+	\end{equation*}
+\end{exercise}
 
-	  \begin{exercise}[8]
+\begin{exercise}[3]
+	\begin{equation*}
+		\scriptsize
 		\rm{
-		  \textbf{Proof}: \\
-		  两边同乘$\left( \rm{A} + UCV^T \right)^{-1}$，有：\\
-		  \begin{equation*}
-			\begin{aligned}
-			  \rm{I} &= \rm{I - U \left( C^{-1} + V^T \rm{A}^{-1} U \right)^{-1} V^T \rm{A}^{-1}} \\
-			  &+ \rm{UCV^T \rm{A}^{-1} - UCV^T \rm{A}^{-1} U \left( C^{-1} + V^T \rm{A}^{-1} U\right) V^T \rm{A}^{-1}}
-			\end{aligned}
-		  \end{equation*}
-		  故只需有\\
-		  \begin{equation*}
-			\rm{
-			  -U \left( C^{-1} + V^T \rm{A}^{-1} U \right)^{-1} + UC - UCV^T \rm{A}^{-1} U \left( C^{-1} + V^T \rm{A}^{-1} U\right)^{-1} = 0
-			}
-		  \end{equation*}
-		  即\\
-		  \begin{equation*}
-			\rm{
-			  C - \left( C{-1} + V^T \rm{A}^{-1} U \right)^{-1} - CV^TA^{-1}U \left( C^{-1} + V^T \rm{A}^{-1}U \right)^{-1} = 0
-			}
-		  \end{equation*}
-		  \begin{equation*}
-			\rm{
-			  C - \left(I + CV^TA^{-1}U \right) \left( C{-1} + V^T \rm{A}^{-1} U \right)^{-1} = 0
-			}
-		  \end{equation*}
-		  而\\
-		  \begin{equation*}
-			\rm{
-			  I + CV^T \rm{A}^{-1} U = C \left( C^{-1} + V^T \rm{A}^{-1} U \right)
-			}
-		  \end{equation*}
-		  故原式得证
+			A_{Full-SVD} =
+			\left(
+			\begin{array}{cccc}
+				-0.1409 & 0.8247  & 0.5477  & -0.0037 \\
+				-0.3439 & 0.4263  & -0.1880 & 0.4131  \\
+				-0.5470 & 0.0278  & -0.1880 & -0.8153 \\
+				-0.7501 & -0.3706 & 0.3679  & 0.4058  \\
+			\end{array}
+			\right)
+			\left(
+			\begin{array}{ccc}
+				25.4624 & 0      & 0 \\
+				0       & 1.2907 & 0 \\
+				0       & 0      & 0 \\
+				0       & 0      & 0 \\
+			\end{array}
+			\right)
+			\left(
+			\begin{array}{ccc}
+				-0.5045 & -0.7608 & -0.4092 \\
+				-0.5745 & -0.0571 & 0.8165  \\
+				-0.6445 & 0.6465  & -0.4082 \\
+			\end{array}
+			\right)
 		}
-	  \end{exercise}
+	\end{equation*} \\
+	\begin{equation*}
+		\scriptsize
+		\rm{
+			A_{Thin-SVD} =
+			\left(
+			\begin{array}{ccc}
+				-0.1409 & 0.8247  & 0.5477  \\
+				-0.3439 & 0.4263  & -0.7276 \\
+				-0.5470 & 0.0278  & -0.1880 \\
+				-0.7501 & -0.3706 & 0.3679  \\
+			\end{array}
+			\right)
+			\left(
+			\begin{array}{ccc}
+				25.4624 & 0      & 0 \\
+				0       & 1.2907 & 0 \\
+				0       & 0      & 0 \\
+			\end{array}
+			\right)
+			\left(
+			\begin{array}{ccc}
+				-0.5045 & -0.7608 & -0.4092 \\
+				-0.5745 & -0.0571 & 0.8165  \\
+				-0.6445 & 0.6465  & -0.4082 \\
+			\end{array}
+			\right)
+		}
+	\end{equation*}
+\end{exercise}
 
-	  \begin{exercise}[21]
-		\begin{description}
-		  \item[1-norm] = $30$ 
-		  \item[2-norm] = $25.4624$
-		  \item[$\infty$-norm] = $33$
-		  \item[F-norm] = $25.4951$
-		  \item[Nuclear-norm] = $26.7531$
-		  \item[(2,1)-norm] = $43.0445$
-		\end{description}	
-	  \end{exercise}
+\begin{exercise}[4]
+	\scriptsize
+	\begin{equation*}
+		\rm{
+			P_x = \left(
+			\begin{array}{cccc}
+				0.4794  & -0.1850 & -0.2398 & 0.3973 \\
+				-0.1850 & 0.9343  & -0.0852 & 0.1412 \\
+				-0.2398 & -0.0852 & 0.8896  & 0.1830 \\
+				0.3973  & 0.1412  & 0.1830  & 0.6968 \\
+			\end{array}
+			\right)
+		}
+	\end{equation*}
+\end{exercise}
 
-	\end{CJK}
-	\end{document}  
+\begin{exercise}[5]
+	\rm{
+		\textbf{Proof}:\\
+		首先，考虑矩阵$\rm{AXB}$的第$k$列：
+		\begin{equation*}
+			\left( \rm{AXB} \right)_k = \rm{AXB}_k
+		\end{equation*}
+		\begin{equation*}
+			= \rm{A} \left( x_1, x_2, x_3, \dots , x_p \right)
+			\left(
+			\begin{array}{c}
+				b_{1k} \\
+				b_{2k} \\
+				b_{3k} \\
+				.      \\
+				.      \\
+				.      \\
+				b_{pk} \\
+			\end{array}
+			\right)
+		\end{equation*}
+		\begin{equation*}
+			= \left( b_{1k}\rm{A}, b_{2k}\rm{A}, b_{3k}\rm{A}, \dots , b_{pk}\rm{A}\right) \left(
+			\begin{array}{c}
+				x_1 \\
+				x_2 \\
+				x_3 \\
+				.   \\
+				.   \\
+				.   \\
+				x_p \\
+			\end{array}
+			\right)
+		\end{equation*}
+		\begin{equation*}
+			= \left( b_{1k}, b_{2k}, b_{3k}, \dots , b_{pk}\right)\rm{A}\operatorname{Vec}\left( \rm{X} \right)
+		\end{equation*}
+		\begin{equation*}
+			= \left( \rm{B}_k^T \otimes \rm{A} \right) \operatorname{Vec} \left( \rm{X} \right)
+		\end{equation*}
+		而这一结果正好是最终$\rm{Vec}$之后向量对应于开始选取k的行数，需要注意的是，这里的$k$并不直接对应与最后$\rm{Vec}$中的行数，而是$\rm{AXB}$经过$\rm{Vec}$之后对应的某一个k行，当然，这样选取k最终可以选到$\rm{Vec} \left( \rm{AXB} \right)$的所有行
+		\begin{equation*}
+			\therefore \operatorname{Vec}\left( \rm{AXB} \right)	= \left( \rm{B}^T \otimes \rm{A} \right) \operatorname{Vec} \left( \rm{X} \right)
+		\end{equation*}
+	}
+\end{exercise}
+
+\begin{exercise}[8]
+	\rm{
+		\textbf{Proof}: \\
+		两边同乘$\left( \rm{A} + UCV^T \right)^{-1}$，有：\\
+		\begin{equation*}
+			\begin{aligned}
+				\rm{I} & = \rm{I - U \left( C^{-1} + V^T \rm{A}^{-1} U \right)^{-1} V^T \rm{A}^{-1}}                             \\
+				       & + \rm{UCV^T \rm{A}^{-1} - UCV^T \rm{A}^{-1} U \left( C^{-1} + V^T \rm{A}^{-1} U\right) V^T \rm{A}^{-1}}
+			\end{aligned}
+		\end{equation*}
+		故只需有\\
+		\begin{equation*}
+			\rm{
+				-U \left( C^{-1} + V^T \rm{A}^{-1} U \right)^{-1} + UC - UCV^T \rm{A}^{-1} U \left( C^{-1} + V^T \rm{A}^{-1} U\right)^{-1} = 0
+			}
+		\end{equation*}
+		即\\
+		\begin{equation*}
+			\rm{
+				C - \left( C{-1} + V^T \rm{A}^{-1} U \right)^{-1} - CV^TA^{-1}U \left( C^{-1} + V^T \rm{A}^{-1}U \right)^{-1} = 0
+			}
+		\end{equation*}
+		\begin{equation*}
+			\rm{
+				C - \left(I + CV^TA^{-1}U \right) \left( C{-1} + V^T \rm{A}^{-1} U \right)^{-1} = 0
+			}
+		\end{equation*}
+		而\\
+		\begin{equation*}
+			\rm{
+				I + CV^T \rm{A}^{-1} U = C \left( C^{-1} + V^T \rm{A}^{-1} U \right)
+			}
+		\end{equation*}
+		故原式得证
+	}
+\end{exercise}
+
+\begin{exercise}[21]
+	\begin{description}
+		\item[1-norm] = $30$
+		\item[2-norm] = $25.4624$
+		\item[$\infty$-norm] = $33$
+		\item[F-norm] = $25.4951$
+		\item[Nuclear-norm] = $26.7531$
+		\item[(2,1)-norm] = $43.0445$
+	\end{description}
+\end{exercise}
+
+\end{CJK}
+\end{document}
