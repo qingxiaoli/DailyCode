@@ -9,6 +9,7 @@
 \usepackage{bm}
 \usepackage{subfigure}
 \usepackage{float}
+\usepackage{mathrsfs}
 
 \renewcommand\thesection{\arabic{section}}
 \newtheorem*{exercise}{\textbf{习题}}
@@ -19,61 +20,139 @@
 
 \begin{document}
 \maketitle
-  \begin{exercise}[25]
-    \begin{proof}[\textbf{proof} (2.20)]
-      \begin{equation*}
-        \frac{\partial \mathbf{XY}}{\partial t} = \frac{\partial \mathbf{X \left(t\right)}\mathbf{Y \left(t\right)}}{\partial t}
-      \end{equation*}
-      \begin{equation*}
-        = \frac{ \partial \left( \mathbf{X \left( t \right) Y \left( t \right)} \right)_{ij} }{\partial t}
-      \end{equation*}
-      其中$\partial \left( \mathbf{X \left( t \right) Y \left( t \right)} \right)_{ij}$表示两矩阵乘积的第 $i,j$个元素，下面考虑$\partial \left( \mathbf{X \left( t \right) Y \left( t \right)} \right)_{ij}$关于 $t$的偏导数
-      \begin{equation*}
-        \frac{\partial \mathbf{X \left( t \right) Y \left( t \right)}_{ij} }{\partial t} = \frac{\partial \Sigma_{k=1}^n \mathbf{X}_{ik} \left( t \right)\mathbf{Y}_{kj} \left( t \right)}{\partial t}
-      \end{equation*}
-      \begin{equation*}
-        = \Sigma_{k=1}^n \frac{\partial \left( \mathbf{X}_{ik}\left( t \right)\mathbf{Y}_{kj}\left( t \right) \right)}{\partial t}
-      \end{equation*}
-      \begin{equation*}
-        = \Sigma_{k=1}^n\left( \frac{\partial\mathbf{X}_{ik}\left(t\right)}{\partial t}\mathbf{Y}_{kj}\left( t \right) + \frac{\partial \mathbf{Y}_{kj}\left( t \right)}{\partial t}\mathbf{X}_{ik}\left( t \right)\right)
-      \end{equation*}
-      \begin{equation*}
-        = \Sigma_{k=1}^n \left( \frac{\partial \mathbf{X}_{ik} \left( t \right) }{\partial t}\mathbf{Y}_{kj}\left( t \right) \right) + \Sigma_{k=1}^n \left( \frac{\partial \mathbf{Y}_{kj}\left( t \right)}{\partial t} \mathbf{X}_{ik}\left( t \right)\right)
-      \end{equation*}
-      \begin{equation*}
-        = \left( \frac{\mathbf{X}\left( t \right)}{\left( t \right)}\mathbf{Y} \left( t \right)\right)_{ij} + \left( \frac{\partial \mathbf{Y}\left( t \right)}{\partial t }\mathbf{X}\left( t \right)\right)_{ij}
-      \end{equation*}
-      \begin{equation*}
-        \left( \frac{\mathbf{X}\left( t \right)}{\partial t}\mathbf{Y}\left( t \right) + \frac{\partial \mathbf{Y}\left( t \right)}{\partial t}\mathbf{X}\left( t \right)\right)_{ij}
-      \end{equation*}
-      所以有
-      \begin{equation*}
-        \frac{\partial\mathbf{XY}}{\partial t} = \frac{\partial \mathbf{X}}{\partial t} \mathbf{Y} + \frac{\partial \mathbf{Y}}{\partial t} \mathbf{X}
-      \end{equation*}
-    \end{proof}
-    \begin{proof}[\textbf{proof} (2.25)]
-      \begin{equation*}
-        \frac{\partial \left(\mathbf{a}^T\mathbf{x}\right)}{\partial \mathbf{x}} = \mathbf{a}
-      \end{equation*}
-      \begin{equation*}
-        \frac{\partial \left( \mathbf{a}^T \mathbf{x} \right)}{\partial \mathbf{x}_i}= \frac{\partial \left( \Sigma_{i=1}^n \mathbf{a}_i \mathbf{x}_i \right)}{\partial \mathbf{x}_i} = \mathbf{a}_i
-      \end{equation*}
-      所以有
-      \begin{equation*}
-        \frac{\partial \left( \mathbf{a}^T \mathbf{x} \right)}{\partial \mathbf{x}} = \mathbf{a}
-      \end{equation*}
-    \end{proof}
-    \begin{proof}[\textbf{proof} (2.26)]
-      \begin{equation*}
-        \frac{\partial \left(\mathbf{x}^T \mathbf{A} \mathbf{x}\right)}{\partial \mathbf{x}} = \left( \mathbf{A} + \mathbf{A}^T \right) \mathbf{x}
-      \end{equation*}
-      考虑导数的第 $k$ 个元素，有
-      \begin{equation*}
-        \frac{\partial \left( \mathbf{x}^T \mathbf{A}\mathbf{x} \right)}{\partial \mathbf{x}_k} = \frac{\partial \left( \Sigma_{j=1}^n \left( \Sigma_{k=1}^n \mathbf{x}_k \mathbf{A}_{kj} \right) \mathbf{x}_j \right)}{\partial \mathbf{x}_i}
-      \end{equation*}
-      \begin{equation*}
-        = \frac{\partial \left( \Sigma_{k\neq i} \mathbf{x}_k \mathbf{A}_{ki} + \Sigma_{j \neq i} \mathbf{A}_{ij} \mathbf{x}_j + \mathbf{A}_{ii}\mathbf{x}_i^2 \right)}{\partial \mathbf{x}_i}
-      \end{equation*}
-    \end{proof}
-  \end{exercise}
+\begin{exercise}[24]
+  \begin{proof}[\textbf{Proof} 1]
+    \begin{equation*}
+      \lVert \cdot \rVert_p^* = \lVert \cdot \rVert_q
+    \end{equation*}
+    \begin{equation*}
+      \langle \mathbf{x}, \mathbf{y} \rangle
+    \end{equation*}
+  \end{proof}
+\end{exercise}
+\begin{exercise}[28]
+	\begin{proof}[\textbf{Proof} (2.20)]
+		\begin{equation*}
+			\frac{\partial \mathbf{XY}}{\partial t} = \frac{\partial \mathbf{X \left(t\right)}\mathbf{Y \left(t\right)}}{\partial t}
+		\end{equation*}
+		\begin{equation*}
+			= \frac{ \partial \left( \mathbf{X \left( t \right) Y \left( t \right)} \right)_{ij} }{\partial t}
+		\end{equation*}
+		其中$\partial \left( \mathbf{X \left( t \right) Y \left( t \right)} \right)_{ij}$表示两矩阵乘积的第 $i,j$个元素，下面考虑$\partial \left( \mathbf{X \left( t \right) Y \left( t \right)} \right)_{ij}$关于 $t$的偏导数
+		\begin{equation*}
+			\frac{\partial \mathbf{X \left( t \right) Y \left( t \right)}_{ij} }{\partial t} = \frac{\partial \Sigma_{k=1}^n \mathbf{X}_{ik} \left( t \right)\mathbf{Y}_{kj} \left( t \right)}{\partial t}
+		\end{equation*}
+		\begin{equation*}
+			= \Sigma_{k=1}^n \frac{\partial \left( \mathbf{X}_{ik}\left( t \right)\mathbf{Y}_{kj}\left( t \right) \right)}{\partial t}
+		\end{equation*}
+		\begin{equation*}
+			= \Sigma_{k=1}^n\left( \frac{\partial\mathbf{X}_{ik}\left(t\right)}{\partial t}\mathbf{Y}_{kj}\left( t \right) + \frac{\partial \mathbf{Y}_{kj}\left( t \right)}{\partial t}\mathbf{X}_{ik}\left( t \right)\right)
+		\end{equation*}
+		\begin{equation*}
+			= \Sigma_{k=1}^n \left( \frac{\partial \mathbf{X}_{ik} \left( t \right) }{\partial t}\mathbf{Y}_{kj}\left( t \right) \right) + \Sigma_{k=1}^n \left( \frac{\partial \mathbf{Y}_{kj}\left( t \right)}{\partial t} \mathbf{X}_{ik}\left( t \right)\right)
+		\end{equation*}
+		\begin{equation*}
+			= \left( \frac{\mathbf{X}\left( t \right)}{\left( t \right)}\mathbf{Y} \left( t \right)\right)_{ij} + \left( \frac{\partial \mathbf{Y}\left( t \right)}{\partial t }\mathbf{X}\left( t \right)\right)_{ij}
+		\end{equation*}
+		\begin{equation*}
+			\left( \frac{\mathbf{X}\left( t \right)}{\partial t}\mathbf{Y}\left( t \right) + \frac{\partial \mathbf{Y}\left( t \right)}{\partial t}\mathbf{X}\left( t \right)\right)_{ij}
+		\end{equation*}
+		所以有
+		\begin{equation*}
+			\frac{\partial\mathbf{XY}}{\partial t} = \frac{\partial \mathbf{X}}{\partial t} \mathbf{Y} + \frac{\partial \mathbf{Y}}{\partial t} \mathbf{X}
+		\end{equation*}
+	\end{proof}
+	\begin{proof}[\textbf{Proof} (2.25)]
+		\begin{equation*}
+			\frac{\partial \left(\mathbf{a}^T\mathbf{x}\right)}{\partial \mathbf{x}} = \mathbf{a}
+		\end{equation*}
+		\begin{equation*}
+			\frac{\partial \left( \mathbf{a}^T \mathbf{x} \right)}{\partial \mathbf{x}_i}= \frac{\partial \left( \Sigma_{i=1}^n \mathbf{a}_i \mathbf{x}_i \right)}{\partial \mathbf{x}_i} = \mathbf{a}_i
+		\end{equation*}
+		所以有
+		\begin{equation*}
+			\frac{\partial \left( \mathbf{a}^T \mathbf{x} \right)}{\partial \mathbf{x}} = \mathbf{a}
+		\end{equation*}
+	\end{proof}
+	\begin{proof}[\textbf{Proof} (2.26)]
+		\begin{equation*}
+			\frac{\partial \left(\mathbf{x}^T \mathbf{A} \mathbf{x}\right)}{\partial \mathbf{x}} = \left( \mathbf{A} + \mathbf{A}^T \right) \mathbf{x}
+		\end{equation*}
+		考虑导数的第 $k$ 个元素，有
+		\begin{equation*}
+			\frac{\partial \left( \mathbf{x}^T \mathbf{A}\mathbf{x} \right)}{\partial \mathbf{x}_k} = \frac{\partial \left( \Sigma_{j=1}^n \left( \Sigma_{k=1}^n \mathbf{x}_k \mathbf{A}_{kj} \right) \mathbf{x}_j \right)}{\partial \mathbf{x}_i}
+		\end{equation*}
+		\begin{equation*}
+			= \frac{\partial \left( \Sigma_{k\neq i} \mathbf{x}_k \mathbf{A}_{ki} \mathbf{x}_i + \Sigma_{j \neq i} \mathbf{A}_{ij} \mathbf{x}_j \mathbf{x}_i + \mathbf{A}_{ii}\mathbf{x}_i^2 \right)}{\partial \mathbf{x}_i}
+		\end{equation*}
+		\begin{equation*}
+			= \Sigma_{k\neq i}\mathbf{A}_{ki} \mathbf{x}_k + \Sigma_{j\neq i}\mathbf{A}_{ij} \mathbf{x}_j + 2 \mathbf{A}_{ii} \mathbf{x}_i
+		\end{equation*}
+		\begin{equation*}
+			=\Sigma_{t=1}^n \mathbf{A}_{ti} \mathbf{x}_t + \Sigma_{t=1}^n \mathbf{A}_{it} \mathbf{x}_t
+		\end{equation*}
+		\begin{equation*}
+			= \left( \mathbf{A} + \mathbf{A}^T \right)_i \mathbf{x}
+		\end{equation*}
+		所以有
+		\begin{equation*}
+			\frac{\partial \left( \mathbf{x}^T \mathbf{A} \mathbf{x} \right)}{\partial \mathbf{x}} = \left( \mathbf{A} + \mathbf{A}^T \right) \mathbf{x}
+		\end{equation*}
+	\end{proof}
+	\begin{proof}[\textbf{Proof} $\frac{\partial \mathbf{X}}{\partial \mathbf{X}}$]
+		\begin{equation*}
+			\frac{\partial \mathbf{X}}{\partial \mathbf{X}}
+		\end{equation*}
+		首先看
+		\begin{equation*}
+			\frac{\partial \mathbf{X}}{\partial \mathbf{X}_{ij}}
+		\end{equation*}
+		有
+		\begin{equation*}
+			\frac{\partial \mathbf{X}}{\partial \mathbf{X}_{ij}} = \mathbf{e}_i \mathbf{e}_j^T
+		\end{equation*}
+		其中为只有第 $i$行为 $1$，其余行皆为 $0$的向量，则有
+		\begin{equation*}
+			\frac{\partial \mathbf{X}}{\partial \mathbf{X}} = \left(
+			\begin{array}{c}
+				\mathbf{e}_1 \\
+				\mathbf{e}_2 \\
+				\mathbf{e}_3 \\
+				\vdots       \\
+				\mathbf{e}_n \\
+			\end{array}
+			\right) \left(
+			\mathbf{e}_1^T, \mathbf{e}_2^T, \mathbf{e}_3^T, \dots, \mathbf{e}_n^T
+			\right)
+		\end{equation*}
+	\end{proof}
+\end{exercise}
+
+\begin{exercise}[29]
+	\begin{equation*}
+		\langle \mathcal{A}^* \left( \mathbf{x} \right), \mathbf{y} \rangle = \langle \mathbf{x}, \mathcal{A}\left( y \right) \rangle
+	\end{equation*}
+	所以有
+	\begin{equation*}
+		\langle \mathcal{A}^* \left( x \right), \mathbf{Y} \rangle = \left( Y_{11} + Y_{12} - Y_{31} + 2Y_{33} \right) x
+	\end{equation*}
+	\begin{equation*}
+		= \langle \left(
+		\begin{array}{ccc}
+			x  & x & 0  \\
+			0  & 0 & 0  \\
+			-x & 0 & 2x \\
+		\end{array}
+		\right) ,\mathbf{Y} \rangle
+	\end{equation*}
+	因此
+	\begin{equation*}
+		\mathcal{A}^*\left( x \right) = \left(
+		\begin{array}{ccc}
+			x  & x & 0  \\
+			0  & 0 & 0  \\
+			-x & 0 & 2x \\
+		\end{array} \right)
+	\end{equation*}
+\end{exercise}
 \end{document}
