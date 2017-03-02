@@ -13,6 +13,7 @@
 
 \renewcommand\thesection{\arabic{section}}
 \newtheorem*{exercise}{\textbf{习题}}
+\newtheorem*{theorem}{Theorem}
 
 \title{Manifold Learning Homework 2}
 \date{2017-03-01}
@@ -21,17 +22,57 @@
 \begin{document}
 \maketitle
 \begin{exercise}[24]
-  \begin{proof}[\textbf{Proof} 1]
+  \begin{proof}[Proof 1]
     \begin{equation*}
       \lVert \cdot \rVert_p^* = \lVert \cdot \rVert_q
     \end{equation*}
+    由于Holder inequality
+    \begin{theorem}
+      对于任意的 $p > 1, q>1$，如果满足
+      \begin{equation*}
+        \frac{1}{p} + \frac{1}{q} = 1
+      \end{equation*}
+      那么有如下关系成立
+      \begin{equation*}
+        \sum_{k=1}^n |a_k b_k| \le \left( \sum_{k=1}^n |a_k|^p \right)^{\frac{1}{p}}\left( \sum_{k=1}^n |b_k|^q \right)^{\frac{1}{q}}
+      \end{equation*}
+    \end{theorem}
+  由于$\lVert \mathbf{y}\rVert_p \le 1$，因此有 $\langle \mathbf{x}, \mathbf{y}\rangle \le \lVert \mathbf{x}_q \rVert$，因此有 $\lVert \mathbf{x} \rVert_p^* = \lVert \mathbf{x} \rVert_q$
+  \end{proof}
+  \begin{proof}[Proof 2]
     \begin{equation*}
-      \langle \mathbf{x}, \mathbf{y} \rangle
+      \langle \mathbf{x}, \mathbf{y} \rangle = \rm{tr} \left( \mathbf{x}^T \mathbf{y} \right) = \rm{tr} \left( \mathbf{B}^{-1}\mathbf{x}^T \mathbf{y} \mathbf{B} \right)
+    \end{equation*}
+    其中，有
+    \begin{equation*}
+      \mathbf{B}^{-1} \mathbf{y} \mathbf{B}=\mathbf{V}
+    \end{equation*}
+    $\mathbf{V}$为对角矩阵且对角线元素为矩阵 $\mathbf{y}$的特征值
+    \begin{equation*}
+      \rm{tr}\left( \mathbf{B}^{-1} \mathbf{x}^T \mathbf{y} \mathbf{B} \right) = \rm{tr} \left( \mathbf{x}^T \mathbf{V} \right)
+    \end{equation*}
+    又有
+    \begin{equation*}
+      \lVert \mathbf{y} \rVert_2 \le 1
+    \end{equation*}
+    所以 $V$的元素的绝对值都小于等于 $1$，因此有
+    \begin{equation*}
+      \rm{tr} \left( \mathbf{x}^T \mathbf{V} \right) \le \sum_{k=1}^n |\lambda_i| = \lVert \mathbf{x} \rVert_*
+    \end{equation*}
+  \end{proof}
+  \begin{proof}[Proof 3]
+    由 $p=2,q=2$时的Holder inequality，即Cauthy inequality
+    \begin{equation*}
+      \langle \mathbf{x}, \mathbf{y} \rangle = \sum_{ij}\mathbf{x}_{ij}\mathbf{y}{ij} \le \left( \sum_{ij} |\mathbf{x}_{ij}|^2 \right)^{\frac{1}{2}} + \left( \sum_{ij} |\mathbf{y}_{ij}|^2 \right)^{\frac{1}{2}} \le \lVert \mathbf{x} \rVert_F
+    \end{equation*}
+    所以有
+    \begin{equation*}
+      \lVert \mathbf{x} \rVert_F^* = \lVert \mathbf{x} \rVert_F
     \end{equation*}
   \end{proof}
 \end{exercise}
 \begin{exercise}[28]
-	\begin{proof}[\textbf{Proof} (2.20)]
+	\begin{proof}[Proof (2.20)]
 		\begin{equation*}
 			\frac{\partial \mathbf{XY}}{\partial t} = \frac{\partial \mathbf{X \left(t\right)}\mathbf{Y \left(t\right)}}{\partial t}
 		\end{equation*}
@@ -40,16 +81,16 @@
 		\end{equation*}
 		其中$\partial \left( \mathbf{X \left( t \right) Y \left( t \right)} \right)_{ij}$表示两矩阵乘积的第 $i,j$个元素，下面考虑$\partial \left( \mathbf{X \left( t \right) Y \left( t \right)} \right)_{ij}$关于 $t$的偏导数
 		\begin{equation*}
-			\frac{\partial \mathbf{X \left( t \right) Y \left( t \right)}_{ij} }{\partial t} = \frac{\partial \Sigma_{k=1}^n \mathbf{X}_{ik} \left( t \right)\mathbf{Y}_{kj} \left( t \right)}{\partial t}
+			\frac{\partial \mathbf{X \left( t \right) Y \left( t \right)}_{ij} }{\partial t} = \frac{\partial \sum_{k=1}^n \mathbf{X}_{ik} \left( t \right)\mathbf{Y}_{kj} \left( t \right)}{\partial t}
 		\end{equation*}
 		\begin{equation*}
-			= \Sigma_{k=1}^n \frac{\partial \left( \mathbf{X}_{ik}\left( t \right)\mathbf{Y}_{kj}\left( t \right) \right)}{\partial t}
+			= \sum_{k=1}^n \frac{\partial \left( \mathbf{X}_{ik}\left( t \right)\mathbf{Y}_{kj}\left( t \right) \right)}{\partial t}
 		\end{equation*}
 		\begin{equation*}
-			= \Sigma_{k=1}^n\left( \frac{\partial\mathbf{X}_{ik}\left(t\right)}{\partial t}\mathbf{Y}_{kj}\left( t \right) + \frac{\partial \mathbf{Y}_{kj}\left( t \right)}{\partial t}\mathbf{X}_{ik}\left( t \right)\right)
+			= \sum_{k=1}^n\left( \frac{\partial\mathbf{X}_{ik}\left(t\right)}{\partial t}\mathbf{Y}_{kj}\left( t \right) + \frac{\partial \mathbf{Y}_{kj}\left( t \right)}{\partial t}\mathbf{X}_{ik}\left( t \right)\right)
 		\end{equation*}
 		\begin{equation*}
-			= \Sigma_{k=1}^n \left( \frac{\partial \mathbf{X}_{ik} \left( t \right) }{\partial t}\mathbf{Y}_{kj}\left( t \right) \right) + \Sigma_{k=1}^n \left( \frac{\partial \mathbf{Y}_{kj}\left( t \right)}{\partial t} \mathbf{X}_{ik}\left( t \right)\right)
+			= \sum_{k=1}^n \left( \frac{\partial \mathbf{X}_{ik} \left( t \right) }{\partial t}\mathbf{Y}_{kj}\left( t \right) \right) + \sum_{k=1}^n \left( \frac{\partial \mathbf{Y}_{kj}\left( t \right)}{\partial t} \mathbf{X}_{ik}\left( t \right)\right)
 		\end{equation*}
 		\begin{equation*}
 			= \left( \frac{\mathbf{X}\left( t \right)}{\left( t \right)}\mathbf{Y} \left( t \right)\right)_{ij} + \left( \frac{\partial \mathbf{Y}\left( t \right)}{\partial t }\mathbf{X}\left( t \right)\right)_{ij}
@@ -62,34 +103,34 @@
 			\frac{\partial\mathbf{XY}}{\partial t} = \frac{\partial \mathbf{X}}{\partial t} \mathbf{Y} + \frac{\partial \mathbf{Y}}{\partial t} \mathbf{X}
 		\end{equation*}
 	\end{proof}
-	\begin{proof}[\textbf{Proof} (2.25)]
+	\begin{proof}[Proof (2.25)]
 		\begin{equation*}
 			\frac{\partial \left(\mathbf{a}^T\mathbf{x}\right)}{\partial \mathbf{x}} = \mathbf{a}
 		\end{equation*}
 		\begin{equation*}
-			\frac{\partial \left( \mathbf{a}^T \mathbf{x} \right)}{\partial \mathbf{x}_i}= \frac{\partial \left( \Sigma_{i=1}^n \mathbf{a}_i \mathbf{x}_i \right)}{\partial \mathbf{x}_i} = \mathbf{a}_i
+			\frac{\partial \left( \mathbf{a}^T \mathbf{x} \right)}{\partial \mathbf{x}_i}= \frac{\partial \left( \sum_{i=1}^n \mathbf{a}_i \mathbf{x}_i \right)}{\partial \mathbf{x}_i} = \mathbf{a}_i
 		\end{equation*}
 		所以有
 		\begin{equation*}
 			\frac{\partial \left( \mathbf{a}^T \mathbf{x} \right)}{\partial \mathbf{x}} = \mathbf{a}
 		\end{equation*}
 	\end{proof}
-	\begin{proof}[\textbf{Proof} (2.26)]
+	\begin{proof}[Proof (2.26)]
 		\begin{equation*}
 			\frac{\partial \left(\mathbf{x}^T \mathbf{A} \mathbf{x}\right)}{\partial \mathbf{x}} = \left( \mathbf{A} + \mathbf{A}^T \right) \mathbf{x}
 		\end{equation*}
 		考虑导数的第 $k$ 个元素，有
 		\begin{equation*}
-			\frac{\partial \left( \mathbf{x}^T \mathbf{A}\mathbf{x} \right)}{\partial \mathbf{x}_k} = \frac{\partial \left( \Sigma_{j=1}^n \left( \Sigma_{k=1}^n \mathbf{x}_k \mathbf{A}_{kj} \right) \mathbf{x}_j \right)}{\partial \mathbf{x}_i}
+			\frac{\partial \left( \mathbf{x}^T \mathbf{A}\mathbf{x} \right)}{\partial \mathbf{x}_k} = \frac{\partial \left( \sum_{j=1}^n \left( \sum_{k=1}^n \mathbf{x}_k \mathbf{A}_{kj} \right) \mathbf{x}_j \right)}{\partial \mathbf{x}_i}
 		\end{equation*}
 		\begin{equation*}
-			= \frac{\partial \left( \Sigma_{k\neq i} \mathbf{x}_k \mathbf{A}_{ki} \mathbf{x}_i + \Sigma_{j \neq i} \mathbf{A}_{ij} \mathbf{x}_j \mathbf{x}_i + \mathbf{A}_{ii}\mathbf{x}_i^2 \right)}{\partial \mathbf{x}_i}
+			= \frac{\partial \left( \sum_{k\neq i} \mathbf{x}_k \mathbf{A}_{ki} \mathbf{x}_i + \sum_{j \neq i} \mathbf{A}_{ij} \mathbf{x}_j \mathbf{x}_i + \mathbf{A}_{ii}\mathbf{x}_i^2 \right)}{\partial \mathbf{x}_i}
 		\end{equation*}
 		\begin{equation*}
-			= \Sigma_{k\neq i}\mathbf{A}_{ki} \mathbf{x}_k + \Sigma_{j\neq i}\mathbf{A}_{ij} \mathbf{x}_j + 2 \mathbf{A}_{ii} \mathbf{x}_i
+			= \sum_{k\neq i}\mathbf{A}_{ki} \mathbf{x}_k + \sum_{j\neq i}\mathbf{A}_{ij} \mathbf{x}_j + 2 \mathbf{A}_{ii} \mathbf{x}_i
 		\end{equation*}
 		\begin{equation*}
-			=\Sigma_{t=1}^n \mathbf{A}_{ti} \mathbf{x}_t + \Sigma_{t=1}^n \mathbf{A}_{it} \mathbf{x}_t
+			=\sum_{t=1}^n \mathbf{A}_{ti} \mathbf{x}_t + \sum_{t=1}^n \mathbf{A}_{it} \mathbf{x}_t
 		\end{equation*}
 		\begin{equation*}
 			= \left( \mathbf{A} + \mathbf{A}^T \right)_i \mathbf{x}
@@ -99,7 +140,7 @@
 			\frac{\partial \left( \mathbf{x}^T \mathbf{A} \mathbf{x} \right)}{\partial \mathbf{x}} = \left( \mathbf{A} + \mathbf{A}^T \right) \mathbf{x}
 		\end{equation*}
 	\end{proof}
-	\begin{proof}[\textbf{Proof} $\frac{\partial \mathbf{X}}{\partial \mathbf{X}}$]
+	\begin{proof}[Proof $\frac{\partial \mathbf{X}}{\partial \mathbf{X}}$]
 		\begin{equation*}
 			\frac{\partial \mathbf{X}}{\partial \mathbf{X}}
 		\end{equation*}
@@ -154,5 +195,9 @@
 			-x & 0 & 2x \\
 		\end{array} \right)
 	\end{equation*}
+\end{exercise}
+\begin{exercise}[33]
+  \begin{proof}
+  \end{proof}
 \end{exercise}
 \end{document}
