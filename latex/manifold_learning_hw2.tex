@@ -50,7 +50,30 @@
       \begin{equation*}
         \frac{\partial\mathbf{XY}}{\partial t} = \frac{\partial \mathbf{X}}{\partial t} \mathbf{Y} + \frac{\partial \mathbf{Y}}{\partial t} \mathbf{X}
       \end{equation*}
-
+    \end{proof}
+    \begin{proof}[\textbf{proof} (2.25)]
+      \begin{equation*}
+        \frac{\partial \left(\mathbf{a}^T\mathbf{x}\right)}{\partial \mathbf{x}} = \mathbf{a}
+      \end{equation*}
+      \begin{equation*}
+        \frac{\partial \left( \mathbf{a}^T \mathbf{x} \right)}{\partial \mathbf{x}_i}= \frac{\partial \left( \Sigma_{i=1}^n \mathbf{a}_i \mathbf{x}_i \right)}{\partial \mathbf{x}_i} = \mathbf{a}_i
+      \end{equation*}
+      所以有
+      \begin{equation*}
+        \frac{\partial \left( \mathbf{a}^T \mathbf{x} \right)}{\partial \mathbf{x}} = \mathbf{a}
+      \end{equation*}
+    \end{proof}
+    \begin{proof}[\textbf{proof} (2.26)]
+      \begin{equation*}
+        \frac{\partial \left(\mathbf{x}^T \mathbf{A} \mathbf{x}\right)}{\partial \mathbf{x}} = \left( \mathbf{A} + \mathbf{A}^T \right) \mathbf{x}
+      \end{equation*}
+      考虑导数的第 $k$ 个元素，有
+      \begin{equation*}
+        \frac{\partial \left( \mathbf{x}^T \mathbf{A}\mathbf{x} \right)}{\partial \mathbf{x}_k} = \frac{\partial \left( \Sigma_{j=1}^n \left( \Sigma_{k=1}^n \mathbf{x}_k \mathbf{A}_{kj} \right) \mathbf{x}_j \right)}{\partial \mathbf{x}_i}
+      \end{equation*}
+      \begin{equation*}
+        = \frac{\partial \left( \Sigma_{k\neq i} \mathbf{x}_k \mathbf{A}_{ki} + \Sigma_{j \neq i} \mathbf{A}_{ij} \mathbf{x}_j + \mathbf{A}_{ii}\mathbf{x}_i^2 \right)}{\partial \mathbf{x}_i}
+      \end{equation*}
     \end{proof}
   \end{exercise}
 \end{document}
