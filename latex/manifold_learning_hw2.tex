@@ -198,6 +198,23 @@
 \end{exercise}
 \begin{exercise}[33]
   \begin{proof}
+    首先，由于有
+    \begin{equation*}
+      \rm{tr}\left( \mathbf{Y}\mathbf{K}\mathbf{Y}^T \right)=\rm{tr}\left( \mathbf{Y}\left( \mathbf{K} + a\mathbf{I}  \right)\mathbf{Y}^T \right)-a
+    \end{equation*}
+    因此，可以通过选择一个足够大的 $a$使得矩阵 $\mathbf{K}$ 变为正定矩阵，因此，这里不妨设矩阵 $\mathbf{K}$ 为正定矩阵，这样做只会使得目标函数增加一个常数，不会对优化的求解产生任何影响。
+    \begin{equation*}
+      \rm{tr}\left( \mathbf{Y} \mathbf{K} \mathbf{Y}^T \right)=\rm{tr}\left( \mathbf{Y}^T \mathbf{Y} \mathbf{K} \right)
+    \end{equation*}
+    由于 $\sigma \left( \mathbf{Y}^T \mathbf{Y} \right)=\sigma \left( \mathbf{Y} \mathbf{Y}^T \right) = 1$，由von Neumann迹定理，有
+    \begin{equation*}
+      \sum_{i=1}^m \sigma_{n-i+1}\left( \mathbf{K} \right)\le \rm{tr}\left( \mathbf{Y}^T \mathbf{Y} \mathbf{K} \right) \le \sum_{i=1}^m \sigma_{i} \left( \mathbf{K} \right)
+    \end{equation*}
+    其中， $m$为 $\mathbf{Y}$ 的行数，下面说明什么时候可以取到最值，当 $\mathbf{Y}^T$ 取为上述定理中最大的 $m$个奇异值，即最大特征值对应的特征向量时，有
+    \begin{equation*}
+      \rm{tr}\left( \mathbf{Y}\mathbf{K}\mathbf{Y}^T \right) = \rm{tr}\left( \mathbf{Y}\mathbf{Y}^T \mathbf{V} \right)
+    \end{equation*}
+    其中， $\mathbf{V}$是矩阵 $\mathbf{K}$的前 $m$个特征值组成的用零扩展的对角矩阵，即上半部分为对角矩阵，矩阵维数为 $m$，下半部分为零矩阵，此时，可以取到最大值。对应的，当取最小特征值对应的特征向量为 $\mathbf{Y}$时，可以取到最小值。我尝试用拉格朗日乘子法求解，由于约束条件取范数之后难以求导，因此我没有办法用拉格朗日乘子法证明上述结论。
   \end{proof}
 \end{exercise}
 \end{document}
