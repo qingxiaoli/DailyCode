@@ -37,9 +37,10 @@
         \sum_{k=1}^n |a_k b_k| \le \left( \sum_{k=1}^n |a_k|^p \right)^{\frac{1}{p}}\left( \sum_{k=1}^n |b_k|^q \right)^{\frac{1}{q}}
       \end{equation*}
     \end{theorem}
-  由于$\lVert \mathbf{y}\rVert_p \le 1$，因此有 $\langle \mathbf{x}, \mathbf{y}\rangle \le \lVert \mathbf{x}_q \rVert$，因此有 $\lVert \mathbf{x} \rVert_p^* = \lVert \mathbf{x} \rVert_q$
+  由于$\lVert \mathbf{y}\rVert_p \le 1$，因此有 $\langle \mathbf{x}, \mathbf{y}\rangle \le \lVert \mathbf{x} \rVert_q$，因此有 $\lVert \mathbf{x} \rVert_p^* = \lVert \mathbf{x} \rVert_q$
   \end{proof}
   \begin{proof}[Proof 2]
+    首先，假设 $\mathbf{y}$为对称矩阵，有
     \begin{equation*}
       \langle \mathbf{x}, \mathbf{y} \rangle = \rm{tr} \left( \mathbf{x}^T \mathbf{y} \right) = \rm{tr} \left( \mathbf{B}^{-1}\mathbf{x}^T \mathbf{y} \mathbf{B} \right)
     \end{equation*}
@@ -59,6 +60,7 @@
     \begin{equation*}
       \rm{tr} \left( \mathbf{x}^T \mathbf{V} \right) \le \sum_{k=1}^n |\lambda_i| = \lVert \mathbf{x} \rVert_*
     \end{equation*}
+    而由von Neumann迹定理知，此时，取到的结果是 $\langle \mathbf{x},\mathbf{y}\rangle$可以取到的上确界，而上述证明说明了这一上确界在满足对偶范数定义的条件中是可以取到的，因此上述结论成立。
   \end{proof}
   \begin{proof}[Proof 3]
     由 $p=2,q=2$时的Holder inequality，即Cauthy inequality
