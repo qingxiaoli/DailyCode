@@ -1,0 +1,62 @@
+\documentclass[a4paper, UTF8]{ctexart}
+\usepackage{ctex}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{multirow}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{bm}
+\usepackage{subfigure}
+\usepackage{float}
+\usepackage{mathrsfs}
+
+\renewcommand\thesection{\arabic{section}}
+\newtheorem*{exercise}{\textbf{习题}}
+\newtheorem*{theorem}{Theorem}
+
+\title{Manifold Learning Homework 3}
+\date{2017-03-11}
+\author{安捷 1601210097}
+
+\begin{document}
+\maketitle
+  \begin{exercise}[48.1]
+    \begin{proof}
+      首先，写出 $\mathbf{F}^T \mathbf{L}_W \mathbf{F}$第 $\left( i,i \right)$ 个元素，有
+      \begin{equation*}
+        \left(\mathbf{F}^T \mathbf{L}_W \mathbf{F}\right)_{i,i} = \mathbf{f}_i^T \mathbf{L}_W \mathbf{f}_i
+      \end{equation*}
+      \begin{equation*}
+        = \mathbf{f}_i^T \mathbf{D}_W \mathbf{f}_i - \mathbf{f}_i^T \mathbf{W} \mathbf{f}_i
+      \end{equation*}
+      其中
+      \begin{equation*}
+        \mathbf{f}_i^T \mathbf{D}_W \mathbf{f}_i = \left( \sum_j \mathbf{W}_{1,j} \mathbf{f}_i^1, \sum_j \mathbf{W}_{2,j}f_i^2, \dots, \sum_j \mathbf{W}_{k,j} f_i^k \right) \mathbf{f}_i
+      \end{equation*}
+      \begin{equation*}
+        = \sum_k \sum_j \mathbf{W}_{k,j}\left( \mathbf{f}_i^k \right)^2
+      \end{equation*}
+      \begin{equation*}
+        \mathbf{f}_i^T \mathbf{W} \mathbf{f}_i = \left( \sum_j \mathbf{W}{j,1}\mathbf{f}_i^j, \sum \mathbf{W}{j,2}\mathbf{f}_i^j, \dots, \sum_j \mathbf{W}_{j,k}\mathbf{f}_i^j \right)\mathbf{f}_i
+      \end{equation*}
+      \begin{equation*}
+        = \sum_{j,k}\mathbf{W}_{j,k} \mathbf{f}_i^j \mathbf{f}_i^k
+      \end{equation*}
+      所以有
+      \begin{equation*}
+        \mathrm{tr}\left( \mathbf{F}^T \mathbf{L}_W \mathbf{F} \right) = \sum_i \sum_j \sum_k \mathbf{W}_{k,j} \left(\left(\mathbf{f}_i^k\right)^2 - \mathbf{f}_i^k \mathbf{f}_i^j \right)
+      \end{equation*}
+      \begin{equation*}
+        = \frac{1}{2} \sum_k \sum_i \sum_j \mathbf{W}_{i,j} \left( \mathbf{f}_i - \mathbf{f}_j \right)_k^2
+      \end{equation*}
+      \begin{equation*}
+        = \frac{1}{2} \sum_{i,j} \mathbf{W}_{i,j} \lVert \mathbf{f}_i - \mathbf{f}_j \rVert^2
+      \end{equation*}
+    \end{proof}
+  \end{exercise}
+
+  \begin{exercise}[48.2]
+
+  \end{exercise}
+\end{document}
