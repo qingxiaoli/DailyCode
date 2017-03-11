@@ -57,6 +57,14 @@
   \end{exercise}
 
   \begin{exercise}[48.2]
-
+    在新的约束下，新问题的形式可以变为
+    \begin{equation}
+      \min_\mathbf{g} \mathbf{g}^T \mathbf{L} \mathbf{g}, \mathrm{s.t.}, \lVert \mathbf{g} \rVert = 1
+    \end{equation}
+    其中，$\mathbf{g} = \mathbf{C}^{\frac{1}{2}} \mathbf{f}$， $\mathbf{C}$为 $\mathbf{W}$的对角线元素构成的对角矩阵。所以
+    \begin{equation}
+      \mathbf{L} = \mathbf{C}^{-\frac{1}{2}}\left( \mathbf{D}_W - \mathbf{W} \right) \mathbf{C}^{-\frac{1}{2}} = \mathbf{C}^{-1}\mathbf{D}_W - \mathbf{C}^{-\frac{1}{2}} \mathbf{W} \mathbf{C}^{-\frac{1}{2}}
+    \end{equation}
+    其中 $\mathbf{C}^{-1}\mathbf{D}_{W}$还是一个对角矩阵，对角线元素为 $\sum_j \frac{\mathbf{W}_{i,j}}{\mathbf{W}{i,i}} $
   \end{exercise}
 \end{document}
