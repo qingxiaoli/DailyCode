@@ -1,0 +1,69 @@
+\documentclass[a4paper, UTF8]{ctexart}
+\usepackage{ctex}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{multirow}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{bm}
+\usepackage{subfigure}
+\usepackage{float}
+\usepackage{mathrsfs}
+
+\renewcommand\thesection{\arabic{section}}
+\newtheorem*{exercise}{\textbf{习题}}
+\newtheorem*{theorem}{Theorem}
+
+\title{Manifold Learning Homework 3}
+\date{2017-03-11}
+\author{安捷 1601210097}
+
+\begin{document}
+\maketitle
+  \begin{exercise}
+    对于图像中位置为 $\left( i, j \right)$ 的点来说，不妨认为这一点就位于 $0,1$的边界上，切这一点的数值为 $0$，实际上对于任一点以下推导都是成立的，且边界上的点一定可以在本题中求出 $\lambda$的值。对于第一种梯度的定义方式，在 $0$度边界的情形有
+    \begin{equation*}
+      \frac{\partial v}{\partial x}\Big |_{i,j} = \frac{1}{2}
+    \end{equation*}
+    \begin{equation*}
+      \frac{\partial v}{\partial y}\Big |_{i,j} = 0
+    \end{equation*}
+    所以， $\lVert \nabla v \rVert = \frac{1}{2}$。\\
+    在 $45$度边界的情形有
+    \begin{equation*}
+      \frac{\partial v}{\partial x}\Big |_{i,j} = \frac{1}{2}
+    \end{equation*}
+    \begin{equation*}
+      \frac{\partial v}{\partial y}\Big |_{i,j} = \frac{1}{2}
+    \end{equation*}
+    所以， $\lVert \nabla v \rVert = \frac{1}{\sqrt{2}}$。
+    对于第二种离散梯度的定义方式，要使二者相同。首先，在 $0$度的情形，有
+    \begin{equation*}
+      \frac{\partial v}{\partial x}\Big |_{i,j} = \frac{\lambda}{2} + \frac{1-\lambda}{2} = \frac{1}{2}
+    \end{equation*}
+    \begin{equation*}
+      \frac{\partial v}{\partial y}\Big |_{i,j} = 0
+    \end{equation*}
+    所以， $\lVert \nabla v \rVert = \frac{1}{2}$。
+    在 $45$度边界的情形有
+    \begin{equation*}
+      \frac{\partial v}{\partial x}\Big |_{i,j} = \frac{\lambda}{2} + \frac{1-\lambda}{4} = \frac{1+\lambda}{4}
+    \end{equation*}
+    \begin{equation*}
+      \frac{\partial v}{\partial y}\Big |_{i,j} = -\frac{\lambda}{2} - \frac{1-\lambda}{4} = -\frac{1+\lambda}{4}
+    \end{equation*}
+    所以， $\lVert \nabla v \rVert = \frac{\sqrt{2}\left(1+\lambda\right)}{4}$。当 $\lambda = \sqrt{2} - 1$时， $45$度与 $0$度有相同的范数。
+  \end{exercise}
+  \begin{exercise}
+    与上题的分析方法相同，在 $0$度的情形，有
+    \begin{equation*}
+      \Delta v\big |_{i,j} = \lambda + \left( 1 - \lambda \right) = 1
+    \end{equation*}
+    在$45$ 度的情形，有
+    \begin{equation*}
+      \Delta v\big |_{i,j} = 2\lambda + \frac{1-\lambda}{2} = \frac{1 + 3 \lambda}{2}
+    \end{equation*}
+    当 $\lambda = \frac{1}{3}$时， $45$ 度与 $0$ 度有相同的值。
+  \end{exercise}
+\end{document}
