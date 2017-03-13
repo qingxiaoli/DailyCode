@@ -18,6 +18,11 @@ void compute_A(double* A_device, double* Gauss_device, int rows, int cols, int o
         int a2 = a + len_x;
         int b1 = b - len_y;
         int b2 = b + len_y;
-        if (a1 >=0 && a2 < ori_cols && b1 >= 0 && b2 < ori_rows)
+	int k_a = k1 + a1;
+	int k_b = k2 + b1;
+	if (k_a >= 0 && k_a < ori_rows && k_b >= 0 && k_b < ori_cols && k1 < Gauss_rows && k2 < Gauss_cols)
+	{
+		A_device[(k_a * ori_cols + k_b) * cols + j] = Gauss_device[k1 * Gauss_cols + k2];
+	}
     }
 }

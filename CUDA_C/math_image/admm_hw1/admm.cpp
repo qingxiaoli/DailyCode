@@ -56,7 +56,10 @@ int main(){
     cudaMalloc((void**)&Gauss_device, sizeof(double) * Gauss.cols * Gauss.rows);
     cudaMemcpy(Gauss_device, Gauss.ptr<double>(0), sizeof(double) * Gauss.cols * Gauss.rows, cudaMemcpyHostToDevice);
     dim3 grid(A.rows, A.cols);
-    dim3 thread(Gauss.rows, Gauss.cols);
+    dim3 thread_perblock(Gauss.rows, Gauss.cols);
+	compute_A<<<grid, thread_perblock>>>(A_device, Gauss_device, A.rows, A.cols, img_gray.rows, img_gray.cols, Gauss.rows, Gauss.cols);
+    cudaMemcpy(A_host, A_device, sizeof(double) * A.cols * A.rows, cudaMemcpyDeviceToHost);
     cudaFree(Gauss_device);
+    cudaFree(A_device);
     Gauss.release();
 }
