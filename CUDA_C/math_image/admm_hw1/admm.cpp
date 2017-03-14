@@ -67,7 +67,7 @@ int main(){
     dim3 grid(A.rows, A.cols);
     dim3 thread_perblock(Gauss.rows, Gauss.cols);
     compute_A<<<grid, thread_perblock>>>(A_device, Gauss_device, A.rows, A.cols, img_gray.rows, img_gray.cols, Gauss.rows, Gauss.cols);
-    compute_W<<<grid, 1>>>(W_device, W.rows, W.cols, img_gray.rows, img_gray.cols);
+    compute_W<<<grid, 1>>>(W_device, W.rows, W.cols, img_gray.rows, img_gray.cols, LAMBDA);
     cudaMemcpy(A_host, A_device, sizeof(double) * A.cols * A.rows, cudaMemcpyDeviceToHost);
     cudaMemcpy(W_host, W_device, sizeof(double) * W.cols * W.rows, cudaMemcpyDeviceToHost);
     cudaFree(Gauss_device);
