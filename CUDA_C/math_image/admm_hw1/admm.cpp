@@ -49,18 +49,29 @@ int main(){
     if (img_gray.isContinuous() == 0){
         throw "memory of gray image is not continuous, cannot use cuda!";
     }
+    Mat_<double> W = Mat::eye(img_gray.rows * img_gray.cols, img_gray.rows * img_gray.cols, CV_64F);
+    if (img_gray.isContinuous() == 0){
+        throw "memory of gray image is not continuous, cannot use cuda!";
+    }
     double* A_host = A.ptr<double>(0);
     double* A_device;
     cudaMalloc((void**)&A_device, sizeof(double) * A.cols * A.rows);
     cudaMemcpy(A_device, A_host, sizeof(double) * A.cols * A.rows, cudaMemcpyHostToDevice);
+    double* W_host = W.ptr<double>(0);
+    double* W_device;
+    cudaMalloc((void**)&W_device, sizeof(double) * W.cols * W.rows);
+    cudaMemcpy(W_device, W_host, sizeof(double) * W.cols * W.rows, cudaMemcpyHostToDevice);
     Mat_<double> Gauss = getGaussianKernel(15, SIGMA, CV_64F);
     cudaMalloc((void**)&Gauss_device, sizeof(double) * Gauss.cols * Gauss.rows);
     cudaMemcpy(Gauss_device, Gauss.ptr<double>(0), sizeof(double) * Gauss.cols * Gauss.rows, cudaMemcpyHostToDevice);
     dim3 grid(A.rows, A.cols);
     dim3 thread_perblock(Gauss.rows, Gauss.cols);
     compute_A<<<grid, thread_perblock>>>(A_device, Gauss_device, A.rows, A.cols, img_gray.rows, img_gray.cols, Gauss.rows, Gauss.cols);
+    compute_W<<<grid, 1>>>(W_device, W.rows, W.cols, img_gray.rows, img_gray.cols);
     cudaMemcpy(A_host, A_device, sizeof(double) * A.cols * A.rows, cudaMemcpyDeviceToHost);
+    cudaMemcpy(W_host, W_device, sizeof(double) * W.cols * W.rows, cudaMemcpyDeviceToHost);
     cudaFree(Gauss_device);
     cudaFree(A_device);
+    cudaFree(W_device);
     Gauss.release();
 }

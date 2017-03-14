@@ -64,5 +64,17 @@ void compute_W(double* W_device, int rows, int cols, int ori_rows, int ori_cols,
 {
     int i = blockIdx.y;
     int j = blockIdx.x;
-    int a = i / 
+    int a = i / ori_cols;
+    int b = i % ori_cols;
+    if (a > 0 && a < ori_rows - 1 && b > 0 && b < ori_cols - 1)
+    {
+        W_device[((a - 1) * ori_cols + b) * cols + j] = LAMBDA / 2.0;
+        W_device[((a + 1) * ori_cols + b) * cols + j] = LAMBDA / 2.0;
+        W_device[(a * ori_cols + (b - 1)) * cols + j] = LAMBDA / 2.0;
+        W_device[(a * ori_cols + (b + 1)) * cols + j] = LAMBDA / 2.0;
+        W_device[((a - 1) * ori_cols + (b - 1)) * cols + j] = (1 - LAMBDA) / 2.0;
+        W_device[((a - 1) * ori_cols + (b + 1)) * cols + j] = (1 - LAMBDA) / 2.0;
+        W_device[((a + 1) * ori_cols + (b - 1)) * cols + j] = (1 - LAMBDA) / 2.0;
+        W_device[((a + 1) * ori_cols + (b + 1)) * cols + j] = (1 - LAMBDA) / 2.0;
+    }
 }
