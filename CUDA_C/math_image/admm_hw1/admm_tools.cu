@@ -2,7 +2,7 @@
 #include <cuda_runtime.h>
 #include <iostream>
 
-void compute_A(double* A_device, double* Gauss_device, int rows, int cols, int ori_rows, int ori_cols, int Gauss_rows, int Gauss_cols)
+__global__ void compute_A(double* A_device, double* Gauss_device, int rows, int cols, int ori_rows, int ori_cols, int Gauss_rows, int Gauss_cols)
 {
     int i = blockIdx.y;
     int j = blockIdx.x;
@@ -15,9 +15,7 @@ void compute_A(double* A_device, double* Gauss_device, int rows, int cols, int o
         int a = j / ori_cols;
         int b = j % ori_cols;
         int a1 = a - len_x;
-        int a2 = a + len_x;
         int b1 = b - len_y;
-        int b2 = b + len_y;
         int k_a = k1 + a1;
         int k_b = k2 + b1;
         if (k_a >= 0 && k_a < ori_rows && k_b >= 0 && k_b < ori_cols && k1 < Gauss_rows && k2 < Gauss_cols)
@@ -60,7 +58,7 @@ void compute_A(double* A_device, double* Gauss_device, int rows, int cols, int o
 }
 
 
-void compute_W(double* W_device, int rows, int cols, int ori_rows, int ori_cols, double LAMBDA)
+__global__ void compute_W(double* W_device, int rows, int cols, int ori_rows, int ori_cols, double LAMBDA)
 {
     int i = blockIdx.y;
     int j = blockIdx.x;
@@ -72,9 +70,9 @@ void compute_W(double* W_device, int rows, int cols, int ori_rows, int ori_cols,
         W_device[((a + 1) * ori_cols + b) * cols + j] = LAMBDA / 2.0;
         W_device[(a * ori_cols + (b - 1)) * cols + j] = LAMBDA / 2.0;
         W_device[(a * ori_cols + (b + 1)) * cols + j] = LAMBDA / 2.0;
-        W_device[((a - 1) * ori_cols + (b - 1)) * cols + j] = (1 - LAMBDA) / 2.0;
-        W_device[((a - 1) * ori_cols + (b + 1)) * cols + j] = (1 - LAMBDA) / 2.0;
-        W_device[((a + 1) * ori_cols + (b - 1)) * cols + j] = (1 - LAMBDA) / 2.0;
-        W_device[((a + 1) * ori_cols + (b + 1)) * cols + j] = (1 - LAMBDA) / 2.0;
+        W_device[((a - 1) * ori_cols + (b - 1)) * cols + j] = (1 - LAMBDA) * sqrt(2.0) / 4.0;
+        W_device[((a - 1) * ori_cols + (b + 1)) * cols + j] = (1 - LAMBDA) * sqrt(2.0) / 4.0;
+        W_device[((a + 1) * ori_cols + (b - 1)) * cols + j] = (1 - LAMBDA) * sqrt(2.0) / 4.0;
+        W_device[((a + 1) * ori_cols + (b + 1)) * cols + j] = (1 - LAMBDA) * sqrt(2.0) / 4.0;
     }
 }

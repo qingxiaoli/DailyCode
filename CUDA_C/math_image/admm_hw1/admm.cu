@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include "iostream"
 #include "cuda_runtime.h"
+#include "admm_tools.cuh"
 using namespace std;
 using namespace cv;
 
@@ -62,14 +63,27 @@ int main(){
     cudaMalloc((void**)&W_device, sizeof(double) * W.cols * W.rows);
     cudaMemcpy(W_device, W_host, sizeof(double) * W.cols * W.rows, cudaMemcpyHostToDevice);
     Mat_<double> Gauss = getGaussianKernel(15, SIGMA, CV_64F);
+    double* Gauss_device;
     cudaMalloc((void**)&Gauss_device, sizeof(double) * Gauss.cols * Gauss.rows);
     cudaMemcpy(Gauss_device, Gauss.ptr<double>(0), sizeof(double) * Gauss.cols * Gauss.rows, cudaMemcpyHostToDevice);
     dim3 grid(A.rows, A.cols);
     dim3 thread_perblock(Gauss.rows, Gauss.cols);
-    compute_A<<<grid, thread_perblock>>>(A_device, Gauss_device, A.rows, A.cols, img_gray.rows, img_gray.cols, Gauss.rows, Gauss.cols);
+    //compute_A<<<grid, thread_perblock>>>(A_device, Gauss_device, A.rows, A.cols, img_gray.rows, img_gray.cols, Gauss.rows, Gauss.cols);
     compute_W<<<grid, 1>>>(W_device, W.rows, W.cols, img_gray.rows, img_gray.cols, LAMBDA);
     cudaMemcpy(A_host, A_device, sizeof(double) * A.cols * A.rows, cudaMemcpyDeviceToHost);
     cudaMemcpy(W_host, W_device, sizeof(double) * W.cols * W.rows, cudaMemcpyDeviceToHost);
+    cout << W_host[0] << endl;
+    cout << W_host[1] << endl;
+    cout << W_host[2] << endl;
+    cout << W_host[3] << endl;
+    cout << W_host[4] << endl;
+    cout << W_host[5] << endl;
+    cout << W_host[6] << endl;
+    cout << W_host[7] << endl;
+    cout << W_host[8] << endl;
+    cout << W_host[9] << endl;
+    cout << W_host[10] << endl;
+    cout << W_host[11] << endl;
     cudaFree(Gauss_device);
     cudaFree(A_device);
     cudaFree(W_device);
