@@ -2,6 +2,7 @@
 #include <opencv2/cudaarithm.hpp>
 #include <opencv2/cudaimgproc.hpp>
 #include <opencv2/cudafilters.hpp>
+#include <opencv2/cudev.hpp>
 #include <stdio.h>
 #include "iostream"
 #include "cuda_runtime.h"
@@ -27,7 +28,7 @@ int main(){
     resize(img_gray, img_gray, Size(), 1.0 / 4, 1.0 / 4, INTER_LINEAR);
     //namedWindow("img1", WINDOW_NORMAL);
     //imshow("img1", img_gray);
-    //waitKey(3000);
+    //waitKey(0);
     GaussianBlur(img_gray, img_gray, KERNEL_SIZE, SIGMA, BORDER_WRAP);
     //namedWindow("img2", WINDOW_NORMAL);
     //imshow("img2", img_gray);
@@ -54,27 +55,19 @@ int main(){
     if (img_gray.isContinuous() == 0){
         throw "memory of gray image is not continuous, cannot use cuda!";
     }
-    double* A_host = A.ptr<double>(0);
-    double* A_device;
-    cudaMalloc((void**)&A_device, sizeof(double) * A.cols * A.rows);
-    cudaMemcpy(A_device, A_host, sizeof(double) * A.cols * A.rows, cudaMemcpyHostToDevice);
-    double* W_host = W.ptr<double>(0);
-    double* W_device;
-    cudaMalloc((void**)&W_device, sizeof(double) * W.cols * W.rows);
-    cudaMemcpy(W_device, W_host, sizeof(double) * W.cols * W.rows, cudaMemcpyHostToDevice);
+    cudev::GpuMat_<double> A_device(A);
+    cudev::GpuMat_<double> W_device(W);
     Mat_<double> Gauss = Mat::zeros(15, 15, CV_64FC1);
     Gauss.at<double>(7, 7) = 1;
     GaussianBlur(Gauss, Gauss, KERNEL_SIZE, SIGMA, BORDER_WRAP);
-    double* Gauss_device;
-    cudaMalloc((void**)&Gauss_device, sizeof(double) * Gauss.cols * Gauss.rows);
-    cudaMemcpy(Gauss_device, Gauss.ptr<double>(0), sizeof(double) * Gauss.cols * Gauss.rows, cudaMemcpyHostToDevice);
+    cudev::GpuMat_<double> Gauss_device(Gauss);
     dim3 thread_perblock(Gauss.rows, Gauss.cols);
-    compute_A<<<A.rows, thread_perblock>>>(A_device, Gauss_device, A.rows, A.cols, img_gray.rows, img_gray.cols, Gauss.rows, Gauss.cols);
-    compute_W<<<W.rows, 1>>>(W_device, W.rows, W.cols, img_gray.rows, img_gray.cols, LAMBDA);
-    cudaMemcpy(A_host, A_device, sizeof(double) * A.cols * A.rows, cudaMemcpyDeviceToHost);
-    cudaMemcpy(W_host, W_device, sizeof(double) * W.cols * W.rows, cudaMemcpyDeviceToHost);
-    cudaFree(Gauss_device);
-    cudaFree(A_device);
-    cudaFree(W_device);
+    compute_A<<<A.rows, thread_perblock>>>(A_device.ptr<double>(0), Gauss_device.ptr<double>(0), A.rows, A.cols, img_gray.rows, img_gray.cols, Gauss.rows, Gauss.cols);
+    compute_W<<<W.rows, 1>>>(W_device.ptr<double>(0), W.rows, W.cols, img_gray.rows, img_gray.cols, LAMBDA);
+    A_device.download(A);
+    W_device.download(W);
+    A_device.release();
+    W_device.release();
     Gauss.release();
+    Gauss_device.release();
 }
