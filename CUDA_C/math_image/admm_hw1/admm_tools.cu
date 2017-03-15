@@ -2,7 +2,7 @@
 #include <cuda_runtime.h>
 #include <iostream>
 
-__global__ void compute_A(double* A_device, double* Gauss_device, int rows, int cols, int ori_rows, int ori_cols, int Gauss_rows, int Gauss_cols)
+__global__ void compute_A(float* A_device, float* Gauss_device, int rows, int cols, int ori_rows, int ori_cols, int Gauss_rows, int Gauss_cols)
 {
     int j = blockIdx.x;
     int k1 = threadIdx.y;
@@ -58,7 +58,7 @@ __global__ void compute_A(double* A_device, double* Gauss_device, int rows, int 
 }
 
 
-__global__ void compute_W(double* W_device, int rows, int cols, int ori_rows, int ori_cols, double LAMBDA)
+__global__ void compute_W(float* W_device, int rows, int cols, int ori_rows, int ori_cols, float LAMBDA)
 {
     int j = blockIdx.x;
     int a = j / ori_rows;

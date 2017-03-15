@@ -1,7 +1,7 @@
 #ifndef ADMM_TOOLS_CUH
 #define ADMM_TOOLS_CUH
 
-__global__ void compute_A(double*, double*, int, int, int, int, int, int);
-__global__ void compute_W(double*, int, int, int, int, double);
+__global__ void compute_A(float*, float*, int, int, int, int, int, int);
+__global__ void compute_W(float*, int, int, int, int, float);
 
 #endif
