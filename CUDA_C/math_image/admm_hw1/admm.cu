@@ -1,3 +1,7 @@
+// WARNNING!!! this code have been give up!
+// due to BORDER_WRAP can't access in my opencv setup, but in this case I have
+// to use it. To avoiding making wheels by hand, I just use Matlab to complete
+// my hw1, code can be see in MATLAB dir;
 #include <opencv2/opencv.hpp>
 #include <opencv2/cudaarithm.hpp>
 #include <opencv2/cudaimgproc.hpp>
