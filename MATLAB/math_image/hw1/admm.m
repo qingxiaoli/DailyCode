@@ -6,14 +6,14 @@
 %% setup
 KERNEL_SIZE = 15;
 SHIFT_LEN = (KERNEL_SIZE - 1) / 2;
-SIGMA = 1.5;
-SCALE = 100;
+SIGMA = 2.0;
+SCALE = 200;
 MU = 0.3;
 LAMBDA = 0.06;
 TAU = LAMBDA / MU;
-TOL = 1e-4;
+TOL = 1e-3;
 DELTA = 0.12;
-MAX_ITERATION = 2000;
+MAX_ITERATION = 300;
 PATH_OF_IMAGE = 'lena.bmp';
 
 %% image preprocessing
@@ -93,3 +93,8 @@ subplot(221), imshow(img), title('original image');
 subplot(222), imshow(f), title('filtered image');
 subplot(223), imshow(u), title('reconstructed image');
 subplot(224), plot(error), title('error');
+
+figure, 
+subplot(131), imagesc(img), axis image, title('original image'), colorbar;
+subplot(132), imagesc(f), title('filtered image'), axis image, colorbar;
+subplot(133), imagesc(u), title('reconstructed image'), axis image, colorbar;
