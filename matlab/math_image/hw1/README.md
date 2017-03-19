@@ -1,5 +1,5 @@
 ## Introduction
-this script is to using ADMM aigorithm to reconstruct a blur and noised image, I use Fourier transform method to solve Possion equation in script.
+this script is to using ADMM aigorithm to reconstruct a blur and noised image, I use Fourier transform method to solve Possion equation in script. All images in this folder can be used to test code.
 
 ## Information
 coder: Jie An 1601210097  

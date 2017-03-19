@@ -13,14 +13,14 @@ LAMBDA = 0.06;
 TAU = LAMBDA / MU;
 TOL = 1e-3;
 DELTA = 0.12;
-MAX_ITERATION = 300;
-PATH_OF_IMAGE = 'test4.jpg';
+MAX_ITERATION = 500;
+PATH_OF_IMAGE = 'lena.bmp';
 
 %% image preprocessing
 disp('start image preprocessing');
 img = imread(PATH_OF_IMAGE);
 img = im2double(rgb2gray(img));
-img = imresize(img, 1);
+img = imresize(img, [512, 512]);
 % figure,
 % imshow(img);
 kernel = fspecial('gaussian', [15, 15], SIGMA);
@@ -59,25 +59,25 @@ tempFT = ftA .* ftA - ftLap;% this mat is kernel to solve equation
 error = zeros(MAX_ITERATION, 1);
 figure,
 for i = 1 : MAX_ITERATION
-    
+
     % step 1
     [dx, dy] = gradient(d - b);
     dx = dx(1: size(img, 1), :);
     dy = dy(size(img, 1) + 1: end, :);
     u = real(ifft2(fft2(Af - MU * (dx + dy)) ./ (tempFT)));
     imshow(u);
-    
+
     % step 2
     [dxu, dyu] = gradient(u);
     tmp = [dxu; dyu] + b;
     tmp3 = sqrt([tmp(1: size(img, 1), :) .^ 2 + tmp(size(img, 1) + 1: end, :) .^ 2; tmp(1: size(img, 1), :) .^ 2 + tmp(size(img, 1) + 1: end, :) .^ 2]);
     tmp(find(tmp3 > TAU)) = tmp(find(tmp3 > TAU)) ./ tmp3(find(tmp3 > TAU)) .* (tmp3(find(tmp3 > TAU)) - TAU);
-    tmp(find(tmp3 <= TAU)) = 0 * tmp(find(tmp3 <= TAU));  
-    d = tmp;  
-    
+    tmp(find(tmp3 <= TAU)) = 0 * tmp(find(tmp3 <= TAU));
+    d = tmp;
+
     % step 3
     b = b + DELTA * ([dxu; dyu] - d);
-    
+
     % error saving and break checking
     check2 = norm([dxu; dyu] - d, 'fro') / norm(f, 'fro');
     error(i) = norm(u - img, 'fro') ^ 2;
@@ -88,13 +88,13 @@ for i = 1 : MAX_ITERATION
 end;
 
 %% result show
-figure, 
+figure,
 subplot(221), imshow(img), title('original image');
 subplot(222), imshow(f), title('filtered image');
 subplot(223), imshow(u), title('reconstructed image');
 subplot(224), plot(error), title('error');
 
-figure, 
+figure,
 subplot(131), imagesc(img), axis image, title('original image'), colorbar;
 subplot(132), imagesc(f), title('filtered image'), axis image, colorbar;
 subplot(133), imagesc(u), title('reconstructed image'), axis image, colorbar;
