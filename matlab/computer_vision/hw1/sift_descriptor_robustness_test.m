@@ -49,7 +49,7 @@ for i = BRIGHTNESS_MINUS_MAX : BRIGHTNESS_CHANGE_LEVEL : BRIGHTNESS_PLUS_MAX
     feature_matches_brightness((i - BRIGHTNESS_MINUS_MAX + BRIGHTNESS_CHANGE_LEVEL) / BRIGHTNESS_CHANGE_LEVEL) = size(M, 2) / size(descriptors_ori, 2);
 end;
 figure,
-plot(BRIGHTNESS_MINUS_MAX : BRIGHTNESS_CHANGE_LEVEL : BRIGHTNESS_PLUS_MAX, feature_matches_brightness, 'ro'), title('repeatability of brightness');
+plot(BRIGHTNESS_MINUS_MAX : BRIGHTNESS_CHANGE_LEVEL : BRIGHTNESS_PLUS_MAX, feature_matches_brightness, 'r-o'), title('repeatability of brightness');
 xlabel('brightness'),
 ylabel('descriptor matches rate'),
 set(gca, 'XTick', BRIGHTNESS_MINUS_MAX : BRIGHTNESS_CHANGE_LEVEL : BRIGHTNESS_PLUS_MAX);
@@ -67,7 +67,7 @@ for i = CONTRAST_MIN : CONTRAST_CHANGE_LEVEL : CONTRAST_MAX
     feature_matches_contrast((i - CONTRAST_MIN + CONTRAST_CHANGE_LEVEL) / CONTRAST_CHANGE_LEVEL) = size(M, 2) / size(descriptors_ori, 2);
 end;
 figure,
-plot(CONTRAST_MIN : CONTRAST_CHANGE_LEVEL : CONTRAST_MAX, feature_matches_contrast, 'ro'), title('repeatability of contrast');
+plot(CONTRAST_MIN : CONTRAST_CHANGE_LEVEL : CONTRAST_MAX, feature_matches_contrast, 'r-o'), title('repeatability of contrast');
 xlabel('contrast'),
 ylabel('descriptor matches rate'),
 set(gca, 'XTick', CONTRAST_MIN : CONTRAST_CHANGE_LEVEL : CONTRAST_MAX);
@@ -86,7 +86,7 @@ for i = NOISE_MIN : NOISE_CHANGE_LEVEL : NOISE_MAX
     feature_matches_noise((i - NOISE_MIN + NOISE_CHANGE_LEVEL) / NOISE_CHANGE_LEVEL) = size(M, 2) / size(descriptors_ori, 2);
 end;
 figure,
-plot(NOISE_MIN : NOISE_CHANGE_LEVEL : NOISE_MAX, feature_matches_noise, 'ro'), title('repeatability of noise');
+plot(NOISE_MIN : NOISE_CHANGE_LEVEL : NOISE_MAX, feature_matches_noise, 'r-o'), title('repeatability of noise');
 xlabel('noise'),
 ylabel('descriptor matches rate'),
 set(gca, 'XTick', NOISE_MIN : NOISE_CHANGE_LEVEL : NOISE_MAX);
@@ -107,7 +107,7 @@ for i = GAUSS_MIN : GAUSS_CHANGE_LEVEL : GAUSS_MAX
     feature_matches_blur((i - GAUSS_MIN + GAUSS_CHANGE_LEVEL) / GAUSS_CHANGE_LEVEL) = size(M, 2) / size(descriptors_ori, 2);
 end;
 figure,
-plot(GAUSS_MIN : GAUSS_CHANGE_LEVEL : GAUSS_MAX, feature_matches_blur, 'ro'), title('repeatability of blur');
+plot(GAUSS_MIN : GAUSS_CHANGE_LEVEL : GAUSS_MAX, feature_matches_blur, 'r-o'), title('repeatability of blur');
 xlabel('blur'),
 ylabel('descriptor matches rate'),
 set(gca, 'XTick', GAUSS_MIN : GAUSS_CHANGE_LEVEL : GAUSS_MAX);

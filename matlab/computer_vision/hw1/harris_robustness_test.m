@@ -5,7 +5,7 @@
 % license: no license, everyone is free to use
 
 %% set up
-IMG_PATH = 'cover_1.jpg';
+IMG_PATH = 'cover_2.jpg';
 MIN_QUALITY = 0.01;
 ROTATE_ANGLE = 15;
 SCALE_FACTOR = 1.2;
@@ -43,14 +43,13 @@ for i = ROTATE_ANGLE : ROTATE_ANGLE : 359
     corners_rot = (corner_ori.Location -  [size(img, 2), size(img, 1)] / 2) * rot_mat;
     for j = 1 : corner_ori.Count
         if size(find(((abs(corners.Location(:, 1) - size(img_rotation, 2) / 2 - corners_rot(j, 1)) <= 2) + (abs(corners.Location(:, 2) - size(img_rotation, 1) / 2 - corners_rot(j, 2)) <= 2)) == 2), 1) > 0
-            find(((abs(corners.Location(:, 1) - size(img_rotation, 2) / 2 - corners_rot(j, 1)) <= 2) + (abs(corners.Location(:, 2) - size(img_rotation, 1) / 2 - corners_rot(j, 2)) <= 2)) == 2)
             corner_matches_rotation(i / ROTATE_ANGLE) = corner_matches_rotation(i / ROTATE_ANGLE) + 1;
         end;
     end;
     corner_matches_rotation(i / ROTATE_ANGLE) = corner_matches_rotation(i / ROTATE_ANGLE) / corner_ori.Count;
 end;
 figure,
-plot(ROTATE_ANGLE: ROTATE_ANGLE: 359, corner_matches_rotation, 'ro'), title('repeatability of rotation'),
+plot(ROTATE_ANGLE: ROTATE_ANGLE: 359, corner_matches_rotation, 'r-o'), title('repeatability of rotation'),
 xlabel('rotation angle'),
 ylabel('corner matches rate'),
 set(gca, 'XTick', ROTATE_ANGLE: ROTATE_ANGLE: 360);
@@ -66,13 +65,14 @@ for i = 0 : 8
     corners = detectHarrisFeatures(img_scale, 'MinQuality', MIN_QUALITY);
     corners_sca = (corner_ori.Location -  [size(img, 2), size(img, 1)] / 2) * scale_mat;
     for j = 1 : corner_ori.Count
-        if size(find(abs(corners.Location(:, 1) - size(img_scale, 2) / 2 - corners_sca(j, 1)) < 2), 1) > 0 && size(find(abs(corners.Location(:, 2) - size(img_scale, 1) / 2 - corners_sca(j, 2)) < 2), 1) > 0
+        if size(find(((abs(corners.Location(:, 1) - size(img_scale, 2) / 2 - corners_sca(j, 1)) <= 2) + (abs(corners.Location(:, 2) - size(img_scale, 1) / 2 - corners_sca(j, 2)) <= 2)) == 2), 1) > 0
             corner_matches_scale(i + 1) = corner_matches_scale(i +1) + 1;
         end;
     end;
+    corner_matches_scale(i + 1) = corner_matches_scale(i + 1) / corner_ori.Count;
 end;
 figure,
-plot(0 : 8, corner_matches_scale, 'ro'), title('repeatability of scaling');
+plot(0 : 8, corner_matches_scale, 'r-o'), title('repeatability of scaling');
 xlabel('scale'),
 ylabel('corner matches rate'),
 set(gca, 'XTick', 0 : 8);

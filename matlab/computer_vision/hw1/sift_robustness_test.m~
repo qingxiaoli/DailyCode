@@ -4,7 +4,7 @@
 % bug_submission: pkuanjie@gmail.com
 
 %% set up
-IMG_PATH = 'cover_2.jpg';
+IMG_PATH = 'cover_1.jpg';
 PEAK_THRESH = 1;
 EDGE_THRESH = 5;
 ROTATE_ANGLE = 15;
@@ -35,10 +35,9 @@ for i = ROTATE_ANGLE : ROTATE_ANGLE : 359
             feature_matches_rotation(i / ROTATE_ANGLE) = feature_matches_rotation(i / ROTATE_ANGLE) + 1;
         end;
     end;
-    feature_matches_rotation(i / ROTATE_ANGLE) = feature_matches_rotation(i / ROTATE_ANGLE) / size(feature_ori, 2);
 end;
 figure,
-plot(ROTATE_ANGLE : ROTATE_ANGLE : 359, feature_matches_rotation, 'r-o'), title('repeatability of rotation');
+plot(ROTATE_ANGLE : ROTATE_ANGLE : 359, log(feature_matches_rotation), 'ro'), title('repeatability of rotation');
 xlabel('rotation angle'),
 ylabel('sift matches rate'),
 set(gca, 'XTick', ROTATE_ANGLE : ROTATE_ANGLE : 359);
@@ -52,16 +51,15 @@ for i = 0 : 8
 %     imagesc(img_rotation);
     scale_mat = [SCALE_FACTOR ^ i, 0; 0, SCALE_FACTOR ^ i];
    [frames_scale, descriptors_scale] = vl_sift(img_scale, 'PeakThresh', 1, 'EdgeThresh', 5);
-    feature_scale = ((feature_ori(1: 2, :)' -  [size(img, 2), size(img, 1)] / 2) * scale_mat)';
+    feature_scale = ((feature_ori(1: 2, :)' -  size(img) / 2) * scale_mat)';
     for j = 1 : size(feature_ori, 2)
-        if size(find(((abs(frames_scale(1, :) - size(img_scale, 2) / 2 - feature_scale(1, j)) <= 2) + (abs(frames_scale(2, :) - size(img_scale, 1) / 2 - feature_scale(2, j)) <= 2)) == 2), 1) > 0
+        if size(find(abs(frames_scale(1, :) - size(img_scale, 1) / 2 - feature_scale(1, j)) < 2), 1) > 0 && size(find(abs(frames_scale(2, :) - size(img_scale, 2) / 2 - feature_scale(2, j)) < 2), 1)
             feature_matches_scale(i +1) = feature_matches_scale(i +1) + 1;
         end;
     end;
-    feature_matches_scale(i +1) = feature_matches_scale(i +1) / size(feature_ori, 2);
 end;
 figure,
-plot(0 : 8, feature_matches_scale, 'r-o'), title('repeatability of scaling');
+plot(0 : 8, log(feature_matches_scale), 'ro'), title('repeatability of scaling');
 xlabel('scale'),
 ylabel('sift matches rate'),
 set(gca, 'XTick', 0 : 8);
