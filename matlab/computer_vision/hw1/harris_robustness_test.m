@@ -46,6 +46,8 @@ for i = ROTATE_ANGLE : ROTATE_ANGLE : 359
         end;
     end;
 end;
+figure,
+plot(log(corner_matches_rotation), 'ro'), title('repeatability of rotation');
 
 
 %% scale image and detect same corner point
@@ -63,3 +65,5 @@ for i = 0 : 8
         end;
     end;
 end;
+figure,
+plot(log(corner_matches_scale), 'ro'), title('repeatability of scaling');
