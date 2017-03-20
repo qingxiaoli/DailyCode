@@ -23,11 +23,12 @@ corner_metric = zeros(size(img));
 for i = 1 : corner_result.Count
     corner_metric(round(corner_result.Location(i, 2)), round(corner_result.Location(i, 1))) = corner_result.Metric(i);
 end;
-% figure, 
-% subplot(121), imagesc(img), axis image, hold on,
-% plot(corner_result.Location(:, 1), corner_result.Location(:, 2), 'r.'),
-% hold off;
-% subplot(122), imagesc(corner_metric), axis image, colorbar;
+figure, 
+imagesc(img), axis image, hold on,
+plot(corner_result.Location(:, 1), corner_result.Location(:, 2), 'r.'),
+hold off;
+figure, 
+imagesc(corner_metric), axis image, colorbar;
 corner_ori = corner_result;
 
 
@@ -39,15 +40,20 @@ for i = ROTATE_ANGLE : ROTATE_ANGLE : 359
 %     imagesc(img_rotation);
     rot_mat = [cos(i / 180 * pi), -sin(i / 180 * pi); sin(i / 180 * pi), cos(i / 180 * pi)];
     corners = detectHarrisFeatures(img_rotation, 'MinQuality', MIN_QUALITY);
-    corners_rot = (corner_ori.Location -  size(img) / 2) * rot_mat;
+    corners_rot = (corner_ori.Location -  [size(img, 2), size(img, 1)] / 2) * rot_mat;
     for j = 1 : corner_ori.Count
-        if size(find(abs(corners.Location(:, 1) - size(img_rotation, 1) / 2 - corners_rot(j, 1)) < 2), 1) > 0 && size(find(abs(corners.Location(:, 2) - size(img_rotation, 2) / 2 - corners_rot(j, 2)) < 2), 1) > 0
+        if size(find(((abs(corners.Location(:, 1) - size(img_rotation, 2) / 2 - corners_rot(j, 1)) <= 2) + (abs(corners.Location(:, 2) - size(img_rotation, 1) / 2 - corners_rot(j, 2)) <= 2)) == 2), 1) > 0
+            find(((abs(corners.Location(:, 1) - size(img_rotation, 2) / 2 - corners_rot(j, 1)) <= 2) + (abs(corners.Location(:, 2) - size(img_rotation, 1) / 2 - corners_rot(j, 2)) <= 2)) == 2)
             corner_matches_rotation(i / ROTATE_ANGLE) = corner_matches_rotation(i / ROTATE_ANGLE) + 1;
         end;
     end;
+    corner_matches_rotation(i / ROTATE_ANGLE) = corner_matches_rotation(i / ROTATE_ANGLE) / corner_ori.Count;
 end;
 figure,
-plot(log(corner_matches_rotation), 'ro'), title('repeatability of rotation');
+plot(ROTATE_ANGLE: ROTATE_ANGLE: 359, corner_matches_rotation, 'ro'), title('repeatability of rotation'),
+xlabel('rotation angle'),
+ylabel('corner matches rate'),
+set(gca, 'XTick', ROTATE_ANGLE: ROTATE_ANGLE: 360);
 
 
 %% scale image and detect same corner point
@@ -58,12 +64,15 @@ for i = 0 : 8
 %     imagesc(img_rotation);
     scale_mat = [SCALE_FACTOR ^ i, 0; 0, SCALE_FACTOR ^ i];
     corners = detectHarrisFeatures(img_scale, 'MinQuality', MIN_QUALITY);
-    corners_sca = (corner_ori.Location -  size(img) / 2) * scale_mat;
+    corners_sca = (corner_ori.Location -  [size(img, 2), size(img, 1)] / 2) * scale_mat;
     for j = 1 : corner_ori.Count
-        if size(find(abs(corners.Location(:, 1) - size(img_scale, 1) / 2 - corners_sca(j, 1)) < 2), 1) > 0 && size(find(abs(corners.Location(:, 2) - size(img_scale, 2) / 2 - corners_sca(j, 2)) < 2), 1) > 0
+        if size(find(abs(corners.Location(:, 1) - size(img_scale, 2) / 2 - corners_sca(j, 1)) < 2), 1) > 0 && size(find(abs(corners.Location(:, 2) - size(img_scale, 1) / 2 - corners_sca(j, 2)) < 2), 1) > 0
             corner_matches_scale(i + 1) = corner_matches_scale(i +1) + 1;
         end;
     end;
 end;
 figure,
-plot(log(corner_matches_scale), 'ro'), title('repeatability of scaling');
+plot(0 : 8, corner_matches_scale, 'ro'), title('repeatability of scaling');
+xlabel('scale'),
+ylabel('corner matches rate'),
+set(gca, 'XTick', 0 : 8);
