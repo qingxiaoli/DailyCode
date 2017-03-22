@@ -1,0 +1,422 @@
+start deep learning hw1 code
+
+# --------------
+# Please enter the commit message for your changes. Everything below
+# this paragraph is ignored, and an empty message aborts the commit.
+# Just close the window to accept your message.
+diff --git a/python/.idea/misc.xml b/python/.idea/misc.xml
+index 96eb542..65908ea 100644
+--- a/python/.idea/misc.xml
++++ b/python/.idea/misc.xml
+@@ -1,4 +1,7 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.5.1 (/Library/Frameworks/Python.framework/Versions/3.5/bin/python3.5)" project-jdk-type="Python SDK" />
++  <component name="PythonCompatibilityInspectionAdvertiser">
++    <option name="version" value="1" />
++  </component>
+ </project>
+\ No newline at end of file
+diff --git a/python/.idea/workspace.xml b/python/.idea/workspace.xml
+index 0794db8..25fe5d0 100644
+--- a/python/.idea/workspace.xml
++++ b/python/.idea/workspace.xml
+@@ -2,6 +2,8 @@
+ <project version="4">
+   <component name="ChangeListManager">
+     <list default="true" id="356b688c-88e3-496a-ab1b-4aa201a4b461" name="Default" comment="">
++      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/deep_learning/hw1/MLP_mnist.py" />
++      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+     </list>
+     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+@@ -12,6 +14,7 @@
+     <option name="LAST_RESOLUTION" value="IGNORE" />
+   </component>
+   <component name="CoverageDataManager">
++    <SUITE FILE_PATH="coverage/python$MLP_mnist.coverage" NAME="MLP_mnist Coverage Results" MODIFIED="1490164365956" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/deep_learning/hw1" />
+     <SUITE FILE_PATH="coverage/python$manifold_learning_51.coverage" NAME="manifold_learning_51 Coverage Results" MODIFIED="1490076433574" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/manifold_learning" />
+   </component>
+   <component name="CreatePatchCommitExecutor">
+@@ -19,26 +22,24 @@
+   </component>
+   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+   <component name="FileEditorManager">
+-    <leaf>
+-      <file leaf-file-name="manifold_learning_57.py" pinned="false" current-in-tab="false">
+-        <entry file="file://$PROJECT_DIR$/manifold_learning/manifold_learning_57.py">
++    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
++      <file leaf-file-name="input_data.py" pinned="false" current-in-tab="false">
++        <entry file="file://$PROJECT_DIR$/deep_learning/hw1/input_data.py">
+           <provider selected="true" editor-type-id="text-editor">
+-            <state relative-caret-position="260">
+-              <caret line="13" column="27" lean-forward="false" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
+-              <folding>
+-                <element signature="e#0#18#0" expanded="true" />
+-              </folding>
++            <state relative-caret-position="520">
++              <caret line="26" column="26" lean-forward="false" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
++              <folding />
+             </state>
+           </provider>
+         </entry>
+       </file>
+-      <file leaf-file-name="manifold_learning_51.py" pinned="false" current-in-tab="true">
+-        <entry file="file://$PROJECT_DIR$/manifold_learning/manifold_learning_51.py">
++      <file leaf-file-name="MLP_mnist.py" pinned="false" current-in-tab="true">
++        <entry file="file://$PROJECT_DIR$/deep_learning/hw1/MLP_mnist.py">
+           <provider selected="true" editor-type-id="text-editor">
+-            <state relative-caret-position="180">
+-              <caret line="9" column="19" lean-forward="true" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
++            <state relative-caret-position="380">
++              <caret line="19" column="56" lean-forward="false" selection-start-line="19" selection-start-column="56" selection-end-line="19" selection-end-column="56" />
+               <folding>
+-                <element signature="e#0#23#0" expanded="true" />
++                <element signature="e#0#18#0" expanded="true" />
+               </folding>
+             </state>
+           </provider>
+@@ -46,6 +47,13 @@
+       </file>
+     </leaf>
+   </component>
++  <component name="FileTemplateManagerImpl">
++    <option name="RECENT_TEMPLATES">
++      <list>
++        <option value="Python Script" />
++      </list>
++    </option>
++  </component>
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+   </component>
+@@ -53,6 +61,8 @@
+     <option name="CHANGED_PATHS">
+       <list>
+         <option value="$PROJECT_DIR$/manifold_learning/manifold_learning_51.py" />
++        <option value="$PROJECT_DIR$/deep_learning/hw1/input_data.py" />
++        <option value="$PROJECT_DIR$/deep_learning/hw1/MLP_mnist.py" />
+       </list>
+     </option>
+   </component>
+@@ -66,7 +76,9 @@
+     <option name="width" value="1440" />
+     <option name="height" value="900" />
+   </component>
+-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
++  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
++    <ConfirmationsSetting value="2" id="Add" />
++  </component>
+   <component name="ProjectView">
+     <navigator currentView="ProjectPane" proportions="" version="1">
+       <flattenPackages />
+@@ -82,8 +94,8 @@
+       <foldersAlwaysOnTop value="true" />
+     </navigator>
+     <panes>
+-      <pane id="Scope" />
+       <pane id="Scratches" />
++      <pane id="Scope" />
+       <pane id="ProjectPane">
+         <subPane>
+           <PATH>
+@@ -106,7 +118,11 @@
+               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+             </PATH_ELEMENT>
+             <PATH_ELEMENT>
+-              <option name="myItemId" value="manifold_learning" />
++              <option name="myItemId" value="deep_learning" />
++              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
++            </PATH_ELEMENT>
++            <PATH_ELEMENT>
++              <option name="myItemId" value="hw1" />
+               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+             </PATH_ELEMENT>
+           </PATH>
+@@ -121,7 +137,25 @@
+     <property name="FullScreen" value="true" />
+     <property name="js.eslint.eslintPackage" value="" />
+   </component>
+-  <component name="RunManager" selected="Python.manifold_learning_51">
++  <component name="RunManager" selected="Python.MLP_mnist">
++    <configuration default="false" name="MLP_mnist" type="PythonConfigurationType" factoryName="Python" temporary="true">
++      <option name="INTERPRETER_OPTIONS" value="" />
++      <option name="PARENT_ENVS" value="true" />
++      <envs>
++        <env name="PYTHONUNBUFFERED" value="1" />
++      </envs>
++      <option name="SDK_HOME" value="" />
++      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/deep_learning/hw1" />
++      <option name="IS_MODULE_SDK" value="true" />
++      <option name="ADD_CONTENT_ROOTS" value="true" />
++      <option name="ADD_SOURCE_ROOTS" value="true" />
++      <module name="python" />
++      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
++      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/deep_learning/hw1/MLP_mnist.py" />
++      <option name="PARAMETERS" value="" />
++      <option name="SHOW_COMMAND_LINE" value="false" />
++      <method />
++    </configuration>
+     <configuration default="false" name="manifold_learning_51" type="PythonConfigurationType" factoryName="Python" temporary="true">
+       <option name="INTERPRETER_OPTIONS" value="" />
+       <option name="PARENT_ENVS" value="true" />
+@@ -229,6 +263,12 @@
+       <method />
+     </configuration>
+     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
++      <node-interpreter>project</node-interpreter>
++      <node-options />
++      <gulpfile />
++      <tasks />
++      <arguments />
++      <envs />
+       <method />
+     </configuration>
+     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+@@ -348,12 +388,33 @@
+       <option name="USE_KEYWORD" value="false" />
+       <method />
+     </configuration>
+-    <list size="1">
+-      <item index="0" class="java.lang.String" itemvalue="Python.manifold_learning_51" />
++    <configuration default="false" name="input_data" type="PythonConfigurationType" factoryName="Python">
++      <option name="INTERPRETER_OPTIONS" value="" />
++      <option name="PARENT_ENVS" value="true" />
++      <envs>
++        <env name="PYTHONUNBUFFERED" value="1" />
++      </envs>
++      <option name="SDK_HOME" value="" />
++      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/deep_learning/hw1" />
++      <option name="IS_MODULE_SDK" value="true" />
++      <option name="ADD_CONTENT_ROOTS" value="true" />
++      <option name="ADD_SOURCE_ROOTS" value="true" />
++      <module name="python" />
++      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
++      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/deep_learning/hw1/input_data.py" />
++      <option name="PARAMETERS" value="" />
++      <option name="SHOW_COMMAND_LINE" value="false" />
++      <method />
++    </configuration>
++    <list size="3">
++      <item index="0" class="java.lang.String" itemvalue="Python.input_data" />
++      <item index="1" class="java.lang.String" itemvalue="Python.MLP_mnist" />
++      <item index="2" class="java.lang.String" itemvalue="Python.manifold_learning_51" />
+     </list>
+     <recent_temporary>
+-      <list size="1">
+-        <item index="0" class="java.lang.String" itemvalue="Python.manifold_learning_51" />
++      <list size="2">
++        <item index="0" class="java.lang.String" itemvalue="Python.MLP_mnist" />
++        <item index="1" class="java.lang.String" itemvalue="Python.manifold_learning_51" />
+       </list>
+     </recent_temporary>
+   </component>
+@@ -372,26 +433,27 @@
+   </component>
+   <component name="ToolWindowManager">
+     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+-    <editor active="false" />
++    <editor active="true" />
+     <layout>
+-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16165951" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
++      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16380544" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288948" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288948" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
++      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
++      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
++      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+     </layout>
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -402,11 +464,51 @@
+   </component>
+   <component name="XDebuggerManager">
+     <breakpoint-manager>
+-      <option name="time" value="4" />
++      <option name="time" value="5" />
+     </breakpoint-manager>
+     <watches-manager />
+   </component>
+   <component name="editorHistoryManager">
++    <entry file="file://$PROJECT_DIR$/deep_learning/hw1/input_data.py">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="520">
++          <caret line="26" column="26" lean-forward="false" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
++          <folding />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/deep_learning/hw1/MLP_mnist.py">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="0">
++          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
++          <folding>
++            <element signature="e#0#18#0" expanded="true" />
++          </folding>
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/deep_learning/hw1/input_data.py">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="0">
++          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
++          <folding />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/manifold_learning/manifold_learning_57.py">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="180">
++          <caret line="13" column="27" lean-forward="false" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/manifold_learning/manifold_learning_51.py">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="0">
++          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
++        </state>
++      </provider>
++    </entry>
+     <entry file="file://$PROJECT_DIR$/manifold_learning/better_distance.py">
+       <provider selected="true" editor-type-id="text-editor">
+         <state relative-caret-position="200">
+@@ -421,22 +523,34 @@
+         </state>
+       </provider>
+     </entry>
++    <entry file="file://$PROJECT_DIR$/manifold_learning/manifold_learning_51.py">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="180">
++          <caret line="9" column="19" lean-forward="false" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
++        </state>
++      </provider>
++    </entry>
+     <entry file="file://$PROJECT_DIR$/manifold_learning/manifold_learning_57.py">
+       <provider selected="true" editor-type-id="text-editor">
+         <state relative-caret-position="260">
+           <caret line="13" column="27" lean-forward="false" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
+-          <folding>
+-            <element signature="e#0#18#0" expanded="true" />
+-          </folding>
+         </state>
+       </provider>
+     </entry>
+-    <entry file="file://$PROJECT_DIR$/manifold_learning/manifold_learning_51.py">
++    <entry file="file://$PROJECT_DIR$/deep_learning/hw1/input_data.py">
+       <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="180">
+-          <caret line="9" column="19" lean-forward="true" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
++        <state relative-caret-position="520">
++          <caret line="26" column="26" lean-forward="false" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
++          <folding />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/deep_learning/hw1/MLP_mnist.py">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="380">
++          <caret line="19" column="56" lean-forward="false" selection-start-line="19" selection-start-column="56" selection-end-line="19" selection-end-column="56" />
+           <folding>
+-            <element signature="e#0#23#0" expanded="true" />
++            <element signature="e#0#18#0" expanded="true" />
+           </folding>
+         </state>
+       </provider>
+diff --git a/python/deep_learning/hw1/MLP_mnist.py b/python/deep_learning/hw1/MLP_mnist.py
+new file mode 100644
+index 0000000..4553920
+--- /dev/null
++++ b/python/deep_learning/hw1/MLP_mnist.py
+@@ -0,0 +1,21 @@
++import numpy as np
++import tensorflow as tf
++import input_data
++
++
++# set up
++HIDDEN_NEURON_NUM = 500
++
++# data input and preprocessing
++mnist_data = input_data.read_data_sets("MNIST_data/", one_hot=True)
++train_x, train_y, test_x, test_y = mnist_data.train.images, mnist_data.train \
++    .labels, mnist_data.test.images, mnist_data.test.labels
++
++# weight init
++W_h = tf.Variable(tf.random_normal([768, HIDDEN_NEURON_NUM], stddev=0.01))
++W_o = tf.Variable(tf.random.normal([HIDDEN_NEURON_NUM, 10], stddev=0.01))
++
++# construct model
++X = tf.placeholder('float', [None, 768])
++Y = tf.placeholder('float', [None, 10])
++model_mlp = tf.matmul(tf.nn.relu(tf.matmul(X, W_h)), W_o)
+diff --git a/python/deep_learning/hw1/MNIST_data/t10k-images-idx3-ubyte.gz b/python/deep_learning/hw1/MNIST_data/t10k-images-idx3-ubyte.gz
+new file mode 100644
+index 0000000..5ace8ea
+Binary files /dev/null and b/python/deep_learning/hw1/MNIST_data/t10k-images-idx3-ubyte.gz differ
+diff --git a/python/deep_learning/hw1/MNIST_data/t10k-labels-idx1-ubyte.gz b/python/deep_learning/hw1/MNIST_data/t10k-labels-idx1-ubyte.gz
+new file mode 100644
+index 0000000..a7e1415
+Binary files /dev/null and b/python/deep_learning/hw1/MNIST_data/t10k-labels-idx1-ubyte.gz differ
+diff --git a/python/deep_learning/hw1/MNIST_data/train-images-idx3-ubyte.gz b/python/deep_learning/hw1/MNIST_data/train-images-idx3-ubyte.gz
+new file mode 100644
+index 0000000..b50e4b6
+Binary files /dev/null and b/python/deep_learning/hw1/MNIST_data/train-images-idx3-ubyte.gz differ
+diff --git a/python/deep_learning/hw1/MNIST_data/train-labels-idx1-ubyte.gz b/python/deep_learning/hw1/MNIST_data/train-labels-idx1-ubyte.gz
+new file mode 100644
+index 0000000..707a576
+Binary files /dev/null and b/python/deep_learning/hw1/MNIST_data/train-labels-idx1-ubyte.gz differ
+diff --git a/python/deep_learning/hw1/__pycache__/input_data.cpython-35.pyc b/python/deep_learning/hw1/__pycache__/input_data.cpython-35.pyc
+new file mode 100644
+index 0000000..2776fab
+Binary files /dev/null and b/python/deep_learning/hw1/__pycache__/input_data.cpython-35.pyc differ
+diff --git a/python/deep_learning/hw1/input_data.py b/python/deep_learning/hw1/input_data.py
+new file mode 100644
+index 0000000..f1a7e1c
+--- /dev/null
++++ b/python/deep_learning/hw1/input_data.py
+@@ -0,0 +1,29 @@
++# Copyright 2015 The TensorFlow Authors. All Rights Reserved.
++#
++# Licensed under the Apache License, Version 2.0 (the "License");
++# you may not use this file except in compliance with the License.
++# You may obtain a copy of the License at
++#
++#     http://www.apache.org/licenses/LICENSE-2.0
++#
++# Unless required by applicable law or agreed to in writing, software
++# distributed under the License is distributed on an "AS IS" BASIS,
++# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++# See the License for the specific language governing permissions and
++# limitations under the License.
++# ==============================================================================
++
++"""Functions for downloading and reading MNIST data."""
++from __future__ import absolute_import
++from __future__ import division
++from __future__ import print_function
++
++import gzip
++import os
++import tempfile
++
++import numpy
++from six.moves import urllib
++from six.moves import xrange  # pylint: disable=redefined-builtin
++import tensorflow as tf
++from tensorflow.contrib.learn.python.learn.datasets.mnist import read_data_sets
