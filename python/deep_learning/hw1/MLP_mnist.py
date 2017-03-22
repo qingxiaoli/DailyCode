@@ -40,3 +40,4 @@ with tf.Session() as sess:
                 train_y[start: end]})
         print('train num = ', i, 'accuracy = ', np.mean(np.argmax(test_y, \
             axis=1) == sess.run(predict_op, feed_dict={X: test_x, Y: test_y})))
+
