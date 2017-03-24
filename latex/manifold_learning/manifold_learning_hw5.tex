@@ -1,0 +1,48 @@
+\documentclass[a4paper, UTF8]{ctexart}
+\usepackage{ctex}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{multirow}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{bm}
+\usepackage{subfigure}
+\usepackage{float}
+\usepackage{mathrsfs}
+\renewcommand\thesection{\arabic{section}}
+\newtheorem*{exercise}{\textbf{习题}}
+\newtheorem*{theorem}{Theorem}
+\title{Manifole Learning Homework 5}
+\date{\today}
+\author{安捷 1601210097}
+\begin{document}
+\maketitle
+  \begin{exercise}[76]
+    首先，由于 $\mathbf{A}$ 是对称矩阵，因此$\mathbf{A}$有特征值分解
+    \begin{equation}
+      \mathbf{A} = \mathbf{U} \Lambda \mathbf{U}^T
+    \end{equation}
+    其中， $\Lambda$为inline首先证明题目中优化问题的解为
+    \begin{equation}
+      \mathbf{X} = \mathbf{U}
+      \left( \begin{array}{c}
+        \max \left( \Lambda_r, 0 \right) \\
+        \mathbf{0}
+      \end{array} \right)
+      \mathbf{U}^T
+    \end{equation}
+    由于
+    \begin{equation}
+      \lVert \mathbf{X} - \mathbf{A} \rVert_F^2 = \lVert \mathbf{X} \rVert_F^2 + \lVert \mathbf{A} \rVert_F^2 - 2 \langle \mathbf{X}, \mathbf{A}\rangle
+    \end{equation}
+    由于 $\mathbf{X}$ 是半正定矩阵，因此存在特征值分解
+    \begin{equation}
+      \mathbf{X}=\mathbf{V} \Psi \mathbf{V}^T
+    \end{equation}
+    所以有
+    \begin{equation}
+      \lVert \mathbf{X} - \mathbf{A} \rVert_F^2 =
+    \end{equation}
+  \end{exercise}
+\end{document}
