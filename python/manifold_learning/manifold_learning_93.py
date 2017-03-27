@@ -42,13 +42,10 @@ for i in range(len(data)):
 		z = np.dot(P, img_test)
 		tmp = np.zeros(np.size(Y, axis=1))
 		for k in range(np.size(Y, axis=1)):
-			tmp[k] = np.linalg.norm(Y[:, k] - z)
-		value = np.min(tmp)
-		value_index = np.argwhere(tmp == value)[0][0]
+			tmp[k] = np.linalg.norm(Y[:, k] - z) ** 2
+		value = np.sum(tmp)
 		if value < THRESHOLD:
-			label[count] = value_index
-		else:
-			label[count] = -1
+			label[count] = 1
 		count += 1
 print(label)
 accuracy = 0
