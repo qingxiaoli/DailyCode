@@ -23,11 +23,11 @@ def distance_compute(img, i, j, method='Eculidean'):
 
 # import data from mat file and setup
 data = io.loadmat('umist_cropped.mat')['facedat'][0]
+data = data * 1.0 / 255
 img = []
 for i in range(len(data)):
     for j in range(np.size(data[i], axis=2)):
         img.append(np.reshape(data[i][:, :, j], [1, np.size(data[i], axis=0) * np.size(data[i], axis=1)]))
-img = img * 1.0 / 255
 
 # compute distance matrix
 print('start computing distance matrix')
@@ -52,5 +52,11 @@ Y = np.dot(np.sqrt(Lambda), np.transpose(U))
 
 # plot points in 2D
 f1 = plt.figure(1)
-plt.scatter(Y[1, :], Y[0, :])
+plt.title('lp')
+colors = ['r', 'g', 'b', 'c', 'm', 'y', 'k', 'w', 'r', 'g', 'b', 'c', 'm', 'y', 'k', 'w', 'r', 'g', 'b', 'c', 'm', 'y', 'k', 'w']
+count = 0
+for i in range(len(data)):
+    count_out = count + np.size(data[i], axis=2)
+    plt.scatter(Y[1, count: count_out], Y[0, count: count_out], c=colors[i])
+    count = count_out
 plt.show()

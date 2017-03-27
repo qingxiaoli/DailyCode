@@ -43,18 +43,12 @@ for i in range(len(data)):
 		tmp = np.zeros(np.size(Y, axis=1))
 		for k in range(np.size(Y, axis=1)):
 			tmp[k] = np.linalg.norm(Y[:, k] - z) ** 2
-		value = np.sum(tmp)
+		value = np.sum(tmp) / len(tmp) / np.size(img_test)
 		if value < THRESHOLD:
 			label[count] = 1
 		count += 1
 print(label)
-accuracy = 0
-cut = 0
-for i in range(len(data)):
-	cut_out = cut + np.size(data[i], axis=2)
-	for j in range(cut, cut_out):
-		if label[j] >= cut and label[j] < cut_out:
-			accuracy += 1
-	cut = cut_out
-accuracy = accuracy / len(label)
-print(accuracy)
+
+# accuracy computing
+accuracy = np.sum(label) / len(label)
+print('accuracy=', accuracy)
