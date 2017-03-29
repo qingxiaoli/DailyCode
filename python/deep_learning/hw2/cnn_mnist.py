@@ -11,6 +11,7 @@ import mnist
 # setup
 MAX_TRAIN = 10000
 BATCH_SIZE = 50
+OPTIMIZER = 'sgd'
 
 
 # initialization functions
@@ -64,7 +65,22 @@ y_conv = tf.nn.softmax(tf.matmul(h_fc1_drop, W_fc2) + b_fc2)
 
 # train and test
 cross_entropy = -tf.reduce_sum(y_ * tf.log(y_conv))
-train_step = tf.train.AdamOptimizer(1e-4).minimize(cross_entropy)
+if OPTIMIZER == 'sgd':
+    train_step = tf.train.GradientDescentOptimizer(0.1)
+if OPTIMIZER == 'sgdm':
+    train_step = tf.train.MomentumOptimizer(0.1)
+if OPTIMIZER == 'nest':
+    train_step = tf.train.MomentumOptimizer(0.1, use_locking=True)
+if OPTIMIZER == 'adagrad':
+    train_step = tf.train.AdagradOptimizer(0.1)
+if OPTIMIZER == 'rms':
+    train_step = tf.train.RMSPropOptimizer(0.1)
+if OPTIMIZER == 'adam':
+    train_step = tf.train.AdamOptimizer(0.001)
+if OPTIMIZER == 'weight':
+    train_step = tf.train.
+
+
 correct_prediction = tf.equal(tf.argmax(y_, axis=1), tf.argmax(y_conv, axis=1))
 accuracy = tf.reduce_mean(tf.cast(correct_prediction, 'float'))
 sess = tf.InteractiveSession()
@@ -72,9 +88,7 @@ sess.run(tf.initialize_all_variables())
 for i in range(MAX_TRAIN):
     batch = mnist_data.train.next_batch(BATCH_SIZE)
     if i % 100 == 0:
-        train_accuracy = accuracy.eval(feed_dict={x: batch[0], y_: batch[1], keep_prob: 1.0})
-        print('step=', i, 'accuracy=', train_accuracy)
+        test_accuracy = accuracy.eval(feed_dict={x: mnist_data.test.images, y_: mnist_data.test.labels, \
+                                                 keep_prob: 1.0})
+        print('step=', i, 'test_accuracy=', train_accuracy)
     train_step.run(feed_dict={x: batch[0], y_: batch[1], keep_prob: 0.5})
-print('test accuracy=', accuracy.eval(feed_dict={x: mnist_data.test.images, y_: mnist_data.test.labels, \
-                                                 keep_prob: 1.0}))
-

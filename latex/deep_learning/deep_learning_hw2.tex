@@ -1,0 +1,72 @@
+%!TEX program = xelatex
+\documentclass[a4paper, UTF8]{ctexrep}
+\usepackage{ctex}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{bm}
+\usepackage{subfigure}
+\usepackage{float}
+\usepackage{array}
+\usepackage{makecell}
+
+\renewcommand\thesection{\arabic{section}}
+
+\begin{document}
+	\begin{titlepage}
+		\centering
+		\vspace{6cm}
+		\LARGE{\textbf{Deep Learning Homework 2}}\\
+		\vspace{4cm}
+		\includegraphics[width=0.8\textwidth]{deepLearning.png}\\
+		\vspace{4cm}
+		\normalsize{安捷 1601210097}\\
+		\normalsize{\today}
+	\end{titlepage}
+		\section{算法实现简介}
+			在这次作业中，为了能够更好的实验不同优化算法的性能及对参数的敏感性，我放弃了上次作业中使用的MLP网络，重新实现了一个有两个卷积层和一个全连接层的CNN，并针对mnist数据集测试了不同优化算法的性能，性能测试主要分为两部分：
+			\begin{enumerate}
+				\item 使用每个算法默认的学习率及其他超参数，分别测试算法达到99\%测试准确率的迭代次数，以此来显示算法的性能；
+				\item 对每一个算法，分别使用默认学习率或超参数、比默认参数高一个数量级、低一个数量级三组参数分别测试其在上一步达到99\%准确率的迭代次数时达到了准确率，以此作为衡量算法对学习率或超参数敏感性的指标；
+			\end{enumerate}
+		\section{算法性能测试}
+			\begin{table}[htbp!]
+				\centering
+				\begin{tabular}{ccc}
+
+				\end{tabular}
+				\caption{优化算法达到99\%准确率所需迭代次数}
+			\end{table}
+		\section{算法超参数稳定性测试}
+			\begin{table}[htbp!]
+				\centering
+				\begin{tabular}{cccc}
+
+				\end{tabular}
+				\caption{算法不同超参数下固定迭代次数达到的准确率}
+			\end{table}
+
+
+    \section{代码运行环境及测试平台信息}
+      \begin{table}[htbp!]
+        \centering
+        \begin{tabular}{l}
+          \hline
+          Python Version: 3.6.0 \\
+          Tensorflow Version: tensorflow-gpu-1.0.1 \\
+          CUDA Version: 8.0 \\
+          OS: Arch Linux \\
+          Kernel: x86\_64 Linux 4.10.4-1-ARCH \\
+          CPU: Intel Core i7-6700K @ 8x 4.2GHz \\
+          GPU: GeForce GTX 1060 6GB \\
+          RAM: 16003MiB \\
+          \hline
+        \end{tabular}
+        \caption{代码运行环境及测试环境表}
+      \end{table}
+      在没有NVIDIA\ GPU及CUDA支持的环境下代码依然可以运行，只是速度较慢
+    \section{总结}
+      通过这次作业，我学习了tensorflow的基本使用方法，在实现了MLP之后，我又实现了CNN并成功部署到了科研实验中，接下来我将尝试用tensorflow实现FCN用于图像分割；在完成作业的过程中，我同时利用上述测试环境中的CPU与GPU进行了训练，发现GPU训练的速度大约是CPU训练速度的两倍，之后的作业在显存足够的情况下我将主要使用GPU进行训练。
+\end{document}
