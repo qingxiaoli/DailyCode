@@ -66,19 +66,17 @@ y_conv = tf.nn.softmax(tf.matmul(h_fc1_drop, W_fc2) + b_fc2)
 # train and test
 cross_entropy = -tf.reduce_sum(y_ * tf.log(y_conv))
 if OPTIMIZER == 'sgd':
-    train_step = tf.train.GradientDescentOptimizer(0.1)
+    train_step = tf.train.GradientDescentOptimizer(0.1).minimize(cross_entropy)
 if OPTIMIZER == 'sgdm':
-    train_step = tf.train.MomentumOptimizer(0.1)
+    train_step = tf.train.MomentumOptimizer(0.1).minimize(cross_entropy)
 if OPTIMIZER == 'nest':
-    train_step = tf.train.MomentumOptimizer(0.1, use_locking=True)
+    train_step = tf.train.MomentumOptimizer(0.1, use_locking=True).minimize(cross_entropy)
 if OPTIMIZER == 'adagrad':
-    train_step = tf.train.AdagradOptimizer(0.1)
+    train_step = tf.train.AdagradOptimizer(0.1).minimize(cross_entropy)
 if OPTIMIZER == 'rms':
-    train_step = tf.train.RMSPropOptimizer(0.1)
+    train_step = tf.train.RMSPropOptimizer(0.1).minimize(cross_entropy)
 if OPTIMIZER == 'adam':
-    train_step = tf.train.AdamOptimizer(0.001)
-if OPTIMIZER == 'weight':
-    train_step = tf.train.
+    train_step = tf.train.AdamOptimizer(0.001).minimize(cross_entropy)
 
 
 correct_prediction = tf.equal(tf.argmax(y_, axis=1), tf.argmax(y_conv, axis=1))
@@ -90,5 +88,5 @@ for i in range(MAX_TRAIN):
     if i % 100 == 0:
         test_accuracy = accuracy.eval(feed_dict={x: mnist_data.test.images, y_: mnist_data.test.labels, \
                                                  keep_prob: 1.0})
-        print('step=', i, 'test_accuracy=', train_accuracy)
+        print('step=', i, 'test_accuracy=', test_accuracy)
     train_step.run(feed_dict={x: batch[0], y_: batch[1], keep_prob: 0.5})
