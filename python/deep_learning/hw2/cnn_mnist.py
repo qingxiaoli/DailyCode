@@ -64,7 +64,7 @@ h_fc1_drop = tf.nn.dropout(h_fc1, keep_prob=keep_prob)
 y_conv = tf.nn.softmax(tf.matmul(h_fc1_drop, W_fc2) + b_fc2)
 
 # train and test
-cross_entropy = -tf.reduce_sum(y_ * tf.log(y_conv))
+cross_entropy = tf.reduce_sum(y_ * tf.log(y_conv))
 if OPTIMIZER == 'sgd':
     train_step = tf.train.GradientDescentOptimizer(0.1).minimize(cross_entropy)
 if OPTIMIZER == 'sgdm':
