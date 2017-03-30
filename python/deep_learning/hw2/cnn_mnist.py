@@ -89,4 +89,6 @@ for i in range(MAX_TRAIN):
         test_accuracy = accuracy.eval(feed_dict={x: mnist_data.test.images, y_: mnist_data.test.labels, \
                                                  keep_prob: 1.0})
         print('step=', i, 'test_accuracy=', test_accuracy)
+        if test_accuracy > 0.99:
+            break
     train_step.run(feed_dict={x: batch[0], y_: batch[1], keep_prob: 0.5})
