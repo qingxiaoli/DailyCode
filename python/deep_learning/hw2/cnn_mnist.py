@@ -11,7 +11,7 @@ import mnist
 # setup
 MAX_TRAIN = 10000
 BATCH_SIZE = 50
-OPTIMIZER = 'sgd'
+OPTIMIZER = 'adam'
 
 
 # initialization functions
@@ -66,17 +66,17 @@ y_conv = tf.nn.softmax(tf.matmul(h_fc1_drop, W_fc2) + b_fc2)
 # train and test
 cross_entropy = -tf.reduce_sum(y_ * tf.log(y_conv))
 if OPTIMIZER == 'sgd':
-    train_step = tf.train.GradientDescentOptimizer(0.1).minimize(cross_entropy)
+    train_step = tf.train.GradientDescentOptimizer(0.0001).minimize(cross_entropy)
 if OPTIMIZER == 'sgdm':
-    train_step = tf.train.MomentumOptimizer(0.1).minimize(cross_entropy)
+    train_step = tf.train.MomentumOptimizer(0.001, 0.0005).minimize(cross_entropy)
 if OPTIMIZER == 'nest':
-    train_step = tf.train.MomentumOptimizer(0.1, use_locking=True).minimize(cross_entropy)
+    train_step = tf.train.MomentumOptimizer(0.001, 0.00005, use_locking=True).minimize(cross_entropy)
 if OPTIMIZER == 'adagrad':
-    train_step = tf.train.AdagradOptimizer(0.1).minimize(cross_entropy)
+    train_step = tf.train.AdagradOptimizer(0.0001).minimize(cross_entropy)
 if OPTIMIZER == 'rms':
-    train_step = tf.train.RMSPropOptimizer(0.1).minimize(cross_entropy)
+    train_step = tf.train.RMSPropOptimizer(0.01).minimize(cross_entropy)
 if OPTIMIZER == 'adam':
-    train_step = tf.train.AdamOptimizer(0.001).minimize(cross_entropy)
+    train_step = tf.train.AdamOptimizer(0.0001).minimize(cross_entropy)
 
 
 correct_prediction = tf.equal(tf.argmax(y_, axis=1), tf.argmax(y_conv, axis=1))
