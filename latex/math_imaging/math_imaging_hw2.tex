@@ -162,10 +162,15 @@
 					\caption{shock\_filter\_deblur数值实验结果}
 					\label{}
 				\end{figure}
+				\clearpage
 		\section{结论}
 			从上述数值实验过程，可以得到以下结论：
 			\begin{enumerate}
 				\item heat equation和perona malik算法随着演化时间变长，图像会越来越平滑，细节丢失越来越严重，这与老师上课讲到的结论是相同的；
+				\item heat equation和perona malik算法相比，效果较差，perona malik算法可以在去噪的同时更好的保留图像的边缘信息，使得去噪之后的图像在观感上更好；
+				\item shock filter算法在没有噪声的情况下，可以很好的增强图像的边缘信息，即实现模糊图像的锐化，但是，对于噪声图像，shock filter在增强边缘细节的同时也会增强噪声的信息，图像会受到更大噪声的影响；
+				\item shock filter算法中的两种L算子，第二种明显在细节的增强上要优于第一种，且在噪声图像上有更好的表现；
+				\item shock filter算法在长时间演化下会产生非常奇特的现象，可以从数值实验的结果看出，图像显得很乱，仔细看会发现：对于没有噪声的图像，shock filter算法过度增强了图像的边缘，导致图像边缘太过于突出；对于含噪图像，shock filter算法在过度增强边缘的同时，还过度增强了噪声，使得图像中出现了雪花点一般的噪声。产生上述结果说明了在长期演化的情况下，shock filter算法没有稳定收敛的解；
 			\end{enumerate}
 
 \end{document}
