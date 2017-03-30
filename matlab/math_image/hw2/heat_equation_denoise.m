@@ -6,7 +6,7 @@
 
 %% set up
 IMG_PATH = 'lena.bmp';
-MAX_ITERATION = [100, 200, 300];
+MAX_ITERATION = [100, 200, 300, 500];
 NOISE_SCALE = 100;
 DISCRETE_TIME = 0.05;
 
@@ -43,6 +43,7 @@ subplot(132), imshow(img_noise), axis image, title('noised image');
 subplot(133), imshow(result{1}), axis image, title('denoised image');
 
 figure,
-subplot(131), imshow(result{1}), axis image, title(['terminate in ', num2str(MAX_ITERATION(1))]);
-subplot(132), imshow(result{2}), axis image, title(['terminate in ', num2str(MAX_ITERATION(2))]);
-subplot(133), imshow(result{3}), axis image, title(['terminate in ', num2str(MAX_ITERATION(3))]);
+subplot(221), imshow(result{1}), axis image, title(['terminate in ', num2str(MAX_ITERATION(1))]);
+subplot(222), imshow(result{2}), axis image, title(['terminate in ', num2str(MAX_ITERATION(2))]);
+subplot(223), imshow(result{3}), axis image, title(['terminate in ', num2str(MAX_ITERATION(3))]);
+subplot(224), imshow(result{4}), axis image, title(['terminate in ', num2str(MAX_ITERATION(4))]);

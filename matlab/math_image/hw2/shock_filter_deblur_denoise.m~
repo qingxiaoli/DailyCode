@@ -7,7 +7,7 @@
 %% set up
 IMG_PATH = 'lena.bmp';
 MAX_ITERATION = 200;
-NOISE_SCALE = 100000;
+NOISE_SCALE = 100;
 DISCRETE_TIME = 0.01;
 SIGMA = 2;
 
@@ -61,5 +61,5 @@ subplot(132), imshow(img_noise), axis image, title('blur image with noise');
 subplot(133), imshow(result{1}), axis image, title('deblur image');
 
 figure,
-subplot(121), imshow(result{1}), axis image, title(['first type of L', ' iteration=', num2str(MAX_ITERATION), ' noise scale=', num2str(NOISE_SCALE)]);
-subplot(122), imshow(result{2}), axis image, title(['second type of L', ' iteration=', num2str(MAX_ITERATION), ' noise scale=', num2str(NOISE_SCALE)]);
+subplot(121), imshow(result{1}), axis image, title('first type of L', ' iteration=', num2str(MAX_ITERATION), 'NOISE_SCALE');
+subplot(122), imshow(result{2}), axis image, title('second type of L', ' iteration=', num2str(MAX_ITERATION));

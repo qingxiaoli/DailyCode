@@ -1,0 +1,171 @@
+\documentclass[a4paper, UTF8]{ctexrep}
+\usepackage{ctex}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{bm}
+\usepackage{subfigure}
+\usepackage{float}
+
+\renewcommand\thesection{\arabic{section}}
+
+\begin{document}
+	\begin{titlepage}
+		\centering
+		\vspace{6cm}
+		\LARGE{图像处理中的数学方法第二次作业报告}\\
+		\vspace{3cm}
+		\includegraphics[width=0.8\textwidth]{deepLearning.png}\\
+		\vspace{4cm}
+		\normalsize{安捷 1601210097}\\
+		\normalsize{\today}
+	\end{titlepage}
+	为了实现本次作业的需求，我基于MATLAB，实现了以下三种算法:
+	\begin{enumerate}
+		\item Heat Equation Denoising
+		\item Perona Malik Denoising
+		\item Shock Filter Deblur
+	\end{enumerate}
+	并且，分别针对前两种算法尝试了不同的演化时间（即离散情况下的迭代次数）下的算法效果；针对第三种算法尝试了不同的噪声水平、采用不同的L算法以及长时间演化下算法的效果。
+		\section{参数设置}
+			\subsection{heat\_equation\_denoise参数设置}
+				\begin{table}[htbp!]
+					\centering
+					\begin{tabular}{cc}
+						\hline
+						参数名称 & 参数值 \\
+						\hline
+						MAX\_ITERATION & 100/200/300/500 \\
+						NOISE\_SCALE & 100 \\
+						DISCRETE\_TIME & 0.05 \\
+						\hline
+					\end{tabular}
+					\caption{heat\_equation\_denoise参数表}
+				\end{table}
+				其中，噪声的添加方式与上一次作业相同，这里的NOISE\_SCALE参数即为上一次作业中噪声赋值的参数，DISCRETE\_TIME为每次演化时的时间长度。
+			\subsection{perona\_malik\_denoise参数设置}
+				\begin{table}[htbp!]
+					\centering
+					\begin{tabular}{cc}
+						\hline
+						参数名称 & 参数值 \\
+						\hline
+						MAX\_ITERATION & 100/200/300/500 \\
+						NOISE\_SCALE & 100 \\
+						DISCRETE\_TIME & 0.05 \\
+						K & 0.05 \\
+						\hline
+					\end{tabular}
+					\caption{perona\_malik\_denoise参数表}
+				\end{table}
+			\subsection{shock\_filter\_deblur参数设置}
+				\begin{table}[htbp!]
+					\centering
+					\begin{tabular}{cc}
+						\hline
+						参数名称 & 参数值 \\
+						\hline
+						MAX\_ITERATION & 200/500 \\
+						NOISE\_SCALE & 100/200/100000 \\
+						DISCRETE\_TIME & 0.01 \\
+						SIGMA & 2 \\
+						\hline
+					\end{tabular}
+					\caption{shock\_filter\_deblur参数表}
+				\end{table}
+				其中，SIGMA为Gauss平滑算子的标准差。
+			\section{数值实验结果}
+				我按照上述参数表中的设定分别进行了若干组数值实验，现将熟知实验的结果展示如下：
+				\begin{figure}[htbp!]
+					\centering
+					\includegraphics[width=0.8\textwidth]{hw2_fig1.png}
+					\caption{heat\_equation\_denoise数值实验结果}
+					\label{}
+				\end{figure}
+				\begin{figure}[htbp!]
+					\centering
+					\includegraphics[width=0.8\textwidth]{hw2_fig2.png}
+					\caption{heat\_equation\_denoise数值实验结果}
+					\label{}
+				\end{figure}
+				\begin{figure}[htbp!]
+					\centering
+					\includegraphics[width=0.8\textwidth]{hw2_fig3.png}
+					\caption{perona\_malik\_denoise数值实验结果}
+					\label{}
+				\end{figure}
+				\begin{figure}[htbp!]
+					\centering
+					\includegraphics[width=0.8\textwidth]{hw2_fig4.png}
+					\caption{perona\_malik\_denoise数值实验结果}
+					\label{}
+				\end{figure}
+				\begin{figure}[htbp!]
+					\centering
+					\includegraphics[width=0.8\textwidth]{hw2_fig5.png}
+					\caption{shock\_filter\_deblur数值实验结果}
+					\label{}
+				\end{figure}
+				\begin{figure}[htbp!]
+					\centering
+					\includegraphics[width=0.8\textwidth]{hw2_fig6.png}
+					\caption{shock\_filter\_deblur数值实验结果}
+					\label{}
+				\end{figure}
+				\begin{figure}[htbp!]
+					\centering
+					\includegraphics[width=0.8\textwidth]{hw2_fig7.png}
+					\caption{shock\_filter\_deblur数值实验结果}
+					\label{}
+				\end{figure}
+				\begin{figure}[htbp!]
+					\centering
+					\includegraphics[width=0.8\textwidth]{hw2_fig8.png}
+					\caption{shock\_filter\_deblur数值实验结果}
+					\label{}
+				\end{figure}
+				\begin{figure}[htbp!]
+					\centering
+					\includegraphics[width=0.8\textwidth]{hw2_fig9.png}
+					\caption{shock\_filter\_deblur数值实验结果}
+					\label{}
+				\end{figure}
+				\begin{figure}[htbp!]
+					\centering
+					\includegraphics[width=0.8\textwidth]{hw2_fig10.png}
+					\caption{shock\_filter\_deblur数值实验结果}
+					\label{}
+				\end{figure}
+				\begin{figure}[htbp!]
+					\centering
+					\includegraphics[width=0.8\textwidth]{hw2_fig11.png}
+					\caption{shock\_filter\_deblur数值实验结果}
+					\label{}
+				\end{figure}
+				\begin{figure}[htbp!]
+					\centering
+					\includegraphics[width=0.8\textwidth]{hw2_fig12.png}
+					\caption{shock\_filter\_deblur数值实验结果}
+					\label{}
+				\end{figure}
+				\begin{figure}[htbp!]
+					\centering
+					\includegraphics[width=0.8\textwidth]{hw2_fig13.png}
+					\caption{shock\_filter\_deblur数值实验结果}
+					\label{}
+				\end{figure}
+				\begin{figure}[htbp!]
+					\centering
+					\includegraphics[width=0.8\textwidth]{hw2_fig14.png}
+					\caption{shock\_filter\_deblur数值实验结果}
+					\label{}
+				\end{figure}
+		\section{结论}
+			从上述数值实验过程，可以得到以下结论：
+			\begin{enumerate}
+				\item heat equation和perona malik算法随着演化时间变长，图像会越来越平滑，细节丢失越来越严重，这与老师上课讲到的结论是相同的；
+			\end{enumerate}
+
+\end{document}
