@@ -4,8 +4,8 @@ from sklearn import decomposition as skdc
 
 
 # set up
-EPSILON1 = 50
-EPSILON2 = 30000
+EPSILON1 = 100
+EPSILON2 = 32000
 
 # pre processing
 data = scio.loadmat('umist_cropped.mat')
