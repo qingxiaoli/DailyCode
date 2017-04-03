@@ -1,0 +1,34 @@
+\documentclass[a4paper, UTF8]{ctexart}
+\usepackage{ctex}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{multirow}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{bm}
+\usepackage{subfigure}
+\usepackage{float}
+\usepackage{mathrsfs}
+\renewcommand\thesection{\arabic{section}}
+\newtheorem*{exercise}{\textbf{习题}}
+\newtheorem*{theorem}{Theorem}
+\title{Manifole Learning Homework 6}
+\date{\today}
+\author{安捷 1601210097}
+\begin{document}
+\maketitle
+  \begin{exercise}[95]
+    \begin{proof}
+      由于 $k_1$ 是一个核函数，因此由Mercer定理，对于任意的 $L_2$可积函数 $g$有
+      \begin{equation}
+        \int g \left( \mathbf{x} \right) g \left(  \mathbf{y}\right)k_1 \left( \mathbf{x}, \mathbf{y} \right) d \mathbf{x} d \mathbf{y} > 0
+      \end{equation}
+      而由于 $k \left( \mathbf{x}, \mathbf{y} \right) = \mathrm{exp}\left( k_1 \left( \mathbf{x}, \mathbf{y} \right) \right) > k_1 \left( \mathbf{x}, \mathbf{y} \right)$，因此有
+      \begin{equation}
+        \int g \left( \mathbf{x} \right) g \left( \mathbf{y} \right) k \left( \mathbf{x}, \mathbf{y} \right) d \mathbf{x} d \mathbf{y} > \int g \left( \mathbf{x} \right) g \left( \mathbf{y} \right) k_1 \left( \mathbf{x}, \mathbf{y} \right) d \mathbf{x} d \mathbf{y} > 0
+      \end{equation}
+      由Mercer定理， $k \left( \mathbf{x}, \mathbf{y} \right)$ 是核函数。
+    \end{proof}
+  \end{exercise}
+\end{document}
