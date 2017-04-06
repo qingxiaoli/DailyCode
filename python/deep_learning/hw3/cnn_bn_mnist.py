@@ -11,7 +11,7 @@ import mnist
 # setup
 MAX_TRAIN = 10000
 BATCH_SIZE = 50
-OPTIMIZER = 'adam'
+OPTIMIZER = 'sgd'
 
 
 # initialization functions
@@ -33,7 +33,23 @@ def max_pooling_22(x):
     return tf.nn.max_pool(x, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='SAME')
 
 
-def batch_nomalization()
+def bn(x, n_out, phase_train):
+    with tf.variable_scope('bn'):
+        beta = tf.Variable(tf.constant(0.0, shape=[n_out]), name='beta', trainable=True)
+        gamma = tf.Variable(tf.constant(1.0, shape=[n_out]), name='gamma', trainable=True)
+        batch_mean, batch_var = tf.nn.moments(x, [0, 1, 2], name='moments')
+        ema = tf.train.ExponentialMovingAverage(decay=0.9)
+
+        def mean_var_with_update():
+            ema_apply_op = ema.apply([batch_mean, batch_var])
+            with tf.control_dependencies([ema_apply_op]):
+                return tf.identity(batch_mean), tf.identity(batch_var)
+
+        mean, var = tf.cond(phase_train, mean_var_with_update, lambda: (ema.average(batch_mean), ema.average(batch_var)))
+        normed = tf.nn.batch_normalization(x, mean, var, beta, gamma, 1e-3)
+        return normed
+
+
 # import data
 mnist_data = mnist.read_data_sets('MNIST_data/', one_hot=True)
 train_x, train_y, test_x, test_y = mnist_data.train.images, mnist_data.train.labels, mnist_data.test.images,\
@@ -43,6 +59,7 @@ train_x, train_y, test_x, test_y = mnist_data.train.images, mnist_data.train.lab
 x = tf.placeholder('float', shape=[None, np.size(train_x, axis=1)])
 y_ = tf.placeholder('float', shape=[None, np.size(train_y, axis=1)])
 keep_prob = tf.placeholder('float')
+phase_train = tf.placeholder(tf.bool, name='phase_train')
 
 # parameters creation
 W_conv1 = weight_variable([5, 5, 1, 32])
@@ -56,9 +73,9 @@ b_fc2 = bias_variable([10])
 
 # compute graph
 x_image = tf.reshape(x, [-1, 28, 28, 1])
-h_conv1 = tf.nn.relu(conv2d(x_image, W_conv1) + b_conv1)
+h_conv1 = tf.nn.relu(bn(conv2d(x_image, W_conv1) + b_conv1, n_out=32, phase_train=phase_train))
 h_pool1 = max_pooling_22(h_conv1)
-h_conv2 = tf.nn.relu(conv2d(h_pool1, W_conv2) + b_conv2)
+h_conv2 = tf.nn.relu(bn(conv2d(h_pool1, W_conv2) + b_conv2, n_out=64, phase_train=phase_train))
 h_pool2 = max_pooling_22(h_conv2)
 h_pool2_flat = tf.reshape(h_pool2, [-1, 7 * 7 * 64])
 h_fc1 = tf.nn.relu(tf.matmul(h_pool2_flat, W_fc1) + b_fc1)
@@ -89,8 +106,6 @@ for i in range(MAX_TRAIN):
     batch = mnist_data.train.next_batch(BATCH_SIZE)
     if i % 100 == 0:
         test_accuracy = accuracy.eval(feed_dict={x: mnist_data.test.images, y_: mnist_data.test.labels, \
-                                                 keep_prob: 1.0})
+                                                 keep_prob: 1.0, phase_train: False})
         print('step=', i, 'test_accuracy=', test_accuracy)
-        if test_accuracy > 0.99:
-            break
-    train_step.run(feed_dict={x: batch[0], y_: batch[1], keep_prob: 0.5})
+    train_step.run(feed_dict={x: batch[0], y_: batch[1], keep_prob: 0.5, phase_train: True})
