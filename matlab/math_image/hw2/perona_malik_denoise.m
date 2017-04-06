@@ -6,8 +6,8 @@
 
 %% set up
 IMG_PATH = 'lena.bmp';
-MAX_ITERATION = [100, 200, 300, 500];
-NOISE_SCALE = 100;
+MAX_ITERATION = [100, 100, 100, 1000];
+NOISE_SCALE = 2;
 DISCRETE_TIME = 0.05;
 K = 0.05;
 
