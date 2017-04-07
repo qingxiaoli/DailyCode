@@ -10,7 +10,7 @@ import mnist
 
 # setup
 MAX_TRAIN = 10000
-BATCH_SIZE = 50
+BATCH_SIZE = 128 
 OPTIMIZER = 'sgd'
 
 
@@ -33,21 +33,27 @@ def max_pooling_22(x):
     return tf.nn.max_pool(x, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='SAME')
 
 
-def bn(x, n_out, phase_train):
-    with tf.variable_scope('bn'):
-        beta = tf.Variable(tf.constant(0.0, shape=[n_out]), name='beta', trainable=True)
-        gamma = tf.Variable(tf.constant(1.0, shape=[n_out]), name='gamma', trainable=True)
-        batch_mean, batch_var = tf.nn.moments(x, [0, 1, 2], name='moments')
-        ema = tf.train.ExponentialMovingAverage(decay=0.9)
+def bn_beta(shape, constant=0.0):
+    return tf.Variable(tf.constant(constant, shape=shape))
 
-        def mean_var_with_update():
-            ema_apply_op = ema.apply([batch_mean, batch_var])
-            with tf.control_dependencies([ema_apply_op]):
-                return tf.identity(batch_mean), tf.identity(batch_var)
 
-        mean, var = tf.cond(phase_train, mean_var_with_update, lambda: (ema.average(batch_mean), ema.average(batch_var)))
-        normed = tf.nn.batch_normalization(x, mean, var, beta, gamma, 1e-3)
-        return normed
+def bn_gamma(shape, constant=1.0):
+    return tf.Variable(tf.constant(constant, shape=shape))
+
+
+
+def bn(x, beta, gamma, phase_train):
+    batch_mean, batch_var = tf.nn.moments(x, [0, 1, 2])
+    ema = tf.train.ExponentialMovingAverage(decay=0.999)
+
+    def mean_var_with_update():
+        ema_apply_op = ema.apply([batch_mean, batch_var])
+        with tf.control_dependencies([ema_apply_op]):
+            return tf.identity(batch_mean), tf.identity(batch_var)
+
+    mean, var = tf.cond(phase_train, mean_var_with_update, lambda: (ema.average(batch_mean), ema.average(batch_var)))
+    normed = tf.nn.batch_normalization(x, mean, var, beta, gamma, 1e-3)
+    return normed
 
 
 # import data
@@ -64,8 +70,12 @@ phase_train = tf.placeholder(tf.bool, name='phase_train')
 # parameters creation
 W_conv1 = weight_variable([5, 5, 1, 32])
 b_conv1 = bias_variable([32])
+gamma_bn1 = bn_gamma([32])
+beta_bn1 = bn_beta([32])
 W_conv2 = weight_variable([5, 5, 32, 64])
 b_conv2 = bias_variable([64])
+gamma_bn2 = bn_gamma([64])
+beta_bn2 = bn_beta([64])
 W_fc1 = weight_variable([7 * 7 * 64, 1024])
 b_fc1 = bias_variable([1024])
 W_fc2 = weight_variable([1024, 10])
@@ -73,9 +83,9 @@ b_fc2 = bias_variable([10])
 
 # compute graph
 x_image = tf.reshape(x, [-1, 28, 28, 1])
-h_conv1 = tf.nn.relu(bn(conv2d(x_image, W_conv1) + b_conv1, n_out=32, phase_train=phase_train))
+h_conv1 = tf.nn.relu(bn(conv2d(x_image, W_conv1) + b_conv1, beta_bn1, gamma_bn1, phase_train=phase_train))
 h_pool1 = max_pooling_22(h_conv1)
-h_conv2 = tf.nn.relu(bn(conv2d(h_pool1, W_conv2) + b_conv2, n_out=64, phase_train=phase_train))
+h_conv2 = tf.nn.relu(bn(conv2d(h_pool1, W_conv2) + b_conv2, beta_bn2, gamma_bn2, phase_train=phase_train))
 h_pool2 = max_pooling_22(h_conv2)
 h_pool2_flat = tf.reshape(h_pool2, [-1, 7 * 7 * 64])
 h_fc1 = tf.nn.relu(tf.matmul(h_pool2_flat, W_fc1) + b_fc1)
