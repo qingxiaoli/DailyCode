@@ -10,7 +10,7 @@ import mnist
 
 # setup
 MAX_TRAIN = 10000
-BATCH_SIZE = 50
+BATCH_SIZE = 128
 OPTIMIZER = 'adam'
 
 
@@ -91,4 +91,4 @@ for i in range(MAX_TRAIN):
         print('step=', i, 'test_accuracy=', test_accuracy)
         if test_accuracy > 0.99:
             break
-    train_step.run(feed_dict={x: batch[0], y_: batch[1], keep_prob: 0.5})
+    train_step.run(feed_dict={x: batch[0], y_: batch[1], keep_prob: 0.75})

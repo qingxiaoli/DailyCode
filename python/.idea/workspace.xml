@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="356b688c-88e3-496a-ab1b-4aa201a4b461" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/deep_learning/hw3/mnist.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/manifold_learning/.idea/manifold_learning_103-108.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deep_learning/hw3/cnn_bn_mnist.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deep_learning/hw3/mnist.py" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deep_learning/hw3/cnn_bn_mnist.py" afterPath="$PROJECT_DIR$/deep_learning/hw3/cnn_bn_mnist.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deep_learning/hw2/cnn_mnist.py" afterPath="$PROJECT_DIR$/deep_learning/hw2/cnn_mnist.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -39,25 +42,37 @@
     <favorites_list name="python" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="cnn_bn_mnist.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/deep_learning/hw3/cnn_bn_mnist.py">
+    <leaf>
+      <file leaf-file-name="mnist_cnn_bn.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/deep_learning/hw3/mnist_cnn_bn.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="548">
-              <caret line="87" column="56" lean-forward="false" selection-start-line="87" selection-start-column="56" selection-end-line="87" selection-end-column="56" />
+            <state relative-caret-position="840">
+              <caret line="144" column="10" lean-forward="false" selection-start-line="144" selection-start-column="4" selection-end-line="144" selection-end-column="61" />
               <folding>
-                <element signature="e#278#296#0" expanded="true" />
+                <element signature="e#42#80#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mnist.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/deep_learning/hw3/mnist.py">
+      <file leaf-file-name="cnn_bn_mnist.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/deep_learning/hw3/cnn_bn_mnist.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="-414">
+              <caret line="108" column="41" lean-forward="false" selection-start-line="108" selection-start-column="41" selection-end-line="108" selection-end-column="41" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="my_nn_lib.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/deep_learning/hw3/my_nn_lib.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2937">
+              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="e#45#82#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -82,12 +97,16 @@
         <option value="$PROJECT_DIR$/deep_learning/hw1/MLP_mnist.py" />
         <option value="$PROJECT_DIR$/manifold_learning/manifold_learning_93.py" />
         <option value="$PROJECT_DIR$/manifold_learning/manifold_learning_77.py" />
-        <option value="$PROJECT_DIR$/deep_learning/hw2/cnn_mnist.py" />
         <option value="$PROJECT_DIR$/manifold_learning/manifold_learning_57.py" />
         <option value="$PROJECT_DIR$/manifold_learning/manifold_learning_98.py" />
         <option value="$PROJECT_DIR$/manifold_learning/manifold_learning_100.py" />
         <option value="$PROJECT_DIR$/manifold_learning/manifold_learning_96.py" />
+        <option value="$PROJECT_DIR$/manifold_learning/.idea/manifold_learning_103-108.py" />
+        <option value="$PROJECT_DIR$/deep_learning/hw3/cnn_bn.py" />
+        <option value="$PROJECT_DIR$/deep_learning/hw2/cnn_mnist.py" />
+        <option value="$PROJECT_DIR$/deep_learning/hw3/my_nn_lib.py" />
         <option value="$PROJECT_DIR$/deep_learning/hw3/cnn_bn_mnist.py" />
+        <option value="$PROJECT_DIR$/deep_learning/hw3/mnist_cnn_bn.py" />
       </list>
     </option>
   </component>
@@ -98,10 +117,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1920" />
-    <option name="y" value="32" />
-    <option name="width" value="2560" />
-    <option name="height" value="1408" />
+    <option name="width" value="1920" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -121,8 +138,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -148,10 +163,6 @@
               <option name="myItemId" value="deep_learning" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hw3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -166,9 +177,15 @@
               <option name="myItemId" value="deep_learning" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hw3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -195,63 +212,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.cnn_bn_mnist">
-    <configuration default="false" name="cnn_mnist" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="/usr/bin/python3.6" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/deep_learning/hw2" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="python" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/deep_learning/hw2/cnn_mnist.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="manifold_learning_96" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="/usr/bin/python3.6" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/manifold_learning" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="python" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/manifold_learning/manifold_learning_96.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="manifold_learning_57" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="/usr/bin/python3.6" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/manifold_learning" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="python" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/manifold_learning/manifold_learning_57.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <method />
-    </configuration>
     <configuration default="false" name="manifold_learning_98" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -285,6 +245,63 @@
       <module name="python" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/deep_learning/hw3/cnn_bn_mnist.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="cnn_bn" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/bin/python3.6" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/deep_learning/hw3" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="python" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/deep_learning/hw3/cnn_bn.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="cnn_mnist" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/bin/python3.6" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/deep_learning/hw2" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="python" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/deep_learning/hw2/cnn_mnist.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="mnist_cnn_bn" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/bin/python3.6" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/deep_learning/hw3" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="python" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/deep_learning/hw3/mnist_cnn_bn.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -436,19 +453,19 @@
     <list size="7">
       <item index="0" class="java.lang.String" itemvalue="Python.manifold_learning_100" />
       <item index="1" class="java.lang.String" itemvalue="Python.input_data" />
-      <item index="2" class="java.lang.String" itemvalue="Python.cnn_mnist" />
-      <item index="3" class="java.lang.String" itemvalue="Python.manifold_learning_96" />
-      <item index="4" class="java.lang.String" itemvalue="Python.manifold_learning_57" />
-      <item index="5" class="java.lang.String" itemvalue="Python.manifold_learning_98" />
-      <item index="6" class="java.lang.String" itemvalue="Python.cnn_bn_mnist" />
+      <item index="2" class="java.lang.String" itemvalue="Python.manifold_learning_98" />
+      <item index="3" class="java.lang.String" itemvalue="Python.cnn_bn_mnist" />
+      <item index="4" class="java.lang.String" itemvalue="Python.cnn_bn" />
+      <item index="5" class="java.lang.String" itemvalue="Python.cnn_mnist" />
+      <item index="6" class="java.lang.String" itemvalue="Python.mnist_cnn_bn" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.cnn_bn_mnist" />
-        <item index="1" class="java.lang.String" itemvalue="Python.manifold_learning_98" />
-        <item index="2" class="java.lang.String" itemvalue="Python.manifold_learning_96" />
-        <item index="3" class="java.lang.String" itemvalue="Python.manifold_learning_57" />
-        <item index="4" class="java.lang.String" itemvalue="Python.cnn_mnist" />
+        <item index="1" class="java.lang.String" itemvalue="Python.mnist_cnn_bn" />
+        <item index="2" class="java.lang.String" itemvalue="Python.cnn_mnist" />
+        <item index="3" class="java.lang.String" itemvalue="Python.cnn_bn" />
+        <item index="4" class="java.lang.String" itemvalue="Python.manifold_learning_98" />
       </list>
     </recent_temporary>
     <configuration default="true" type="tests" factoryName="Attests">
@@ -495,18 +512,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1920" y="32" width="2560" height="1408" extended-state="6" />
+    <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19577353" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5567452" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293745" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32771084" sideWeight="0.5028612" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30562153" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35614973" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32858273" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32858273" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24980268" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32858273" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3222486" sideWeight="0.49713877" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32192513" sideWeight="0.49713877" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -534,6 +551,21 @@
           <line>25</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/deep_learning/hw2/cnn_mnist.py</url>
+          <line>5</line>
+          <option name="timeStamp" value="59" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/deep_learning/hw3/cnn_bn_mnist.py</url>
+          <line>98</line>
+          <option name="timeStamp" value="61" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/deep_learning/hw3/mnist_cnn_bn.py</url>
+          <line>178</line>
+          <option name="timeStamp" value="62" />
+        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
@@ -542,16 +574,24 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="55" />
+      <option name="time" value="63" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/deep_learning/hw3/cnn_bn_mnist.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2550">
+          <caret line="87" column="56" lean-forward="false" selection-start-line="87" selection-start-column="56" selection-end-line="87" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deep_learning/hw3/mnist.py" />
     <entry file="file://$PROJECT_DIR$/manifold_learning/manifold_learning_98.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -559,7 +599,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -770,13 +809,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deep_learning/hw2/cnn_mnist.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/codecs.py" />
     <entry file="file://$PROJECT_DIR$/manifold_learning/manifold_learning_77.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -792,13 +824,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/manifold_learning/manifold_learning_100.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="16" column="36" lean-forward="false" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/manifold_learning/manifold_learning_96.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1380">
@@ -806,28 +831,64 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/manifold_learning/manifold_learning_98.py">
+    <entry file="file://$PROJECT_DIR$/manifold_learning/manifold_learning_100.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="15" column="8" lean-forward="false" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
-          <folding />
+        <state relative-caret-position="480">
+          <caret line="16" column="36" lean-forward="false" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deep_learning/hw3/mnist.py">
+    <entry file="file://$PROJECT_DIR$/manifold_learning/.idea/manifold_learning_103-108.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="990">
+          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manifold_learning/manifold_learning_98.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deep_learning/hw3/mnist.py" />
+    <entry file="file://$PROJECT_DIR$/deep_learning/hw3/cnn_bn.py" />
+    <entry file="file://$PROJECT_DIR$/deep_learning/MNIST_data/mnist_cnn.ckpt.meta" />
+    <entry file="file://$PROJECT_DIR$/deep_learning/hw2/cnn_mnist.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="608">
+          <caret line="93" column="74" lean-forward="false" selection-start-line="93" selection-start-column="74" selection-end-line="93" selection-end-column="74" />
+          <folding>
+            <element signature="e#278#296#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deep_learning/hw3/my_nn_lib.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2937">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#45#82#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/deep_learning/hw3/cnn_bn_mnist.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="548">
-          <caret line="87" column="56" lean-forward="false" selection-start-line="87" selection-start-column="56" selection-end-line="87" selection-end-column="56" />
+        <state relative-caret-position="-414">
+          <caret line="108" column="41" lean-forward="false" selection-start-line="108" selection-start-column="41" selection-end-line="108" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deep_learning/hw3/mnist_cnn_bn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="144" column="10" lean-forward="false" selection-start-line="144" selection-start-column="4" selection-end-line="144" selection-end-column="61" />
           <folding>
-            <element signature="e#278#296#0" expanded="true" />
+            <element signature="e#42#80#0" expanded="true" />
           </folding>
         </state>
       </provider>
