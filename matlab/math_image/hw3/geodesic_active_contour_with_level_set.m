@@ -4,26 +4,31 @@
 % bug_submission: pkuanjie@gmail.com
 
 %% set up
-IMG_PATH = 'test_img.tif';
+% IMG_PATH = 'test_img.tif';
+IMG_PATH = 'test6.jpg';
 SIGMA = 0.000001;
 NOISE_SCALE = 10000000;
-MAX_ITERATION = 800;
+MAX_ITERATION = 1000;
 
 %% image pre pocessing
-img = double(imread(IMG_PATH));
+img = im2double(imread(IMG_PATH));
+img = rgb2gray(img); % don't use on test_img.tif
+img = imresize(img, [400, 600]);
 % figure,
 % imshow(img), axis image;
 kernel = fspecial('gaussian', [15, 15], SIGMA);
 img_blur = imfilter(img, kernel, 'circular');
 img_noise = img_blur + max(max(img_blur)) / NOISE_SCALE * randn(size(img));
 img_noise = im2double(img_noise);
+img_noise = 255 * img_noise;
 % figure,
 % imshow(img_noise), axis image;
 [M, N] = size(img_noise);
 
 %% geodesic active contour model
 STEP_SIZE = 0.5 / (max(N, M) - 1);
-ALPHA = 0.002 * M * N;
+ALPHA = 800;
+BETA = 200;
 v = initialization_level_set(img_noise);
 % figure,
 % imagesc(u), axis image;
@@ -31,8 +36,8 @@ figure,
 for i = 1 : MAX_ITERATION
     img_show = img_noise;
     img_show(find(abs(v) < 0.1)) = 5;
-    if mod(i, 2) == 1
-        imagesc(v), axis image, hold on,
+    if mod(i, 50) == 1
+        imagesc(img_noise), axis image, hold on,
         contour(v, [0, 0], 'k'), drawnow, hold off;
     end;
     [dx_I, dy_I] = gradient(img_noise);
@@ -72,7 +77,7 @@ for i = 1 : MAX_ITERATION
 %     delta_y_minus = v - v_y_minus;
 %     tmp3 = a1_max .* delta_x_minus + a1_min .* delta_x_add + a2_max .* delta_y_minus + a2_min .* delta_y_add;
     tmp3 = dx_v .* dx_g + dy_v .* dy_g;
-    v = v + STEP_SIZE * (tmp1 + tmp2 + tmp3);
+    v = v + STEP_SIZE * (tmp1 + tmp2 + BETA * tmp3);
     v = Reinitial2D(v, 10);
     disp(['itetarion number ', num2str(i), ' finished!']);
 end;

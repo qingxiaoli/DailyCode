@@ -9,8 +9,13 @@ function [level_set] = initialization_level_set(img)
 [row, col] = size(img);
 
 %% construction
-[x, y] = meshgrid(1: row, 1: col);
-level_set = sqrt((x-256).^2 + (y-256).^2) - 240;
+% [x, y] = meshgrid(1: col, 1: row);
+% level_set = sqrt((x - col / 2).^2 + (y - row / 2).^2) - (min(row, col) / 2 - 10);
+level_set = zeros(row, col);
+level_set(10: row - 10, [10, col - 10]) = 1;
+level_set([10, row - 10], 10: col - 10) = 1;
+level_set = bwdist(level_set);
+level_set(10: row - 10, 10: col - 10) = -level_set(10: row - 10, 10: col - 10);
 
 % figure,
 % mesh(level_set), axis image;
