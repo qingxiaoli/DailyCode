@@ -5,18 +5,17 @@ function [level_set] = initialization_level_set(img)
 % bug_submission: pkuanjie@gmail.com
 
 %% set up
-BORDER_OFFSET = 10;
+% BORDER_OFFSET = 10;
 [row, col] = size(img);
 
 %% construction
+% [x, y] = meshgrid(1: col, 1: row);
+% level_set = sqrt((x - col / 2).^2 + (y - row / 2).^2) - (min(row, col) / 2 - 10);
 level_set = zeros(row, col);
-level_set(BORDER_OFFSET: row - BORDER_OFFSET, BORDER_OFFSET) = 1;
-level_set(BORDER_OFFSET: row - BORDER_OFFSET, col - BORDER_OFFSET) = 1;
-level_set(BORDER_OFFSET, BORDER_OFFSET: col - BORDER_OFFSET) = 1;
-level_set(row - BORDER_OFFSET, BORDER_OFFSET: col - BORDER_OFFSET) = 1;
+level_set(10: row - 10, [10, col - 10]) = 1;
+level_set([10, row - 10], 10: col - 10) = 1;
 level_set = bwdist(level_set);
-level_set(BORDER_OFFSET: row - BORDER_OFFSET, BORDER_OFFSET: col - BORDER_OFFSET) = -1 * level_set(BORDER_OFFSET: row - BORDER_OFFSET, BORDER_OFFSET: col - BORDER_OFFSET);
-level_set = 10 * level_set;
+level_set(10: row - 10, 10: col - 10) = -level_set(10: row - 10, 10: col - 10);
 
 % figure,
 % mesh(level_set), axis image;
