@@ -49,12 +49,14 @@ def conv_net(X, Y, _weights, _biases, _dropout, _train_phase):
 	with tf.variable_scope('conv_1'):
 		conv1 = conv_2d(_X, _weights['wc1'], _biases['bc1'])
 		conv1 = batch_norm(conv1, train_phase=_train_phase)
+		conv1 = tf.nn.relu(conv1)
 		conv1 = max_pool(conv1, k=2)
 		conv1 = tf.nn.dropout(conv1, keep_prob=_dropout)
 
 	with tf.variable_scope('conv_2'):
 		conv2 = conv_2d(conv1, _weights['wc2'], _biases['bc2'])
 		conv2 = batch_norm(conv2, train_phase=_train_phase)
+		conv2 = tf.nn.relu(conv2)
 		conv2 = max_pool(conv2, k=2)
 		conv2 = tf.nn.dropout(conv2, keep_prob=_dropout)
 
@@ -117,7 +119,7 @@ for i in range(TRAINING_ITERS):
 	optimizer.run(feed_dict={x: batch_xs, y: batch_ys, keep_prob: DROPOUT, train_phase: True})
 	inner = feed_dict={x: batch_xs, y: batch_ys, keep_prob: DROPOUT, train_phase: True}
 	if i % DISPLAY_STEP == 0:
-		acc = accuracy.eval(feed_dict={x: batch_xs, y: batch_ys, keep_prob: 1.0, train_phase: False})
-		error = loss.eval(feed_dict={x: batch_xs, y: batch_ys, keep_prob: 1.0, train_phase: False})
-		print('Iter ' + str(i) + ' Minibatch Loss= ' + '{:.6f}'.format(error) + ', Training Accuracy= ' + '{:.5f}'.format(acc))
-print('Testing Accuracy:', sess.run(accuracy, feed_dict={x: mnist.test.images, y: mnist.test.labels, keep_prob: 1.0, train_phase: False}))
+		# acc = accuracy.eval(feed_dict={x: batch_xs, y: batch_ys, keep_prob: 1.0, train_phase: False})
+		# error = loss.eval(feed_dict={x: batch_xs, y: batch_ys, keep_prob: 1.0, train_phase: False})
+		# print('Iter ' + str(i) + ' Minibatch Loss= ' + '{:.6f}'.format(error) + ', Training Accuracy= ' + '{:.5f}'.format(acc))
+		print('Iter:', str(i), 'Testing Accuracy:', sess.run(accuracy, feed_dict={x: mnist.test.images, y: mnist.test.labels, keep_prob: 1.0, train_phase: False}))

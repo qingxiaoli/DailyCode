@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="356b688c-88e3-496a-ab1b-4aa201a4b461" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/manifold_learning/.idea/manifold_learning_103-108.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/deep_learning/hw3/cnn_bn_mnist.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/deep_learning/hw3/mnist.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deep_learning/hw2/cnn_mnist.py" afterPath="$PROJECT_DIR$/deep_learning/hw2/cnn_mnist.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deep_learning/hw3/cnn_bn_mnist.py" afterPath="$PROJECT_DIR$/deep_learning/hw3/cnn_bn_mnist.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -42,42 +38,7 @@
     <favorites_list name="python" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="mnist_cnn_bn.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/deep_learning/hw3/mnist_cnn_bn.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="840">
-              <caret line="144" column="10" lean-forward="false" selection-start-line="144" selection-start-column="4" selection-end-line="144" selection-end-column="61" />
-              <folding>
-                <element signature="e#42#80#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cnn_bn_mnist.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/deep_learning/hw3/cnn_bn_mnist.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-414">
-              <caret line="108" column="41" lean-forward="false" selection-start-line="108" selection-start-column="41" selection-end-line="108" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="my_nn_lib.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/deep_learning/hw3/my_nn_lib.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2937">
-              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#45#82#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -105,8 +66,8 @@
         <option value="$PROJECT_DIR$/deep_learning/hw3/cnn_bn.py" />
         <option value="$PROJECT_DIR$/deep_learning/hw2/cnn_mnist.py" />
         <option value="$PROJECT_DIR$/deep_learning/hw3/my_nn_lib.py" />
-        <option value="$PROJECT_DIR$/deep_learning/hw3/cnn_bn_mnist.py" />
         <option value="$PROJECT_DIR$/deep_learning/hw3/mnist_cnn_bn.py" />
+        <option value="$PROJECT_DIR$/deep_learning/hw3/cnn_bn_mnist.py" />
       </list>
     </option>
   </component>
@@ -513,7 +474,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5567452" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293745" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -558,13 +518,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/deep_learning/hw3/cnn_bn_mnist.py</url>
-          <line>98</line>
+          <line>100</line>
           <option name="timeStamp" value="61" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/deep_learning/hw3/mnist_cnn_bn.py</url>
-          <line>178</line>
-          <option name="timeStamp" value="62" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -579,6 +534,14 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/deep_learning/hw3/my_nn_lib.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/deep_learning/hw3/cnn_bn_mnist.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2550">
@@ -867,29 +830,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/deep_learning/hw3/my_nn_lib.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2937">
+        <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#45#82#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/deep_learning/hw3/cnn_bn_mnist.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-414">
-          <caret line="108" column="41" lean-forward="false" selection-start-line="108" selection-start-column="41" selection-end-line="108" selection-end-column="41" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/deep_learning/hw3/mnist_cnn_bn.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
+        <state relative-caret-position="821">
           <caret line="144" column="10" lean-forward="false" selection-start-line="144" selection-start-column="4" selection-end-line="144" selection-end-column="61" />
-          <folding>
-            <element signature="e#42#80#0" expanded="true" />
-          </folding>
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deep_learning/hw3/cnn_bn_mnist.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="786">
+          <caret line="110" column="41" lean-forward="false" selection-start-line="110" selection-start-column="41" selection-end-line="110" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>

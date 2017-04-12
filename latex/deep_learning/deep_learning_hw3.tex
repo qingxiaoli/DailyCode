@@ -18,7 +18,7 @@
     \begin{titlepage}
         \centering
         \vspace{6cm}
-        \LARGE{\textbf{Deep Learning Homework 2}}\\
+        \LARGE{\textbf{Deep Learning Homework 3}}\\
         \vspace{4cm}
         \includegraphics[width=0.8\textwidth]{deepLearning.png}\\
         \vspace{4cm}
@@ -36,13 +36,30 @@
                     \hline
                     conv\_2d & 卷积层线性单元 \\
                     max\_pool & 最大池化层 \\
-                    
+                    evaluation & 计算准确率函数 \\
+                    batch\_norm & batch norm层 \\
+                    conv\_net & 卷积网络演化层 \\
                     \hline
                 \end{tabular}
-                \caption{算法不同超参数下固定迭代次数达到的准确率}
+                \caption{算法实现的函数功能表}
             \end{table}
-            从上表可以看出，不同的算法对于参数都有很大的敏感性，无论是学习率还是动量参数，都会影响最终的结果，比较显著的但是又不言自明的特点是，过小的参数会导致算法的收敛速度变慢，过大的参数会使得算法不收敛。
-            \clearpage
+        \section{数值实验结果} % (fold)
+        \label{sec:数值实验结果}
+          我测试了增加batch normalization层的cnn的训练情况，我发现，在添加batch normalization之后，在使用Adam算法，学习率设置为0.01的情况下，经过10000次迭代，算法在训练集达到了98.7\%的准确率，性能远远不及不使用batch normorlization的情况，对比如下图：
+            \begin{table}[htbp!]
+                \centering
+                \begin{tabular}{cccc}
+                    \hline
+                    优化算法 & 学习率 & 迭代次数 & 测试集准确率 \\
+                    \hline
+                    Adam & 0.001 & 2500 & 99\% \\
+                    Adam & 0.01 & 10000 & 98.7\% \\
+                    \hline
+                \end{tabular}
+                \caption{算法性能对比}
+            \end{table}
+            上表的结果令我比较惊讶，并且我发现，由于添加bn层之后每一次训练的计算量加大，每一次训练的时间变长。在这个数值试验中，bn层主要起到了学习率去单位化的作用，增加的训练时的稳定性，即学习率可以设置为原来的10倍算法依然可以收敛，但是没有起到加速训练的作用。
+        % section 数值实验结果 (end)
 
     \section{代码运行环境及测试平台信息}
       \begin{table}[htbp!]
@@ -63,5 +80,5 @@
       \end{table}
       在没有NVIDIA\ GPU及CUDA支持的环境下代码依然可以运行，只是速度较慢
     \section{总结}
-      通过这次作业，我学习了tensorflow实现cnn的基本方法，同时尝试使用了不同的优化算法来学习参数，发现了参数对算法结果的巨大影响，明白了调参的重要性。
+      通过这次作业，我学习了tensorflow实现cnn with bn的基本方法，了解了bn的原理和提高算法训练稳定性的作用，但是由于我在数值试验中没有观察到bn提高了算法训练的速度，因此对于bn可以提高网络的训练性能依然存在疑问。
 \end{document}

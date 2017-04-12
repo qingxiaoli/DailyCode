@@ -1,3 +1,4 @@
+%!TEX program = xelatex
 \documentclass[a4paper, UTF8]{ctexart}
 \usepackage{ctex}
 \usepackage{amsmath}
@@ -45,6 +46,16 @@
   		\includegraphics[width = \textwidth]{hw7_fig5.png}
   	\end{figure}
   	\clearpage
-  	从图中明显可以看出，LLE与ISOMAP对于人脸图像的分类降维效果较好，在降至2维的情况下对图像有很好的表现效果。
+    \begin{figure}[htbp!]
+      \centering
+      \includegraphics[width = \textwidth]{hw7_fig6.png}
+    \end{figure}
+    \clearpage
+    \begin{figure}[htbp!]
+      \centering
+      \includegraphics[width = \textwidth]{hw7_fig7.png}
+    \end{figure}
+    \clearpage
+  	从图中明显可以看出，LLE与ISOMAP对于人脸图像的分类降维效果较好，在降至2维的情况下对图像有很好的表现效果，同时，MVU降维之后的结果所有点几乎重合，这样或许对于聚类会有较好的结果，但是MVU算法如果采用优化算法来解速度较慢。
   \end{exercise}
 \end{document}

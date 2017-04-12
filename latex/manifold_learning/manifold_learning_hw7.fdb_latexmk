@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1491637464 "manifold_learning_hw7.tex" "manifold_learning_hw7.pdf" "manifold_learning_hw7" 1491637465
-  "/dev/null" 1491631621 0 d41d8cd98f00b204e9800998ecf8427e ""
+["pdflatex"] 1491919985 "manifold_learning_hw7.tex" "manifold_learning_hw7.pdf" "manifold_learning_hw7" 1491919987
+  "/dev/null" 1491898331 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1479649810 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm" 1479649815 1120 7f9f170e8aa57527ad6c49feafd45d54 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1479649815 1004 54797486969f23fa377b128694d548df ""
@@ -108,9 +108,11 @@
   "hw7_fig3.png" 1491636774 21760 8a1afff5f3f4e10bfbadaf17fe435697 ""
   "hw7_fig4.png" 1491636545 11700 53fd2ff0c876ca4dbd60692dbb0f6d1a ""
   "hw7_fig5.png" 1491636463 50452 bf6fe274789330e4243b2afd7c43180e ""
-  "manifold_learning_hw7.aux" 1491637465 8 a94a2480d3289e625eea47cd1b285758 ""
-  "manifold_learning_hw7.tex" 1491637464 1457 ef81cc1347b79d6c5826cf863bae123a ""
+  "hw7_fig6.png" 1491919882 11434 40e1a36227fa1641154b4a08a0cc84de ""
+  "hw7_fig7.png" 1491919909 10607 3fde2c1e5afdb2802fd367b7d71c0483 ""
+  "manifold_learning_hw7.aux" 1491919986 8 a94a2480d3289e625eea47cd1b285758 ""
+  "manifold_learning_hw7.tex" 1491919985 1910 2a77cee98c9c60a563b5233a6728158d ""
   (generated)
-  "manifold_learning_hw7.aux"
   "manifold_learning_hw7.pdf"
+  "manifold_learning_hw7.aux"
   "manifold_learning_hw7.log"
