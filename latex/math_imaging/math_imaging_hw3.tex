@@ -205,11 +205,20 @@
 		% subsubsection 关于差分格式的讨论 (end)
 		\subsubsection{关于reinitialization的讨论} % (fold)
 		\label{ssub:关于reinitialization的讨论}
-			这一次作业中最令我
+			这一次作业中最令我感到意外的是，算法的结果非常依赖于reinitialization的介入，具体表现为：
+			\begin{enumerate}
+				\item 每迭代10步使用一次reinitialization并进行10次reinit迭代，则算法不收敛，不能得到有意义的结果；
+				\item 每次迭代都进行10步reinit操作即可得到非常正常且有效的结果；
+			\end{enumerate}
+			因此通过数值实验我认识到了算法对于reinitialization的巨大依赖且非常敏感。
 		% subsubsection 关于reinitialization的讨论 (end)
+		\subsubsection{关于实现方法的讨论} % (fold)
+		\label{ssub:关于实现方法的讨论}
+			在之前学习工科版的图像处理的过程中我也接触过level set算法，在工科版的教材中，level set算法一般有两项，第一项为梯度项，主要作用为促进水平集函数收缩，并且，\textbf{这一项只与水平集函数相关而与直接的图像信息无关}，第二项为内外能量项，通过边缘信息约束水平集函数的收缩，这一种实现方法也可以实现水平集算法，因此我猜测算法对于g的选取及前两项（即工科中的梯度项）中图像信息直接参与不敏感。
+		% subsubsection 关于实现方法的讨论 (end)
 	\section{总结} % (fold)
 	\label{sec:总结}
-		这一次作业中
+		这一次作业中，我实现了Geodesic active contour with level set formula算法，并进行了若干数值实验，总的来说，收获很多，不过也有很多疑问，尤其是关于迎风格式的疑问，可以说这一疑问在之前几次作业的实现中也有，这一次最为强烈，因此不知能否麻烦助教稍微给我解释一下相关的内容？谢谢助教老师~ 
 	% section 总结 (end)
 
 	    
