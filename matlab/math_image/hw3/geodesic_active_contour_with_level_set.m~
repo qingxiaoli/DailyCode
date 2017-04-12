@@ -5,14 +5,14 @@
 
 %% set up
 % IMG_PATH = 'test_img.tif';
-IMG_PATH = 'test4.jpg';
-SIGMA = 0.000004;
-NOISE_SCALE = 50;
-MAX_ITERATION = 500;
+IMG_PATH = 'test_img.tif';
+SIGMA = 0.000001;
+NOISE_SCALE = 10000000;
+MAX_ITERATION = 1000;
 
 %% image pre pocessing
 img = im2double(imread(IMG_PATH));
-img = rgb2gray(img); % don't use on test_img.tif
+% img = rgb2gray(img); % don't use on test_img.tif
 img = imresize(img, [400, 600]);
 % figure,
 % imshow(img), axis image;
@@ -39,10 +39,7 @@ for i = 1 : MAX_ITERATION
     if mod(i, 50) == 1
         subplot(121), imagesc(img_noise), axis image off, hold on,
         contour(v, [0, 0], 'k'), drawnow, hold off;
-        title('zero level set result on image');
-        subplot(122), imagesc(v), axis image off, hold on,
-        contour(v, [0, 0], 'k'), drawnow, hold off;
-        title('zero level set result on level set function');
+        title('level set result on image');
         
     end;
     [dx_I, dy_I] = gradient(img_noise);
