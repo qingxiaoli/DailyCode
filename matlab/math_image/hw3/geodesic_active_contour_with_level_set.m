@@ -7,8 +7,8 @@
 % IMG_PATH = 'test_img.tif';
 IMG_PATH = 'test4.jpg';
 SIGMA = 0.000004;
-NOISE_SCALE = 50;
-MAX_ITERATION = 500;
+NOISE_SCALE = 50000000;
+MAX_ITERATION = 1000;
 
 %% image pre pocessing
 img = im2double(imread(IMG_PATH));
@@ -27,6 +27,7 @@ img_noise = 255 * img_noise;
 
 %% geodesic active contour model
 STEP_SIZE = 0.5 / (max(N, M) - 1);
+% STEP_SIZE = 0.1;
 ALPHA = 800;
 BETA = 200;
 v = initialization_level_set(img_noise);
