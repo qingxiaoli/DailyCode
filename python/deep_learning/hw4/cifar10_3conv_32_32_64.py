@@ -206,7 +206,7 @@ def inference(images):
                                          stddev=5e-2,
                                          wd=0.0)
     conv = tf.nn.conv2d(images, kernel, [1, 1, 1, 1], padding='SAME')
-    biases = _variable_on_cpu('biases', [64], tf.constant_initializer(0.0))
+    biases = _variable_on_cpu('biases', [32], tf.constant_initializer(0.0))
     pre_activation = tf.nn.bias_add(conv, biases)
     conv1 = tf.nn.relu(pre_activation, name=scope.name)
     _activation_summary(conv1)
@@ -224,15 +224,15 @@ def inference(images):
                                          stddev=5e-2,
                                          wd=0.0)
     conv = tf.nn.conv2d(norm1, kernel, [1, 1, 1, 1], padding='SAME')
-    biases = _variable_on_cpu('biases', [64], tf.constant_initializer(0.0))
+    biases = _variable_on_cpu('biases', [32], tf.constant_initializer(0.0))
     pre_activation = tf.nn.bias_add(conv, biases)
     conv1_add = tf.nn.relu(pre_activation, name=scope.name)
     _activation_summary(conv1_add)
 
-  # pool1
+  # pool1_add
   pool1_add = tf.nn.max_pool(conv1_add, ksize=[1, 3, 3, 1], strides=[1, 2, 2, 1],
                          padding='SAME', name='pool1_add')
-  # norm1
+  # norm1_add
   norm1_add = tf.nn.lrn(pool1_add, 4, bias=1.0, alpha=0.001 / 9.0, beta=0.75,
                     name='norm1_add')
 
