@@ -14,7 +14,7 @@
 \renewcommand\thesection{\arabic{section}}
 \newtheorem*{exercise}{\textbf{习题}}
 \newtheorem*{theorem}{Theorem}
-\title{Manifole Learning Homework 7}
+\title{Manifole Learning Homework 8}
 \date{\today}
 \author{安捷 1601210097}
 \begin{document}
@@ -233,5 +233,30 @@
 		& x' - u' \in \partial (\lambda^{-1} g)(u')
 		\end{split}
 		\end{equation}
+	\end{exercise}
+
+	\begin{exercise}[146.5]
+		\begin{proof}
+			$S_+$是凸集，而procimal operator of indicator/charateristic function of a convex set is projection，于是
+			\begin{equation}
+				P_c f \left(X\right) = \Pi_{S_+}X = \mathrm{arg}\min\limits_{S_+}\lVert W - X\rVert_2^2	
+			\end{equation}		
+			其中，$\Pi$是投影算子。
+		\end{proof}	
+	\end{exercise}
+
+	\begin{exercise}[146.6]
+		\begin{proof}
+			令$h \left(u\right) = I_L\left(u\right), h^*\left(u\right) = I_{L^\perp}\left(u\right)$	
+			\begin{equation}
+				I_L\left(u\right) = \left\{
+				\begin{aligned}
+					0, &   & x \in L \\
+					+\infty, &   & x \not\in L\\				
+				\end{aligned}
+				\right.
+			\end{equation}
+			那么，$P_L\left(x\right)$就是$x$在$L$上的映射，$P_{L_\perp}\left(x\right)$就是$x$在$L_\perp$上的映射。于是有$x = P_L \left(x\right) = P_{L_\perp}\left(x\right)$
+		\end{proof}	
 	\end{exercise}
 \end{document}
