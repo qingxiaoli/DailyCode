@@ -1,0 +1,11 @@
+%% this function is object function for optimization of fundamental matrix computing
+function result = obj_func2(F)
+% coder: Jie An
+% version: 20170502
+% bug_submission: pkuanjie@gmail.com
+
+matches = load('house_matches.txt'); 
+A_piece = [matches(:, 1: 2), ones(size(matches, 1), 1)];
+B_piece = [matches(:, 3: 4), ones(size(matches, 1), 1)];
+
+tmp = diag(A_piece * F)

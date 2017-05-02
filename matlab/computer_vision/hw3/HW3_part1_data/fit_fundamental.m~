@@ -1,0 +1,9 @@
+%% this function is to compute fundamental matrix with 8 points algorithm
+function F = fit_fundamental(matches)
+% matches: matches points pairs
+% F: fundamental matirx
+% coder: Jie An
+% version: 20170502
+% bug_submission: pkuanjie@gmail.com
+
+F = fminunc(@obj_func, ones(8, 1));
