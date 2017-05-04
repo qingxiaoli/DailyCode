@@ -1,0 +1,40 @@
+%!TEX program = xelatex
+\documentclass[a4paper, UTF8]{ctexart}
+\usepackage{ctex}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{multirow}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{bm}
+\usepackage{subfigure}
+\usepackage{float}
+\usepackage{mathrsfs}
+\renewcommand\thesection{\arabic{section}}
+\newtheorem*{exercise}{\textbf{习题}}
+\newtheorem*{theorem}{Theorem}
+\title{Manifole Learning Homework 9}
+\date{\today}
+\author{安捷 1601210097}
+\begin{document}
+\maketitle
+	\begin{exercise}[155]
+		\begin{equation}
+			\mu \left( A \right) = \max\limits_{i,j} \langle \phi_i^T, \psi_j \rangle = \max\limits_{i,j}DFT_{i,j} = \frac{1}{\sqrt{n}}
+		\end{equation}
+	\end{exercise}
+	\begin{exercise}[160]
+		首先，原矩阵rank=2，且矩阵$A$中的任意两列都是线性无关的，故若$x$中有两个元素为$0$，则$Ax = 0$只有零解，即$x$中至少要有三个元素非$0$，又由下一题结论，$spark\left(A\right)=3$
+	\end{exercise}
+	\begin{exercise}[161]
+		首先，假设原矩阵rank=r，当取对应与原矩阵$A$的r个极大线性无关列的$x$元素不为$0$时，$x$只有零解，故只有当$x$的$r+1$个元素非$0$时，才有非零解，并且，此时一定有非零解，故存在
+		\begin{equation}
+			spark \left( A \right) = rank \left( A \right) + 1
+		\end{equation}
+		又显然上述等式可以取小于号，故有
+		\begin{equation}
+			spark \left( A \right) \le rank \left( A \right) + 1
+		\end{equation}
+	\end{exercise}
+\end{document}
