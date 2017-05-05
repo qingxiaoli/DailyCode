@@ -10,14 +10,14 @@ addpath(genpath('./2DTWFT'));
 %% set up
 KERNEL_SIZE = 15;
 SHIFT_LEN = (KERNEL_SIZE - 1) / 2;
-SIGMA = 2.0;
-SCALE = 200;
-MU = 0.3;
-LAMBDA = 0.06;
+SIGMA = 1.5;
+SCALE = 200000;
+MU = 1;
+LAMBDA = 0.000001;
 TAU = LAMBDA / MU;
-TOL = 1e-3;
-DELTA = 0.12;
-MAX_ITERATION = 500;
+TOL = 1e-15;
+DELTA = 0.5;
+MAX_ITERATION = 800;
 PATH_OF_IMAGE = 'aircraft.jpg';
 FRAME = 1;
 LEVEL = 2;
@@ -33,7 +33,7 @@ if size(size(img), 2) == 3
 else
     img = im2double(img);
 end;
-img = imresize(img, [512, 512]);
+img = imresize(img, [200, 200]);
 % figure,
 % imshow(img);
 kernel = fspecial('gaussian', [15, 15], SIGMA);
@@ -47,15 +47,14 @@ img_pro = img_blur + max(max(img)) / SCALE * randn(size(img, 1));
 %% admm
 A = kernel;
 f = img_pro;
-d = W(img);
+d = W(img_pro);
 b = d;
 Af = imfilter(f, A, 'circular');
 tempA = zeros(size(img));
 tempI = zeros(size(img));
 tempA(1: KERNEL_SIZE, 1: KERNEL_SIZE) = A;
 tempA = circshift(tempA, [-SHIFT_LEN, -SHIFT_LEN]);
-tempI(1: 3, 1: 3) = [0, 0, 0; 0, 1, 0; 0, 0, 0];
-tempI = MU * circshift(tempI, [-1, -1]);
+tempI(1, 1) = MU;
 ftA = fft2(tempA);
 ftI = fft2(tempI);
 tempFT = ftA .* ftA + ftI;% this mat is kernel to solve equation
@@ -65,24 +64,60 @@ figure,
 for i = 1 : MAX_ITERATION
 
     % step 1
-    [dx, dy] = gradient(d - b);
-    dx = dx(1: size(img, 1), :);
-    dy = dy(size(img, 1) + 1: end, :);
-    u = real(ifft2(fft2(Af + MU * WT(d - b)) ./ (tempFT)));
+    for x = 1 : 3
+        for y = 1 : 3
+            tmp_d_b{1}{x, y} = d{1}{x, y} - b{1}{x, y};
+            tmp_d_b{2}{x, y} = d{2}{x, y} - b{2}{x, y};
+        end;
+    end;
+    u = real(ifft2(fft2(Af + MU * WT(tmp_d_b)) ./ (tempFT)));
     imshow(u);
 
     % step 2
-    tmp = W(u) + b;
-    tmp3 = sqrt([tmp(1: size(img, 1), :) .^ 2 + tmp(size(img, 1) + 1: end, :) .^ 2; tmp(1: size(img, 1), :) .^ 2 + tmp(size(img, 1) + 1: end, :) .^ 2]);
-    tmp(find(tmp3 > TAU)) = tmp(find(tmp3 > TAU)) ./ tmp3(find(tmp3 > TAU)) .* (tmp3(find(tmp3 > TAU)) - TAU);
-    tmp(find(tmp3 <= TAU)) = 0 * tmp(find(tmp3 <= TAU));
+    tmp_wu = W(u);
+    for x = 1 : 3
+        for y = 1 : 3
+            tmp{1}{x, y} = tmp_wu{1}{x, y} + b{1}{x, y}; 
+            tmp{2}{x, y} = tmp_wu{2}{x, y} + b{2}{x, y}; 
+        end;
+    end;
+
+    tmp3 = zeros(size(img));
+    for x = 1 : 3
+        for y = 1 : 3
+            tmp3 = tmp3 + tmp{1}{x, y} .^ 2 + tmp{2}{x, y} .^ 2;
+        end;
+    end;
+    tmp3 = sqrt(tmp3);
+    
+    for x = 1 : 3
+        for y = 1 : 3
+            tmp{1}{x, y}(find(tmp3 > TAU)) = tmp{1}{x, y}(find(tmp3 > TAU)) ./ tmp3(find(tmp3 > TAU)) .* (tmp3(find(tmp3 > TAU)) - TAU);
+            tmp{1}{x, y}(find(tmp3 <= TAU)) = 0 * tmp{1}{x, y}(find(tmp3 <= TAU));
+            tmp{2}{x, y}(find(tmp3 > TAU)) = tmp{2}{x, y}(find(tmp3 > TAU)) ./ tmp3(find(tmp3 > TAU)) .* (tmp3(find(tmp3 > TAU)) - TAU);
+            tmp{2}{x, y}(find(tmp3 <= TAU)) = 0 * tmp{2}{x, y}(find(tmp3 <= TAU));
+        end;
+    end;
+    
     d = tmp;
 
     % step 3
-    b = b + DELTA * ([dxu; dyu] - d);
+    for x = 1 : 3
+        for y = 1 : 3
+            b{1}{x, y} = b{1}{x, y} + DELTA * (tmp_wu{1}{x, y} - d{1}{x, y});
+            b{2}{x, y} = b{2}{x, y} + DELTA * (tmp_wu{2}{x, y} - d{2}{x, y});
+        end;
+    end;
 
     % error saving and break checking
-    check2 = norm([dxu; dyu] - d, 'fro') / norm(f, 'fro');
+    tmp4 = zeros(size(img));
+    for x = 1 : 3
+        for y = 1 : 3
+            tmp4 = tmp4 + (tmp_wu{1}{x, y} - d{1}{x, y}) .^ 2 + (tmp_wu{2}{x, y} - d{2}{x, y}) .^ 2;
+        end;
+    end;
+    tmp4 = sqrt(tmp4);
+    check2 = norm(tmp4, 'fro') / norm(f, 'fro');
     error(i) = norm(u - img, 'fro') ^ 2;
     if check2 < TOL
         break;
